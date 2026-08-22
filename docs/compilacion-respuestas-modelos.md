@@ -1765,3 +1765,11 @@ Si quieres, el siguiente paso natural es que te entregue los **12 prompts listos
 # RESPUESTA — OX ALPHA / OPENCODE
 
 *Fuera de esta ronda.* No se incluye en la comparación inicial.
+
+---
+
+# CHATGPT GO — análisis post-recopilación
+
+Composer **ya estaba incluido** cuando llegó este mensaje; ChatGPT aún lo marcaba pendiente.
+
+Conclusiones operativas de ese análisis (no son hechos): no asignar roles aún; no testear lo obvio; medir BEST DECISION; pipeline de artefactos > chats; Orchestrator sigue en rojo; 4 niveles de benchmark. Los prompts ejecutables de ronda 2 están en [`benchmark-ronda-2-prompts.md`](benchmark-ronda-2-prompts.md). Clave del evaluador (trampas): [`benchmark-ronda-2-clave-evaluador.md`](benchmark-ronda-2-clave-evaluador.md).
