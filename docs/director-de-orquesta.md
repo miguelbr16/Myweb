@@ -30,7 +30,7 @@ Comprueba esto, no el nombre del modelo en un mensaje suelto:
 
 Si (1) es Plus o superior y (2) es Sol de verdad: **el argumento “Go = Luna, no dirijas con eso” ya no aplica.** ChatGPT Sol es un candidato real a batuta — y, como tú querías Chat o Gemini, **Sol gana el asiento de decisiones diarias**. Gemini no se va: investiga el material pesado.
 
-Si (1) es Go: la UI a veces enseña la familia “GPT-5.6”. Think en Go **sigue siendo Luna**, no Sol. No cambies el organigrama por una etiqueta.
+Si (1) es Go: la UI a veces enseña “GPT-5.6” o incluso **Sol**, y **no deja cambiarlo**. Eso encaja con Go (un solo modelo bloqueado), no con Plus. OpenAI sigue diciendo que ese modelo es **Luna**, no Sol. [Help Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go). No cambies el organigrama por la etiqueta. Think, si aparece, también es Luna en Go.
 
 ---
 
@@ -71,15 +71,19 @@ Eso mantiene la arquitectura D de DF01: artefactos + tú al final. Solo añade *
 
 ## Cómo queda el organigrama
 
+**Si tienes Sol (Plus+):**
+
 ```
-Tú  ←→  Gemini (director adjunto)
+Tú  ←→  ChatGPT Sol (director adjunto)
               │
-              ├─ investiga (él)           → brief.md
-              ├─ encarga a ChatGPT Go     → offer.md / emails / copy
+              ├─ pide a Gemini            → brief.md (corpus, capturas, PDFs)
+              ├─ redacta él o encarga copy → offer.md / emails
               ├─ pide a Grok (si >2 h, precio o claim) → critique.md
               ├─ encarga a Composer       → PR
               └─ tú firmas preview / dinero / envío
 ```
+
+**Si estás en Go (Luna):** el diagrama anterior, pero Gemini en el centro y ChatGPT solo copy.
 
 Composer sigue siendo el único que pica el repo. Ox Alpha sigue fuera del consejo.
 
@@ -103,6 +107,8 @@ Si falta un dato, pide el experimento más barato. No rellenes el hueco con una 
 ```
 
 Pégale también el paquete mínimo: oferta v0 (aunque esté a medias), `docs/roles-asignados-df01.md`, y las últimas 5 líneas de `decisions.md`.
+
+Si la batuta es **ChatGPT Sol**, el mismo bloque de reglas vale: cambia la primera línea a “Eres el director adjunto…” y en (3) pon “Gemini = research, Composer = código, Grok = crítica si hay claim/precio”.
 
 ---
 
