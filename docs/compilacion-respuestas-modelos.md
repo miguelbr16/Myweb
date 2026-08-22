@@ -4,12 +4,18 @@
 **Uso:** reenviar este archivo entero a cada modelo.  
 **Regla:** el texto de cada modelo se copia tal cual. No está editado.
 
+**Clarificación (nota de compilación, no es texto de ningún modelo):**
+
+- **SÍ se evalúa Composer 2.5.** Su respuesta completa está en este archivo, sección «RESPUESTA — COMPOSER 2.5».
+- **NO se evalúa “Cursor” como un quinto modelo.** Cursor es el entorno donde corre Composer.
+- ChatGPT Go escribió: *«no quiero comparar Cursor como modelo […] Si estamos evaluando Composer 2.5, lo evaluaremos como agente/modelo»*. Eso no deja a Composer fuera: deja fuera el IDE.
+
 | Inteligencia | Entorno | Estado |
 |---|---|---|
-| Grok 4.6 | Grok / Cursor | Incluida (evaluación larga original) |
+| Grok 4.6 | Grok / Cursor | Incluida |
 | Gemini | Gemini (pegada como «Gemini»; ChatGPT la nombra 3.7 Flash) | Incluida |
 | ChatGPT Go | ChatGPT | Incluida |
-| Composer 2.5 | Cursor | Incluida |
+| Composer 2.5 | Cursor | **Incluida** |
 | Ox Alpha | OpenCode | Fuera de esta ronda |
 | Codex | — | Fuera de esta ronda |
 
