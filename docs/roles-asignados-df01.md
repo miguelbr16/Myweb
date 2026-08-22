@@ -193,8 +193,8 @@ Si a las 2 semanas el copy de ChatGPT sale flojo: subes de Go o Grok/Gemini reda
 - **Tú:** dueño del P&L y del “no”.  
 - **Gemini ⇄ ChatGPT:** dúo (1 ronda).  
 - **Git:** memoria.  
-- **Grok:** qué no construir y qué claim no se sostiene.  
+- **Grok:** opcional, si el dúo no cierra precio o claim.  
 - **Composer:** qué se fusiona al repo.  
 - **Ox Alpha:** préstamo de horas, esta semana, sin clientes.
 
-**[DO NOT BUILD]** un Director de Orquesta modelo. **[DO NOT BUILD]** un consejo de 4 para cada tarea. **[DO NOT BUILD]** silla permanente para Ox.
+**[DO NOT BUILD]** un único Director de Orquesta-modelo. **[DO NOT BUILD]** un consejo de 4 para cada tarea. **[DO NOT BUILD]** silla permanente para Ox. El dúo Gemini ⇄ ChatGPT (1 ronda) sí.

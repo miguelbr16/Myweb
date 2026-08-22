@@ -1,6 +1,6 @@
 # Roles de modelos — Grok 4.6, Gemini Pro, ChatGPT Go, Ox Alpha
 
-**Supersedido para el organigrama de 30 días:** `docs/roles-asignados-df01.md` y `docs/director-de-orquesta.md` (Gemini = director adjunto; ChatGPT Go = copy; Grok ya no es concertino).
+**Supersedido para el organigrama de 30 días:** `docs/roles-asignados-df01.md` y `docs/director-de-orquesta.md` (dúo Gemini ⇄ ChatGPT, 1 ronda; Grok opcional; Composer construye).
 
 **Naturaleza:** evaluación para asignar responsabilidades **antes** de orquestar.  
 **Sesgo declarado:** este documento lo escribe **Grok 4.6**. Cualquier ranking que me favorezca debe contrastarse con Gemini y ChatGPT, no aceptarse.  
