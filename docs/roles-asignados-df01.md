@@ -13,11 +13,13 @@ Leyenda: **[FACT]** · **[CONSENSUS]** (5/5 o 4/5) · **[DISPUTED]** · **[RECOM
 
 ## Veredicto
 
-**Ningún modelo es Director de Orquesta.** Eso es **[CONSENSUS] 5/5** (incluido ChatGPT Go, que lo dice explícitamente).
+**Autoridad final: el fundador.** Eso es **[CONSENSUS] 5/5**.
 
-El director eres tú. La partitura es Git. Los modelos entregan **artefactos**, no votos.
+**Director adjunto (decisiones): Gemini** — pedido explícito del fundador (Chat vs Gemini). No es LLM-CEO: propone, secuencia, etiqueta FACT/HYPOTHESIS, escribe la línea de decisión. Tú firmas dinero, claims y envíos. Detalle: `docs/director-de-orquesta.md`.
 
-Arquitectura: **D — pipeline por fases con transferencia mediante artefactos.** **[CONSENSUS] 5/5.** ChatGPT pide un consejo *paralelo* Gemini/ChatGPT/Grok antes de Composer; los otros cuatro van en **secuencia**. Para una persona, secuencia es el default. Paralelo solo en una decisión grande (precio, matar ICP).
+**ChatGPT Go no es la batuta.** Es Luna, no Sol; en DF01 se autoasignó estrategia y él mismo dijo que no está demostrado como Director.
+
+Arquitectura: **D** (artefactos) **con un frente de conversación** (Gemini). No council permanente. Grok sigue de crítico episódico. Composer construye.
 
 ---
 
@@ -26,8 +28,9 @@ Arquitectura: **D — pipeline por fases con transferencia mediante artefactos.*
 | Rol | Quién | Artefacto | No hace |
 |---|---|---|---|
 | **Decide / autoridad final** | Fundador | `decisions.md` (una línea) | Delegar precio, claims, firma, deploy a dominio de cliente |
-| **Investiga** | Gemini 3.7 Flash | `brief.md` (huecos de webs públicas, campos de intake, competencia visible) | Promesas comerciales; precio; código de producción |
-| **Redacta (cliente)** | ChatGPT Go | `offer.md`, emails, WhatsApp, propuesta, copy de landing | Arquitectura; alcance de fábrica; “cerebro” de la empresa |
+| **Director adjunto** | Gemini (Pro si existe; Flash solo provisional) | Prioridades del día + encargo a los demás | Firmar precio; claims; enviar al cliente; picar producción |
+| **Investiga** | Gemini (el mismo asiento) | `brief.md` | Promesas comerciales inventadas |
+| **Redacta (cliente)** | ChatGPT Go | `offer.md`, emails, WhatsApp, propuesta, copy de landing | Arquitectura; alcance de fábrica; batuta de la empresa |
 | **Critica / recorta** | Grok 4.6 | `critique.md` — solo si el impacto es >2 h o hay claim/precio/scope | Copy final al cliente; dirección de arte; picar el repo como constructor diario |
 | **Construye código** | Composer 2.5 (Cursor) | PR / preview Vercel | Estrategia, ICP, outbound, autoaprobar alcance |
 | **Valida** | Fundador + checklist | Preview abierto + lista QA | “El modelo dijo que está bien” |
@@ -36,8 +39,8 @@ Arquitectura: **D — pipeline por fases con transferencia mediante artefactos.*
 Flujo default (una tarea, no un comité):
 
 ```
-Tú defines la tarea (1 frase + veto)
-    → Gemini: brief.md
+Tú defines o Gemini propone (tú vetas)
+    → Gemini: brief.md + “qué no construir”
     → ChatGPT: offer.md / copy
     → Grok: critique.md (si hay dinero, claim o scope)
     → Tú apruebas o paras
@@ -45,7 +48,7 @@ Tú defines la tarea (1 frase + veto)
     → Tú abres el preview
 ```
 
-**[RECOMMENDATION]** Un WhatsApp no pasa por cuatro modelos. Un precio sí pasa por Grok + tu criterio, no por Gemini ni Composer.
+**[RECOMMENDATION]** Un WhatsApp no pasa por cuatro modelos. Un precio: Gemini estructura el experimento; Grok ataca la cifra; **tú** anclas. Gemini no inventa “precio de mercado”.
 
 ---
 
@@ -189,8 +192,8 @@ Si a las 2 semanas el copy de ChatGPT sale flojo: subes de Go o Grok/Gemini reda
 ## Una frase por asiento
 
 - **Tú:** dueño del P&L y del “no”.  
+- **Gemini:** director adjunto + evidencia.  
 - **Git:** memoria.  
-- **Gemini:** qué se ve en el mercado y en los assets.  
 - **ChatGPT Go:** cómo se dice al decisor del ICP (cuando exista).  
 - **Grok:** qué no construir y qué claim no se sostiene.  
 - **Composer:** qué se fusiona al repo.  
