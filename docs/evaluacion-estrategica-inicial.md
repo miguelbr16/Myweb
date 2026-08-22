@@ -1064,3 +1064,9 @@ La idea no es absurda. Es **demasiado completa para ser cierta al inicio**.
 Una fábrica digital que aprende de cada proyecto es lo que una buena agencia de nicho acaba siendo a los 2–5 años, cuando tiene playbook, starter, retainer y datos. Presentarla como arquitectura de arranque convierte un negocio de servicios (difícil pero conocido) en una startup de plataforma (más difícil, más capital, peor calibrated para un estudio que todavía no tiene demanda).
 
 **[RECOMMENDATION]** Durante 90 días, el único KPI de producto es: *¿hemos entregado el mismo sistema dos veces con menos horas y un cliente dispuesto a pagar mensual?* Si sí, entonces — y solo entonces — merece la pena hablar de fábrica, SiteSpec compilable y Agency OS. Si no, cualquier línea de código extra es una forma elegante de no vender.
+
+---
+
+## Apéndice
+
+Asignación de modelos (Grok 4.6, Gemini Pro, ChatGPT Go, Ox Alpha) y director de orquesta: [`docs/roles-modelos.md`](roles-modelos.md).
