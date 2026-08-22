@@ -8,13 +8,29 @@
 
 ## Veredicto
 
-**Director adjunto (decisiones): Gemini.**  
-**Autoridad final: tú.**  
-**ChatGPT Go: voz comercial, no la batuta.**
+**Autoridad final: tú.**
 
-“Director de orquesta” aquí significa **chief of staff**: te propone qué hacer esta semana, qué no construir, qué pedirle a cada modelo, y deja la decisión en una línea. No significa que firme el precio, el contrato ni el mensaje al cliente.
+**Si ChatGPT te muestra GPT-5.6 Sol y puedes seleccionarlo, no estás en Go.** En ese caso el director adjunto pasa a **ChatGPT (Sol)**. Gemini queda como research / corpus (PDFs, capturas, webs).
 
-Si el Gemini que usas es **Flash** (el de DF01), es un director *provisional*. Si tienes **Gemini Pro / AI Pro** (1M de contexto, PDFs, capturas), ese es el asiento correcto. No subas a Flash a CEO.
+**Si el plan en Ajustes sigue diciendo Go**, OpenAI afirma que **no** tienes Sol: el default y Think son **Luna**. [Help: ChatGPT Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go), [GPT-5.6 en ChatGPT](https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt). Entonces la batuta sigue en **Gemini** y ChatGPT es copy.
+
+“Director de orquesta” = chief of staff: prioridades, qué no construir, a quién encargar cada pieza, una línea de decisión. No firma precio ni envía al cliente.
+
+---
+
+## Si te pone 5.6 Sol
+
+Comprueba esto, no el nombre del modelo en un mensaje suelto:
+
+1. **Ajustes → Cuenta / Plan.** ¿Dice Plus, Pro, Business, Enterprise… o Go?
+2. En un chat nuevo, abre el **selector de modelo**. ¿Sale explícitamente *GPT-5.6 Sol* (a veces detrás de Medium / High / Instant)?
+3. Tras enviar, mira si la respuesta indica Sol o Luna.
+
+**[FACT]** Tabla de OpenAI: Free y Go **no** incluyen Sol; Plus incluye Medium/High de Sol; Pro/Business/Enterprise más niveles. El rollout es gradual; si no ves Sol, puede ser el plan o que aún no te ha llegado.
+
+Si (1) es Plus o superior y (2) es Sol de verdad: **el argumento “Go = Luna, no dirijas con eso” ya no aplica.** ChatGPT Sol es un candidato real a batuta — y, como tú querías Chat o Gemini, **Sol gana el asiento de decisiones diarias**. Gemini no se va: investiga el material pesado.
+
+Si (1) es Go: la UI a veces enseña la familia “GPT-5.6”. Think en Go **sigue siendo Luna**, no Sol. No cambies el organigrama por una etiqueta.
 
 ---
 
@@ -28,7 +44,7 @@ Si el Gemini que usas es **Flash** (el de DF01), es un director *provisional*. S
 | Error visible en DF01 | Inventó “duplicar conversión móvil en <10 días” | Empujó más fábrica (design system, QA auto) de la que el resto recortó |
 | Encaje con Composer | Composer: Gemini redacta el brief → humano → código | Composer: ChatGPT = móvil / objeciones, no arquitectura |
 
-**[RECOMMENDATION]** No pongas Luna a dirigir la empresa. Si más adelante pasas a **ChatGPT Plus (Sol)**, se reabre el asiento. Hoy, entre *chat* y *gemini* con lo que tienes, gana Gemini.
+**[RECOMMENDATION]** No pongas **Luna** a dirigir la empresa. **Sol sí puede.** El corte no es “Chat vs Gemini” en abstracto: es **qué SKU tienes en el selector**.
 
 ---
 
@@ -92,8 +108,7 @@ Pégale también el paquete mínimo: oferta v0 (aunque esté a medias), `docs/ro
 
 ## Si insistes en ChatGPT como batuta
 
-Solo tiene sentido si **subes a Plus/Sol**. Con Go: puedes usarlo como *interfaz* (“háblame de esto”) con la regla dura de que **no decide evidencia ni precio**. Gemini sigue siendo quien resume el corpus.
-
-Revisión a 14 días: si Gemini te empuja a construir más de lo que vendes, le recortas el asiento y Grok (u tú) recupera el veto. Si el copy al cliente es el cuello, ChatGPT no se toca.
+Con **Sol** (Plus+): sí. Es el default de este documento cuando el selector lo muestra.  
+Con **Go / Luna**: no. Puedes usarlo como interfaz (“háblame de esto”) con la regla de que no decide evidencia ni precio.
 
 **[DO NOT BUILD]** un council de 4 para cada decisión. Un director adjunto + especialistas bajo demanda.
