@@ -2,7 +2,8 @@
 
 **Fecha:** 22 agosto 2026.  
 **Sesgo:** lo escribe Grok 4.6. No nominar a Ox como orquestador.  
-**Alcance:** cómo usar (o no) el combo que se ve en el tweet de [vrajdesai78](https://x.com/vrajdesai78/status/2091081043541684676) y el sitio [100 SaaS Ideas](https://saas-ideas-5n8.pages.dev/). Sin código de fábrica. Sin PII.
+**Alcance:** cómo usar (o no) el combo que se ve en el tweet de [vrajdesai78](https://x.com/vrajdesai78/status/2091081043541684676) y el sitio [100 SaaS Ideas](https://saas-ideas-5n8.pages.dev/). Sin código de fábrica. Sin PII.  
+**ICP:** este proyecto **no** es una oferta dental. Dental aparece abajo solo como ejemplo del examen DF01 o del catálogo viral. El pico Ox, si se hace, es sobre **nuestra** landing/template y un competidor **nombrado** del ICP real (cuando exista).
 
 Leyenda: **[FACT]** · **[HYPOTHESIS]** · **[RECOMMENDATION]** · **[DO NOT BUILD]** · **[EXPERIMENT]**
 
@@ -59,7 +60,7 @@ El prompt viral optimiza **volumen de ideas**. Nuestro cuello de botella (las 5 
 Copiar “find 100 SaaS ideas… do it until you are sure… built a website” sería:
 
 - Meta-trabajo con disfraz de research.
-- Un segundo negocio (SaaS) encima del que aún no existe (captación dental).
+- Un segundo negocio (SaaS / 100 ideas) encima del estudio, que aún no tiene oferta ni pipeline.
 - Un loop sin techo de horas (“until you are sure”).
 - Meter research de mercado en un modelo anónimo.
 
@@ -75,11 +76,11 @@ El Gauntlet Loop encaja con la **orquestación D** que eligieron los cinco model
 
 Reglas que sí nos sirven (del [SKILL.md](https://raw.githubusercontent.com/robonuggets/gauntlet-loop/main/.claude/skills/gauntlet-loop/SKILL.md)):
 
-1. **Barra nombrada, fetchable, comparable.** No “web premium”. Sí “la landing de implantes de [clínica concreta], screenshot móvil 390px”.
+1. **Barra nombrada, fetchable, comparable.** No “web premium”. Sí “la landing de [competidor concreto del ICP], screenshot móvil 390px”.
 2. **El builder no se autoevalúa.** Crítico con contexto fresco.
 3. **Pick A/B, no nota 1–10.** Las notas suben solas cada ronda.
 4. **Salida = gana el ciego, o tú paras.** Nunca “3 rondas”.
-5. **No sobre-especificar stack.** El agente decide; tú pones la barra y el veto (PII, claims sanitarios).
+5. **No sobre-especificar stack.** El agente decide; tú pones la barra y el veto (PII, claims que no podéis probar).
 
 Lo que **rompe** el loop (el propio skill): barra vaga; el builder juzgándose; crítico blando; round count fijo.
 
@@ -95,18 +96,18 @@ Tope duro: **una sesión ≤4 h, output a Git, cero datos de cliente, cero `.env
 
 **[EXPERIMENT]** Gauntlet de **un** artefacto público, con barra real:
 
-> Pulir el **template dental v0** (o la landing propia v0) hasta que un crítico ciego, en móvil, prefiera nuestro hero + CTA + formulario frente a **una** landing de clínica española nombrada que tú elijas.
+> Pulir la **landing propia v0** (oferta del estudio, no un vertical inventado) hasta que un crítico ciego, en móvil, prefiera nuestro hero + CTA + formulario frente a **una** URL nombrada que tú elijas (competidor o referente de conversión).
 
-Piezas juzgables por separado: hero, oferta, CTA, form (campos + fricción), aviso WhatsApp (copy, no credenciales), legal mínimo, Lighthouse móvil.
+Piezas juzgables por separado: hero, oferta, CTA, form (campos + fricción), aviso WhatsApp/email (copy, no credenciales), legal mínimo, Lighthouse móvil.
 
-**Barra mala:** “las mejores webs dentales de España”.  
-**Barra buena:** URL concreta + screenshot 390px + “¿qué página hace más obvio pedir cita en <5 segundos?”.
+**Barra mala:** “las mejores webs del sector”.  
+**Barra buena:** URL concreta + screenshot 390px + “¿qué página hace más obvio pedir el siguiente paso en <5 segundos?”.
 
 ### 5.2 Research público (opcional, 90 min)
 
-Si aún no hay template: Ox en OpenCode audita **20 webs públicas** de clínicas (solo homepage). Entrega `docs/auditoria-publica-20.md`: URL, CTA, form sí/no, WhatsApp sí/no, fricción móvil. **Sin** pegar capturas de pacientes, listados de leads ni emails.
+Si aún no hay template: Ox en OpenCode audita **20 webs públicas del ICP** (solo homepage) — o no se hace, si el ICP aún no está cerrado. Entrega markdown: URL, CTA, form sí/no, WhatsApp sí/no, fricción móvil. **Sin** PII, listados de leads ni emails.
 
-Eso alimenta el outbound (guion de auditoría-vídeo). No sustituye las 10 llamadas.
+Eso, si hay ICP, alimenta el outbound. No sustituye conversaciones reales.
 
 ### 5.3 Portar el skill, no al modelo
 
@@ -118,10 +119,10 @@ Si el pico funciona: copiar `.claude/skills/gauntlet-loop/SKILL.md` a Cursor **d
 
 | Prohibido | Por qué |
 |---|---|
-| Logos, fotos de pacientes, historias clínicas, `.env`, DNS de cliente | Proveedor anónimo; OpenRouter retiene prompts |
-| Precio final, claims clínicos, “duplicamos conversión” | Juicio humano + legal |
-| Outbound real (emails a clínicas) | El agente no es el comercial; y el copy sanitario está regulado |
-| 100 ideas / nuevo vertical / SaaS propio | Fuera de la oferta de 30 días |
+| Logos, fotos identificables de clientes, `.env`, DNS de cliente | Proveedor anónimo; OpenRouter retiene prompts |
+| Precio final, claims no demostrados (“duplicamos conversión”) | Juicio humano + legal |
+| Outbound real (emails a prospectos) | El agente no es el comercial |
+| 100 ideas / nuevo vertical / SaaS propio | Meta-trabajo; no es la oferta |
 
 ---
 
@@ -130,11 +131,11 @@ Si el pico funciona: copiar `.claude/skills/gauntlet-loop/SKILL.md` a Cursor **d
 No uses el prompt viral. Usa este. Elige **tú** la URL-barra antes de pegar.
 
 ```
-Build a single-page dental clinic capture landing (one star treatment, ES market, mobile-first). Public demo data only. No patient data, no secrets, no .env.
+Build a single-page offer landing for OUR studio (one productized offer, ES market, mobile-first). Public demo data only. No client PII, no secrets, no .env. Do not invent a dental or health niche.
 
-The bar is THIS live page, screenshot at 390px and 1280px, compare against the real thing not a description: [URL DE UNA CLÍNICA CONCRETA].
+The bar is THIS live page, screenshot at 390px and 1280px, compare against the real thing not a description: [URL DE UN COMPETIDOR O REFERENTE CONCRETO].
 
-Break into independently judged pieces: hero, offer clarity, CTA, form friction, WhatsApp/click-to-call, legal/consent checkbox copy, mobile speed.
+Break into independently judged pieces: hero, offer clarity, CTA, form friction, WhatsApp/click-to-call or email, legal/consent checkbox copy, mobile speed.
 
 For each piece fan out a builder and a separate harsh critic with fresh context. Critic inspects actual output vs the bar blind, labels stripped, picks a winner, names the single biggest gap. No scores out of 10.
 
@@ -151,7 +152,7 @@ Si OpenCode tiene el skill, puedes empezar con `/gauntlet-loop` **solo** para qu
 
 ## 7. Relación con DF01 (las 5 respuestas)
 
-Consenso ya escrito: vender sistema de captación dental; fábrica mínima; orquestación D; humano al final; **no** 10 agentes.
+Consenso de DF01 que **sí** se porta: fábrica mínima; orquestación D; humano al final; **no** 10 agentes. El GTM dental del examen **no** se porta.
 
 Ox+Gauntlet **no contradice** eso si se usa como:
 
@@ -161,7 +162,7 @@ Lo contradice si se usa como:
 
 `Ox investiga 100 negocios → construye un directorio → “ya tenemos fábrica de ideas”`.
 
-OpenCode ya entregó una respuesta DF01 útil (precio 750/1.500, 5 días de build, 10 auditorías vídeo). Ese es el techo de estrategia de Ox. El resto de la ventana: **código público**, no más estrategia.
+OpenCode ya entregó una respuesta DF01 útil *como examen* (tope de build, outbound antes que OS). Eso no convierte a Ox en estratega ni a dental en oferta. El resto de la ventana: **código público**, no más estrategia.
 
 ---
 
@@ -170,10 +171,10 @@ OpenCode ya entregó una respuesta DF01 útil (precio 750/1.500, 5 días de buil
 **[RECOMMENDATION]**
 
 1. No clonar el experimento de las 100 ideas.
-2. Si la ventana Ox sigue abierta: **un** gauntlet ≤4 h sobre template/landing propia vs una URL dental real. Output en Git. Revisión en Cursor.
-3. Si no hay template todavía: **no** abrir OpenCode. Primero Maps y 10 vídeos (OpenCode DF01) o 1-pager + 5 outreach (Composer DF01).
+2. Si la ventana Ox sigue abierta: **un** gauntlet ≤4 h sobre landing/template **nuestra** vs una URL concreta del ICP (o de un referente de conversión). Output en Git. Revisión en Cursor.
+3. Si no hay template todavía: **no** abrir OpenCode. Primero oferta escrita + conversaciones reales del ICP que elijáis.
 4. El skill Gauntlet se guarda para Cursor cuando haya un artefacto que pulir. No antes.
 
-**Mayor riesgo de este shiny object:** gastar la semana demostrando que un agente puede publicar un microsite, mientras sigue sin existir una conversación con un dueño de clínica.
+**Mayor riesgo de este shiny object:** gastar la semana demostrando que un agente puede publicar un microsite, mientras sigue sin existir una conversación de venta.
 
-**[DO NOT BUILD]** 100 ideas SaaS · OS de subagentes · RAG · receptionist IA · cualquier cosa con datos de pacientes en Ox.
+**[DO NOT BUILD]** 100 ideas SaaS · OS de subagentes · RAG · receptionist IA · GTM dental por inercia del examen · cualquier PII de cliente en Ox.

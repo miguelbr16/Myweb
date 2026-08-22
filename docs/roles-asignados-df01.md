@@ -1,5 +1,7 @@
 # Roles asignados — post DF01
 
+**ICP / oferta:** este estudio **no vende clínicas dentales**. Dental fue el *caso de examen* del prompt DF01 (única oportunidad nombrada en ese brief), no la oferta comercial. De DF01 se adopta el **sistema de trabajo** (quién investiga, redacta, critica, construye). Se descarta el GTM dental, los precios de setup dentales y el “mañana Maps de clínicas”.
+
 **Fuente:** las 5 respuestas en `benchmarks/2026-08/digital-factory-01-todas-las-respuestas.md`.  
 **Fecha:** 22 agosto 2026.  
 **Sesgo:** lo escribe Grok 4.6. Donde el consenso de los cinco me favorece como crítico, está marcado. Donde ChatGPT se autoasigna estrategia, no se acepta como consenso.  
@@ -55,8 +57,8 @@ Tú defines la tarea (1 frase + veto)
 - Composer construye. Nadie más pica producción.
 - Git = source of truth. Chats = caché.
 - No RAG, no 10 agentes, no Agency OS, no CRM propio, no 30 componentes como prerrequisito.
-- Oferta estrecha dental (captación / conversión), no “agencia digital”.
-- No prometer N pacientes (Gemini se salta esto: ver abajo).
+- Una oferta productizada a **un** ICP (el ICP lo elige el fundador; en DF01 el brief forzó dental — **no se adopta**).
+- No prometer resultados numéricos sin datos propios (Gemini, en el examen, prometió “duplicar conversión”; ese error de claims vale para cualquier nicho).
 
 **[CONSENSUS] 4/5** (Gemini es la excepción)
 
@@ -74,7 +76,7 @@ Estas filas **no** se resuelven con un rol de IA. Son decisiones de fundador. DF
 
 | Tema | Rango DF01 | Cómo se decide |
 |---|---|---|
-| Precio de setup | ChatGPT: sin cifra. Gemini ~1.200 €. OpenCode 750/1.500. Composer 2.400. Grok 2.500–4.500 | Experimento en conversaciones reales. Ningún modelo fija lista |
+| Precio de setup | En el *examen* dental: ChatGPT sin cifra; Gemini ~1.200 €; OpenCode 750/1.500; Composer 2.400; Grok 2.500–4.500 | Esas cifras **no** son lista de este negocio. El método sí: anclas en conversaciones reales; ningún modelo fija precio |
 | Cuánta fábrica ahora | OpenCode: ≤5 días. Grok: ≤8 h/sem. Composer: 20 % + 8–10 componentes. Gemini: boilerplate+n8n semana 1. ChatGPT: SiteSpec+DS mínimo+QA auto | Tope operativo: **máx. 8–12 h/semana de infra** hasta cliente 1 |
 | Stack | Astro (OpenCode, Composer, Grok “uno”) vs Next (Gemini) vs “el que haga falta” (ChatGPT) | **Un** stack, congelado 90 días. Default: el que ya uses en Cursor; no abrir debate |
 | n8n / Supabase ahora | OpenCode y Gemini: 1 flujo ya. Grok/ChatGPT/Composer: después | Manual/email hasta que duela. n8n after client 1 |
@@ -86,7 +88,7 @@ Estas filas **no** se resuelven con un rol de IA. Son decisiones de fundador. DF
 
 ### Fundador — Director
 
-**[CONSENSUS]** Llamadas, precio, claims sanitarios, DPA, “sí al cliente”, DNS, QA final.
+**[CONSENSUS]** Llamadas, precio, claims, DPA, “sí al cliente”, DNS, QA final.
 
 Nadie más cierra.
 
@@ -101,11 +103,11 @@ Nadie más cierra.
 
 ### ChatGPT Go — Redacción comercial
 
-**Por qué:** 4/5 lo ponen en copy, propuestas, objeciones, lenguaje de dueño. OpenCode: editor. Composer: móvil / scripts de llamada. Grok: WhatsApp y propuesta.
+**Por qué:** 4/5 lo ponen en copy, propuestas, objeciones, lenguaje del comprador. OpenCode: editor. Composer: móvil / scripts de llamada. Grok: WhatsApp y propuesta.
 
 **Límite que impone DF01:** ChatGPT **se autoasigna** estrategia, product, CRO y decisiones transversales. Eso es **[DISPUTED]** y **no se concede**. En el mismo texto admite que Go no está demostrado como director. Además, en DF01 empujó más fábrica ahora (design system mínimo, QA automático) que OpenCode/Grok: buen estructurador, mal recortador.
 
-**Uso:** emails, 1-pager, copy de landing, roleplay de objeciones, propuesta en castellano de dueño. Artefacto: `offer.md`.  
+**Uso:** emails, 1-pager, copy de landing, roleplay de objeciones, propuesta en lenguaje del decisor. Artefacto: `offer.md`.  
 **Revisión:** Grok ataca claims; tú envías.  
 **No uso:** stack, SiteSpec como contrato, “hay que construir X”.
 
@@ -159,11 +161,11 @@ Contradicción material entre dos modelos = **incertidumbre**, no debate. Tú de
 
 - Precio y posicionamiento: datos propios + tú.
 - Comunicación directa al cliente sin revisión humana.
-- Datos de pacientes (RGPD art. 9) en prompts de terceros.
+- Datos de clientes / PII en prompts de terceros (si algún día hay salud, art. 9 RGPD: aún más estricto).
 - Composer para “qué empresa somos”.
 - Gemini para picar el repo si no está en el IDE.
 - Cuatro modelos para un botón o un WhatsApp.
-- Ox con `.env`, logos de cliente, historias clínicas.
+- Ox con `.env`, logos de cliente, PII.
 
 Siempre humano: llamada, negociación, cierre, QA final, dinero, DNS.
 
@@ -189,7 +191,7 @@ Si a las 2 semanas el copy de ChatGPT sale flojo: subes de Go o Grok/Gemini reda
 - **Tú:** dueño del P&L y del “no”.  
 - **Git:** memoria.  
 - **Gemini:** qué se ve en el mercado y en los assets.  
-- **ChatGPT Go:** cómo se dice al dueño de la clínica.  
+- **ChatGPT Go:** cómo se dice al decisor del ICP (cuando exista).  
 - **Grok:** qué no construir y qué claim no se sostiene.  
 - **Composer:** qué se fusiona al repo.  
 - **Ox Alpha:** préstamo de horas, esta semana, sin clientes.

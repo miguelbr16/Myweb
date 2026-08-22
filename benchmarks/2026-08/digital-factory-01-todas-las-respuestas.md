@@ -3,7 +3,8 @@
 
 **Estado:** 5/5 respuestas incluidas. Ronda DF01 completa. Sin ranking ni ganador. El texto de cada modelo se copia tal cual.  
 **Uso:** reenviar este archivo entero al evaluador o a cada modelo.  
-**Prueba:** DIGITAL FACTORY 01 (12 secciones de decisión).
+**Prueba:** DIGITAL FACTORY 01 (12 secciones de decisión).  
+**Importante:** el brief DF01 nombraba clínicas dentales como caso. **Eso no es la oferta de este repo.** Las respuestas de abajo hablan de dental porque el examen lo pedía. El organigrama operativo (sin GTM dental) está en `docs/roles-asignados-df01.md`.
 
 | Inteligencia | Entorno | Estado |
 |---|---|---|

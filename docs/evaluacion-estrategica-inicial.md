@@ -3,7 +3,8 @@
 **Naturaleza:** primera evaluación independiente.  
 **Postura:** adversarial. El objetivo no es confirmar la idea, sino localizar dónde puede fracasar.  
 **Fecha:** 22 agosto 2026.  
-**Alcance:** negocio y arquitectura conceptual. Sin código ni implementación.
+**Alcance:** negocio y arquitectura conceptual. Sin código ni implementación.  
+**ICP:** no cerrado. Dental se analiza más abajo como *candidato de mercado* (y se marca saturado). **No es la oferta de este proyecto.** El benchmark DF01 usó dental como caso de examen; no sustituye a esta evaluación.
 
 Leyenda usada en todo el documento:
 
