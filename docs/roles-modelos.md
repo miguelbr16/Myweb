@@ -188,3 +188,7 @@ Mismo brief, mismos 4 modelos, puntuación tuya 1–5:
 Gana el rol quien gane **su** prueba, no el que gane el promedio. Un modelo puede ser el mejor copy y el peor arquitecto.
 
 **[OPEN QUESTION]** En tu cuenta concreta: ¿ChatGPT Go tiene Think/Luna o ya mutó el plan? ¿Gemini Pro es 2.5, 3.x u otro? Verifícalo en la UI; este documento usa lo publicado a 22 ago 2026 y **los planes cambian de nombre cada trimestre**.
+
+---
+
+Evaluación más completa (Composer, Codex, arquitecturas A–E, matriz, P1–P12): [`orquestacion-modelos.md`](orquestacion-modelos.md).

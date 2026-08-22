@@ -1069,4 +1069,5 @@ Una fábrica digital que aprende de cada proyecto es lo que una buena agencia de
 
 ## Apéndice
 
-Asignación de modelos (Grok 4.6, Gemini Pro, ChatGPT Go, Ox Alpha) y director de orquesta: [`docs/roles-modelos.md`](roles-modelos.md).
+- Roles cortos: [`docs/roles-modelos.md`](roles-modelos.md)
+- Orquestación, matriz de capacidades, arquitecturas y benchmark ciego (incluye Composer y Codex): [`docs/orquestacion-modelos.md`](orquestacion-modelos.md)
