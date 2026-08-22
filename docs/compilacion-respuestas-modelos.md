@@ -1,17 +1,19 @@
 # Compilación de respuestas — orquestación de modelos
 
-**Estado:** en espera del resto. No hay síntesis ni ranking cruzado todavía.  
-**Uso previsto:** un único archivo para reenviar a los demás modelos cuando estén todas las respuestas.  
+**Estado:** recopilación. No hay síntesis ni ranking cruzado todavía.  
+**Uso previsto:** un único archivo para reenviar a los demás modelos.  
 **Regla:** el texto de cada modelo se copia tal cual lo enviaste. No está editado.
 
-| Modelo | Estado |
-|---|---|
-| Grok 4.6 (Cursor) | Ya existe en [`orquestacion-modelos.md`](orquestacion-modelos.md). Se inlinará aquí cuando cierren todas. |
-| Gemini Pro | **Incluida abajo** |
-| ChatGPT Go | Pendiente |
-| Ox Alpha / OpenCode | Pendiente |
-| Cursor / Composer | Pendiente (si la pides por separado) |
-| Codex | Pendiente (si la pides; dijiste que se incorpora después) |
+Ronda 1 fijada por ChatGPT Go (pendiente de que tú la confirmes):
+
+| Inteligencia | Entorno | Estado en este archivo |
+|---|---|---|
+| Grok 4.6 | Grok / Cursor | Respuesta larga en [`orquestacion-modelos.md`](orquestacion-modelos.md). Se inlinará al cerrar la recopilación. |
+| Gemini (tú la pegaste como «Gemini»; ChatGPT la nombra Gemini 3.7 Flash) | Gemini | **Incluida abajo** |
+| ChatGPT Go | ChatGPT | **Incluida abajo** |
+| Composer 2.5 | Cursor | Pendiente — no evaluar «Cursor» como modelo |
+| Ox Alpha | OpenCode | **Fuera de esta ronda** (acceso temporal + trabajo desde móvil) |
+| Codex | ChatGPT / IDE | Fuera de esta ronda; se incorpora cuando esté vinculado |
 
 ---
 
@@ -251,10 +253,81 @@ Qué No Sabemos Todavía
 
 # RESPUESTA — CHATGPT GO
 
+Perfecto. Entonces fijamos exactamente estas cuatro inteligencias/modelos para la primera ronda:
+
+Modelo	Entorno
+Grok 4.6	Grok
+Composer 2.5	Cursor
+Gemini 3.7 Flash	Gemini
+ChatGPT Go	ChatGPT
+
+Y Ox Alpha queda fuera de esta comparación inicial, porque su acceso es temporal y además estamos trabajando desde móvil. Codex lo incorporaremos cuando lo tengas vinculado.
+
+Hay una corrección importante respecto a mi respuesta anterior: no quiero comparar “Cursor” como modelo con los otros tres. Si estamos evaluando Composer 2.5, lo evaluaremos como agente/modelo dentro de su entorno de ejecución, y posteriormente haremos otra prueba específica de entorno de desarrollo Cursor.
+
+Lo que haría ahora
+
+No asignaría todavía:
+
+* CEO
+* Chief Strategist
+* Researcher
+* CTO
+* CRO
+* etc.
+
+Primero hacemos una selección competitiva entre los cuatro.
+
+Y no les preguntaría otra vez simplemente “¿en qué eres bueno?”, porque ya tenemos información suficiente. Haría una segunda ronda mucho más objetiva:
+
+los cuatro reciben exactamente los mismos casos, contexto y restricciones.
+
+Evaluamos:
+
+1. Business / CEO
+2. Product
+3. Marketing & Growth
+4. CRO
+5. Research
+6. Competitive intelligence
+7. Brand / UX
+8. Technical architecture
+9. Software engineering
+10. Automation / AI architecture
+11. QA
+12. Adversarial thinking
+13. Decision making
+14. Orchestration
+
+Y especialmente una prueba que para mí será decisiva:
+
+Les damos las respuestas de los otros tres modelos y les pedimos decidir quién tiene razón, qué está equivocado, qué información falta y qué decisión tomaría el CEO.
+
+Ahí veremos quién realmente puede ser Director de Orquesta, en lugar de simplemente quién escribe la respuesta más bonita.
+
+Mi hipótesis actual, ANTES del benchmark
+
+No es un resultado definitivo:
+
+* 🧠 ChatGPT Go: candidato fuerte a Chief Strategist / Product & Business
+* 🔬 Gemini 3.7 Flash: candidato fuerte a Research / Context / Analysis
+* 🥊 Grok 4.6: candidato fuerte a Adversarial / Competitive Intelligence
+* 💻 Composer 2.5: candidato fuerte a Engineering / Implementation / Repo execution
+
+Pero no voy a convertir esto en organigrama todavía.
+
+Y una cosa más: como Composer tiene acceso a las capacidades de Cursor, su evaluación de ingeniería puede ser especialmente interesante. No debemos confundir “qué modelo razona mejor sobre código” con “qué agente consigue realmente entregar mejor código en un repositorio”.
+
+Siguiente paso: hacemos el benchmark común de los cuatro. Después de eso sí podemos decidir quién es nuestro Chief Strategist, CTO/Technical Architect, Research Lead, Challenger y Director de Orquesta.
+
+---
+
+# RESPUESTA — COMPOSER 2.5
+
 *Pendiente.*
 
 ---
 
 # RESPUESTA — OX ALPHA / OPENCODE
 
-*Pendiente.*
+*Fuera de esta ronda.* No se incluye en la comparación inicial.
