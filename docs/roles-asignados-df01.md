@@ -15,11 +15,11 @@ Leyenda: **[FACT]** · **[CONSENSUS]** (5/5 o 4/5) · **[DISPUTED]** · **[RECOM
 
 **Autoridad final: el fundador.** Eso es **[CONSENSUS] 5/5**.
 
-**Director adjunto (decisiones): Gemini** — pedido explícito del fundador (Chat vs Gemini). No es LLM-CEO: propone, secuencia, etiqueta FACT/HYPOTHESIS, escribe la línea de decisión. Tú firmas dinero, claims y envíos. Detalle: `docs/director-de-orquesta.md`.
+**Dúo de decisión (pedido del fundador): Gemini ⇄ ChatGPT**, una ronda, luego tú. No hay un único Director de Orquesta-modelo. Detalle: `docs/director-de-orquesta.md`.
 
-**ChatGPT Go no es la batuta.** Es Luna, no Sol; en DF01 se autoasignó estrategia y él mismo dijo que no está demostrado como Director.
+ChatGPT Go es Luna según OpenAI (aunque la UI diga Sol). Sirve para rebatir; no es Plus. Gemini (Pro si existe) abre cuando hay corpus.
 
-Arquitectura: **D** (artefactos) **con un frente de conversación** (Gemini). No council permanente. Grok sigue de crítico episódico. Composer construye.
+Arquitectura: **D** (artefactos) **con dúo**, no council de 4. Grok solo si el dúo no cierra precio/claim. Composer construye.
 
 ---
 
@@ -28,9 +28,9 @@ Arquitectura: **D** (artefactos) **con un frente de conversación** (Gemini). No
 | Rol | Quién | Artefacto | No hace |
 |---|---|---|---|
 | **Decide / autoridad final** | Fundador | `decisions.md` (una línea) | Delegar precio, claims, firma, deploy a dominio de cliente |
-| **Director adjunto** | Gemini (Pro si existe; Flash solo provisional) | Prioridades del día + encargo a los demás | Firmar precio; claims; enviar al cliente; picar producción |
-| **Investiga** | Gemini (el mismo asiento) | `brief.md` | Promesas comerciales inventadas |
-| **Redacta (cliente)** | ChatGPT Go | `offer.md`, emails, WhatsApp, propuesta, copy de landing | Arquitectura; alcance de fábrica; batuta de la empresa |
+| **Dúo de decisión** | Gemini ⇄ ChatGPT (1 ronda) | brief/offer + réplica de 4 puntos | Ping-pong infinito; firmar envío al cliente |
+| **Investiga (abre)** | Gemini | `brief.md` | Promesas comerciales inventadas |
+| **Redacta (abre si es copy)** | ChatGPT Go | `offer.md`, emails, WhatsApp, propuesta | Arquitectura; fábrica; tercera ronda |
 | **Critica / recorta** | Grok 4.6 | `critique.md` — solo si el impacto es >2 h o hay claim/precio/scope | Copy final al cliente; dirección de arte; picar el repo como constructor diario |
 | **Construye código** | Composer 2.5 (Cursor) | PR / preview Vercel | Estrategia, ICP, outbound, autoaprobar alcance |
 | **Valida** | Fundador + checklist | Preview abierto + lista QA | “El modelo dijo que está bien” |
@@ -39,16 +39,15 @@ Arquitectura: **D** (artefactos) **con un frente de conversación** (Gemini). No
 Flujo default (una tarea, no un comité):
 
 ```
-Tú defines o Gemini propone (tú vetas)
-    → Gemini: brief.md + “qué no construir”
-    → ChatGPT: offer.md / copy
-    → Grok: critique.md (si hay dinero, claim o scope)
-    → Tú apruebas o paras
-    → Composer: PR
-    → Tú abres el preview
+Tú preguntas
+    → A (Gemini o ChatGPT según la tabla): artefacto
+    → B rebate (1 ronda)
+    → Tú: DECISION en una línea
+    → Composer si hay código
+    → Grok solo si el dúo no cierra precio/claim
 ```
 
-**[RECOMMENDATION]** Un WhatsApp no pasa por cuatro modelos. Un precio: Gemini estructura el experimento; Grok ataca la cifra; **tú** anclas. Gemini no inventa “precio de mercado”.
+**[RECOMMENDATION]** Un WhatsApp no pasa por el dúo. Un precio sí: uno propone el experimento, el otro ataca la cifra, **tú** anclas. Nadie inventa “precio de mercado”.
 
 ---
 
@@ -192,9 +191,8 @@ Si a las 2 semanas el copy de ChatGPT sale flojo: subes de Go o Grok/Gemini reda
 ## Una frase por asiento
 
 - **Tú:** dueño del P&L y del “no”.  
-- **Gemini:** director adjunto + evidencia.  
+- **Gemini ⇄ ChatGPT:** dúo (1 ronda).  
 - **Git:** memoria.  
-- **ChatGPT Go:** cómo se dice al decisor del ICP (cuando exista).  
 - **Grok:** qué no construir y qué claim no se sostiene.  
 - **Composer:** qué se fusiona al repo.  
 - **Ox Alpha:** préstamo de horas, esta semana, sin clientes.

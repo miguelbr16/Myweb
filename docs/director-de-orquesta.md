@@ -1,120 +1,104 @@
-# Director de orquesta — decisión Chat vs Gemini
+# Director de orquesta — dúo Gemini × ChatGPT
 
-**Pedido del fundador:** un modelo que ayude con las decisiones y coordine el resto. Candidatos: ChatGPT o Gemini.  
+**Pedido del fundador:** usar **los dos** para rebatirse. No un único director.  
 **Fecha:** 22 agosto 2026.  
-**Sesgo:** lo escribe Grok 4.6. No me autoasigno este asiento.
+**Sesgo:** lo escribe Grok 4.6. No soy el tercer voto obligatorio.
 
 ---
 
 ## Veredicto
 
-**Autoridad final: tú.**
+**Autoridad final: tú.**  
+**Dúo de decisión: Gemini propone, ChatGPT rebate** (o al revés si el artefacto es copy). Una ronda. Luego tú.
 
-**Si ChatGPT te muestra GPT-5.6 Sol y puedes seleccionarlo, no estás en Go.** En ese caso el director adjunto pasa a **ChatGPT (Sol)**. Gemini queda como research / corpus (PDFs, capturas, webs).
+No es un council de 4. Composer construye. Grok solo si tras el dúo sigue habiendo dinero, claim o scope sin resolver. Ox fuera.
 
-**Si el plan en Ajustes sigue diciendo Go**, OpenAI afirma que **no** tienes Sol: el default y Think son **Luna**. [Help: ChatGPT Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go), [GPT-5.6 en ChatGPT](https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt). Entonces la batuta sigue en **Gemini** y ChatGPT es copy.
-
-“Director de orquesta” = chief of staff: prioridades, qué no construir, a quién encargar cada pieza, una línea de decisión. No firma precio ni envía al cliente.
-
----
-
-## Si te pone 5.6 Sol
-
-Comprueba esto, no el nombre del modelo en un mensaje suelto:
-
-1. **Ajustes → Cuenta / Plan.** ¿Dice Plus, Pro, Business, Enterprise… o Go?
-2. En un chat nuevo, abre el **selector de modelo**. ¿Sale explícitamente *GPT-5.6 Sol* (a veces detrás de Medium / High / Instant)?
-3. Tras enviar, mira si la respuesta indica Sol o Luna.
-
-**[FACT]** Tabla de OpenAI: Free y Go **no** incluyen Sol; Plus incluye Medium/High de Sol; Pro/Business/Enterprise más niveles. El rollout es gradual; si no ves Sol, puede ser el plan o que aún no te ha llegado.
-
-Si (1) es Plus o superior y (2) es Sol de verdad: **el argumento “Go = Luna, no dirijas con eso” ya no aplica.** ChatGPT Sol es un candidato real a batuta — y, como tú querías Chat o Gemini, **Sol gana el asiento de decisiones diarias**. Gemini no se va: investiga el material pesado.
-
-Si (1) es Go: la UI a veces enseña “GPT-5.6” o incluso **Sol**, y **no deja cambiarlo**. Eso encaja con Go (un solo modelo bloqueado), no con Plus. OpenAI sigue diciendo que ese modelo es **Luna**, no Sol. [Help Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go). No cambies el organigrama por la etiqueta. Think, si aparece, también es Luna en Go.
+ChatGPT Go sigue siendo Luna según OpenAI, aunque la UI diga Sol y no deje cambiarlo. Eso **no** impide usarlo para rebatir: el valor del dúo es el desacuerdo, no el SKU. Gemini (Pro si existe) sigue siendo quien aguanta corpus.
 
 ---
 
-## Por qué Gemini y no ChatGPT Go
+## Protocolo (para que no sea ping-pong)
 
-| Criterio | Gemini | ChatGPT Go |
+**Cuándo los dos:** ICP, oferta, precio, “qué construimos esta semana”, claims, matar/seguir un experimento.  
+**Cuándo uno solo:** un WhatsApp, un heading, un bug, un email ya decidido.
+
+| Tipo de tarea | Quién habla primero | Quién rebate |
 |---|---|---|
-| Lo que pediste (ayudarte a decidir con info incompleta) | Fuerte: research, corpus, intake, specs. 4/5 en DF01 lo pusieron ahí | Fuerte en explicar y estructurar; débil como recorte |
-| Producto que pagas | Pro (si lo tienes) es el techo de Google en la app | **[FACT]** Go no incluye GPT-5.6 Sol; Think usa **Luna**. [Help ChatGPT Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go) |
-| Autoevaluación en DF01 | Se puso en contexto/SiteSpec (coherente) | Se autoasignó estrategia/product/CRO y **él mismo** dijo que no está demostrado como Director |
-| Error visible en DF01 | Inventó “duplicar conversión móvil en <10 días” | Empujó más fábrica (design system, QA auto) de la que el resto recortó |
-| Encaje con Composer | Composer: Gemini redacta el brief → humano → código | Composer: ChatGPT = móvil / objeciones, no arquitectura |
+| Research, capturas, PDFs, “qué hay en el mercado” | Gemini | ChatGPT |
+| Copy, propuesta, email, objeciones | ChatGPT | Gemini |
+| Prioridad de la semana / qué no construir | Gemini | ChatGPT |
 
-**[RECOMMENDATION]** No pongas **Luna** a dirigir la empresa. **Sol sí puede.** El corte no es “Chat vs Gemini” en abstracto: es **qué SKU tienes en el selector**.
+**Una ronda.** Pegar el texto entero al segundo, no un resumen tuyo.
+
+Prompt de réplica (pegar tal cual):
+
+```
+Rebate esto. No lo reescribas entero.
+
+1) Qué es FACT vs HYPOTHESIS vs relleno.
+2) Qué no construir / no prometer.
+3) Una alternativa más barata o más estrecha.
+4) En una línea: ¿aceptar, aceptar con recorte, o rechazar?
+
+Si no tienes el dato, dilo. No inventes CAC, LTV ni precio de mercado.
+```
+
+**Si coinciden:** tú ejecutas (o Composer, si es código).  
+**Si discrepan en algo material:** no hay tercera ronda entre ellos. Tú decides en ≤15 min y escribes una línea en `decisions.md`. Eso es incertidumbre, no un debate.
+
+Tope: 30 minutos de dúo. Si no hay decisión, gana la opción que **vende o aprende esta semana**, no la que construye más.
 
 ---
 
-## Qué hace el director adjunto (y qué no)
+## Organigrama
 
-**Hace**
+```
+Tú
+ ├─ Gemini  ⇄  ChatGPT     (1 ronda, artefactos)
+ ├─ Grok                    (opcional, si el dúo no cierra precio/claim)
+ ├─ Composer                (código del spec que tú firmaste)
+ └─ Ox Alpha                (pico ≤4 h, sin PII)
+```
 
-1. Abrir el día: 3 prioridades, 1 cosa que no se construye, 1 conversación de venta o de ICP.
-2. Decir a quién mandar cada pieza: Gemini (él mismo) investiga; ChatGPT redacta; Grok critica si hay dinero/claim; Composer construye.
-3. Obligar a etiquetar **[FACT] / [HYPOTHESIS] / [DECISION]**. Si no hay dato, el output es un experimento, no una cifra.
-4. Escribir la decisión en `decisions.md` (o pegártela para que la copies a Git). Si no está en Git/Obsidian, no ocurrió.
+Flujo:
 
-**No hace**
-
-- Precio de lista definitivo.
-- Claims (“vamos a duplicar X”).
-- Enviar nada a un cliente.
-- Definir stack por afición (Next vs Astro: uno y se congela).
-- Sustituirte en la llamada.
-
-Eso mantiene la arquitectura D de DF01: artefactos + tú al final. Solo añade **un frente de conversación**, que es lo que pediste.
+```
+Pregunta tuya
+  → A redacta (brief.md u offer.md)
+  → B rebate (critique.md, 4 puntos)
+  → Tú: DECISION en una línea
+  → Composer si hay que picar
+```
 
 ---
 
-## Cómo queda el organigrama
+## Qué no hacer
 
-**Si tienes Sol (Plus+):**
-
-```
-Tú  ←→  ChatGPT Sol (director adjunto)
-              │
-              ├─ pide a Gemini            → brief.md (corpus, capturas, PDFs)
-              ├─ redacta él o encarga copy → offer.md / emails
-              ├─ pide a Grok (si >2 h, precio o claim) → critique.md
-              ├─ encarga a Composer       → PR
-              └─ tú firmas preview / dinero / envío
-```
-
-**Si estás en Go (Luna):** el diagrama anterior, pero Gemini en el centro y ChatGPT solo copy.
-
-Composer sigue siendo el único que pica el repo. Ox Alpha sigue fuera del consejo.
+- No encadenar A→B→A→B. Eso es comité.
+- No meter a Grok “por si acaso” en cada dúo.
+- No dejar que gane el más largo. Gana el que etiqueta mejor y recorta.
+- No enviar al cliente el texto del dúo sin tu pase.
+- Dental no es la oferta. No dejes que el examen DF01 cuele un vertical.
 
 ---
 
-## Prompt para pegar en Gemini (sesión “director”)
+## Prompt de sesión (los dos)
+
+Misma regla en Gemini y en ChatGPT:
 
 ```
-Eres el director adjunto de un estudio de 1 persona. Yo firmo dinero, legal y lo que sale al cliente.
+Eres un lado de un dúo. El otro modelo te va a rebatir (o tú a él). Yo firmo dinero, legal y lo que sale al cliente. ICP no cerrado. No es oferta dental.
 
-Este negocio NO es una oferta dental. Dental fue un examen. El ICP aún no está cerrado. No inventes un vertical.
+Etiqueta FACT / HYPOTHESIS / DECISION.
+No inventes cifras.
+Máximo 8–12 h de infra esta semana.
+Nada de RAG, 10 agentes, Agency OS, CRM propio, 30 componentes.
 
-Reglas:
-- Etiqueta FACT / HYPOTHESIS / DECISION / OPEN QUESTION.
-- No inventes CAC, LTV, conversión ni “precio de mercado”.
-- Esta semana: máximo 8–12 h de infraestructura. El cuello de botella es conversaciones, no software.
-- No propongas RAG, 10 agentes, Agency OS, CRM propio ni 30 componentes.
-- Al final de cada respuesta: (1) decisión recomendada en una línea, (2) qué hago yo hoy, (3) qué modelo hace el resto (ChatGPT = copy, Composer = código, Grok = crítica solo si hay claim/precio/scope), (4) qué no construir.
-
-Si falta un dato, pide el experimento más barato. No rellenes el hueco con una cifra.
+Acaba con: decisión en una línea + qué hago yo hoy + qué no construir.
 ```
-
-Pégale también el paquete mínimo: oferta v0 (aunque esté a medias), `docs/roles-asignados-df01.md`, y las últimas 5 líneas de `decisions.md`.
-
-Si la batuta es **ChatGPT Sol**, el mismo bloque de reglas vale: cambia la primera línea a “Eres el director adjunto…” y en (3) pon “Gemini = research, Composer = código, Grok = crítica si hay claim/precio”.
 
 ---
 
-## Si insistes en ChatGPT como batuta
+## Nota Go / Sol
 
-Con **Sol** (Plus+): sí. Es el default de este documento cuando el selector lo muestra.  
-Con **Go / Luna**: no. Puedes usarlo como interfaz (“háblame de esto”) con la regla de que no decide evidencia ni precio.
-
-**[DO NOT BUILD]** un council de 4 para cada decisión. Un director adjunto + especialistas bajo demanda.
+Plan **Go**, modelo bloqueado, etiqueta “Sol”: OpenAI dice que Go no incluye Sol (Luna). [Help Go](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go). Úsalo igual para rebatir. Si algún día hay Plus/Sol de verdad, el protocolo no cambia: sigue siendo dúo + tú.
