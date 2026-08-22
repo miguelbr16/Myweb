@@ -1,5 +1,7 @@
 # Roles de modelos — Grok 4.6, Gemini Pro, ChatGPT Go, Ox Alpha
 
+**Supersedido para el organigrama de 30 días:** tras el benchmark DF01 (5 respuestas), la asignación operativa está en `docs/roles-asignados-df01.md`. Este archivo queda como evaluación *previa* (incluye el auto-rol de Grok como “concertino”, que **ya no rige**).
+
 **Naturaleza:** evaluación para asignar responsabilidades **antes** de orquestar.  
 **Sesgo declarado:** este documento lo escribe **Grok 4.6**. Cualquier ranking que me favorezca debe contrastarse con Gemini y ChatGPT, no aceptarse.  
 **Fecha:** 22 agosto 2026.
