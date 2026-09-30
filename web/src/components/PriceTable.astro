@@ -1,0 +1,40 @@
+---
+import { pricing } from "../content/home";
+---
+
+<section id="precios" class="on-ink section bg-ink text-bone">
+  <div class="wrap">
+    <p class="eyebrow text-signal">{pricing.eyebrow}</p>
+    <h2 class="h2 mt-5 max-w-3xl">{pricing.title}</h2>
+    <div class="mt-12 overflow-x-auto">
+      <table class="w-full border-collapse text-left">
+        <caption class="sr-only">Paquetes, precios orientativos y plazos</caption>
+        <thead class="eyebrow hidden text-fog md:table-header-group">
+          <tr>
+            <th scope="col" class="w-[24%] py-3 pr-4 font-normal">Paquete</th>
+            <th scope="col" class="py-3 pr-4 font-normal">Incluye</th>
+            <th scope="col" class="w-[14%] py-3 pr-4 font-normal">Plazo</th>
+            <th scope="col" class="w-[16%] py-3 text-right font-normal">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            pricing.rows.map((r) => (
+              <tr class="block border-t-2 border-bone/25 py-5 md:table-row md:py-0">
+                <th scope="row" class="display block py-1 text-2xl md:table-cell md:py-6 md:pr-4 md:align-top">{r.name}</th>
+                <td class="block py-1 text-bone/85 md:table-cell md:py-6 md:pr-4 md:align-top">{r.what}</td>
+                <td class="block py-1 font-mono text-sm text-fog md:table-cell md:py-6 md:pr-4 md:align-top">{r.time}</td>
+                <td class="display block py-1 text-2xl text-signal md:table-cell md:py-6 md:text-right md:align-top">{r.price}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 max-w-3xl text-fog">{pricing.extrasLine}</p>
+    <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <a href="/presupuesto/" class="btn btn-signal">{pricing.cta} <span aria-hidden="true">→</span></a>
+      <p class="text-sm text-fog">{pricing.note}</p>
+    </div>
+  </div>
+</section>

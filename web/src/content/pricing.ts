@@ -76,5 +76,5 @@ export const isProjectType = (v: string): v is ProjectType => v in projectTypes;
 export const isExtra = (v: string): v is Extra => v in extras && v !== "language";
 export const isMaintenance = (v: string): v is Maintenance => v in maintenance;
 
-export const eur = (n: number) => `${n.toLocaleString("es-ES")} €`;
+export const eur = (n: number) => `${n.toLocaleString("es-ES", { useGrouping: "always" })} €`;
 export const formatRange = (r: Range) => `${eur(r[0])} – ${eur(r[1])}`;

@@ -1,18 +1,30 @@
 # web/ — web propia (Astro + Tailwind + Cloudflare)
 
-One-page de captación + textos legales + formulario conectado a email. Es el **uso nº 1** de la futura plantilla (P-06).
+Home de captación con historia, configurador de presupuesto `/presupuesto/`, textos legales y formularios conectados a email. Es el **uso nº 1** de la futura plantilla (P-06).
+
+Diseño y decisiones: [DISENO_Y_NARRATIVA.md](../factory/docs/strategy/DISENO_Y_NARRATIVA.md). SEO, SEM, GEO y AEO: [SEO_SEM_GEO_AEO.md](../factory/docs/strategy/SEO_SEM_GEO_AEO.md).
 
 ## Qué editar
 
 | Qué | Dónde |
 |-----|-------|
-| Marca, contacto, datos legales, textos | `src/content/site.ts` (valores marcados con `TODO`) |
+| Marca, contacto, datos legales, perfiles sociales | `src/content/site.ts` (valores marcados con `TODO`) |
+| **Textos de la home**, FAQ, tabla de precios, datos de la medición | `src/content/home.ts` |
 | Precios y reglas del configurador `/presupuesto` | `src/content/pricing.ts` |
-| Dominio | `astro.config.mjs` (`site`) + `site.url` en `site.ts` |
-| Colores y tipografía | `src/styles/global.css` (`@theme`) |
-| Secciones de la home | `src/pages/index.astro` (orden) y `src/components/` |
+| Dominio y modo pre-lanzamiento | `site.url` y `site.prelaunch` en `site.ts` (de ahí salen canonical, sitemap, JSON-LD y `llms.txt`) |
+| Colores, tipografía y componentes de estilo | `src/styles/global.css` (`@theme`, `.btn`, `.field`…). La fuente está en `src/assets/fonts/` |
+| Datos estructurados (JSON-LD), robots, sitemap, llms.txt | `src/lib/seo.ts`, `src/pages/robots.txt.ts`, `sitemap.xml.ts`, `llms*.txt.ts` |
+| Logo, favicon e imagen para redes | `public/favicon.svg`, `public/logo.svg`; `scripts/brand-assets.html` + `.mjs` generan `og.png` y `apple-touch-icon.png` |
+| Secciones de la home | `src/pages/index.astro` (orden) y `src/components/` (Hero, Scene, Pillars, Guide, Process, PriceTable, Proof, Fact, Faq, FinalCta, Contact) |
 | Formulario (backend) | `worker/index.ts` |
 | Configuración de Cloudflare | `wrangler.jsonc` (el `name` debe coincidir con el proyecto) |
+
+## Reglas para editar textos
+
+- `npm run build` ejecuta `scripts/check-copy.mjs`: rechaza emojis, clichés y afirmaciones que no podamos probar. Si una línea es legítima, añade `check-copy:ok` en ella.
+- Los precios se cambian **solo** en `src/content/pricing.ts`; la tabla, el configurador, el ticket, la FAQ, el JSON-LD y `llms.txt` se actualizan solos.
+- La FAQ se edita solo en `home.ts`: alimenta la página, el JSON-LD y `llms-full.txt` a la vez.
+- Las cifras de la sección «La primera prueba» (`proof` en `home.ts`) se miden con Lighthouse y se actualizan a mano. Nunca pongas un número que no hayas medido.
 
 ## Desarrollo
 

@@ -1,0 +1,29 @@
+---
+import { guide } from "../content/home";
+---
+
+<section class="section bg-stone">
+  <div class="wrap grid gap-14 md:grid-cols-12">
+    <div class="md:col-span-7">
+      <p class="eyebrow">{guide.eyebrow}</p>
+      <h2 class="h2 mt-5">{guide.title}</h2>
+      <div class="mt-8 max-w-2xl space-y-5 text-lg">
+        {guide.body.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="mt-10 max-w-xl border-2 border-ink bg-concrete p-6">
+        <p class="display text-2xl">{guide.honest.title}</p>
+        <p class="mt-2">{guide.honest.text}</p>
+      </div>
+    </div>
+    <dl class="md:col-span-5 md:pt-14">
+      {
+        guide.facts.map((f) => (
+          <div class="reveal border-l-4 border-ink py-1 pl-5 not-first:mt-8">
+            <dt class="display text-xl">{f.k}</dt>
+            <dd class="mt-1 text-muted">{f.v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

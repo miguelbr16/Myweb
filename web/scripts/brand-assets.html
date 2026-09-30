@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Plantilla de la imagen para redes (og.png, 1200x630) y del icono (apple-touch-icon.png, 180x180).
+     Se renderiza con scripts/brand-assets.mjs. Cambia el texto aquí y vuelve a ejecutarlo. -->
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: Archivo; font-weight: 100 900; font-stretch: 62% 125%; src: url("../src/assets/fonts/archivo-latin-wdth.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Archivo, sans-serif; }
+  .og { width: 1200px; height: 630px; background: #ecede8; position: relative; overflow: hidden; display: none; }
+  body.og-mode .og { display: block; }
+  .og .bar { position: absolute; right: 0; top: 0; bottom: 0; width: 300px; background: #ff5b1f; }
+  .og .sq1 { position: absolute; right: 70px; top: 230px; width: 150px; height: 150px; background: #121411; }
+  .og .sq2 { position: absolute; right: 150px; top: 310px; width: 150px; height: 150px; background: #ecede8; border: 6px solid #121411; }
+  .og h1 { position: absolute; left: 72px; top: 72px; font-size: 80px; line-height: .98; font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -0.025em; color: #121411; }
+  .og .brand { position: absolute; left: 72px; bottom: 64px; font-size: 34px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; font-variation-settings: "wdth" 118; color: #121411; }
+  .og .brand small { font: 600 18px ui-monospace, monospace; letter-spacing: .14em; margin-left: 14px; opacity: .7; }
+  .og .tag { position: absolute; left: 72px; top: 372px; max-width: 800px; font: 600 32px/1.3 Archivo, sans-serif; color: #121411; }
+  .icon { width: 180px; height: 180px; background: #121411; position: relative; display: none; }
+  body.icon-mode .icon { display: block; }
+  .icon i { position: absolute; }
+</style>
+<body>
+  <div class="og">
+    <div class="bar"></div><div class="sq1"></div><div class="sq2"></div>
+    <h1>Que te encuentren.<br />Que te entiendan.<br />Que te escriban.</h1>
+    <div class="brand">Solidum<small>DIGITAL</small></div>
+    <div class="tag">Webs, automatización e IA con el precio a la vista</div>
+  </div>
+  <div class="icon">
+    <i style="left:28px;top:28px;width:84px;height:84px;background:#ff5b1f"></i>
+    <i style="left:68px;top:68px;width:84px;height:84px;background:#e9eae4"></i>
+  </div>
+</body>

@@ -27,11 +27,14 @@
 ## Etapa 2: web propia online
 
 - [x] Base de la web creada en `web/` (one-page, legal, formulario → Resend) — 2026-09-30
-- [ ] Personalizar `web/` (marca, colores y textos en `web/src/content/site.ts`)
-- [ ] Escribir los textos de la one-page según [WEB_PROPIA.md](../strategy/WEB_PROPIA.md)
+- [x] Home con historia, configurador, legal y SEO/GEO/AEO técnico construidos — 2026-09-30 ([diseño](../strategy/DISENO_Y_NARRATIVA.md), [SEO](../strategy/SEO_SEM_GEO_AEO.md))
+- [ ] Sustituir los `TODO` de `web/src/content/site.ts` (email, teléfono, WhatsApp, datos legales)
+- [ ] Decidir la **presencia humana** en la web: nombre, foto y nota de fundación (lo que más credibilidad añade)
 - [ ] Configurar Resend + Turnstile + variables en Cloudflare (pasos en [web/README.md](../../../web/README.md))
 - [ ] Textos legales con tus datos reales (aviso legal, privacidad, cookies)
 - [ ] Deploy en Cloudflare con el dominio y Web Analytics activado
+- [ ] **Checklist de lanzamiento** de [SEO_SEM_GEO_AEO.md §3](../strategy/SEO_SEM_GEO_AEO.md#3-antes-de-lanzar-checklist): `site.url`, `prelaunch: false`, Search Console, Bing Webmaster, ficha de Google
+- [ ] Volver a medir Lighthouse en producción y actualizar la sección «La primera prueba»
 - [ ] Probar el formulario de principio a fin desde el móvil
 
 **Criterio de salida:** la web está online con tu dominio y un envío de prueba te llega por email.

@@ -1,19 +1,74 @@
 ---
-import { hero } from "../content/site";
+import { hero } from "../content/home";
+import { projectTypes, estimate, formatRange } from "../content/pricing";
+import type { ProjectType } from "../content/pricing";
+
+// Ticket del hero: versión reducida del configurador. Sin JS muestra la opción por defecto
+// y el enlace lleva al configurador completo.
+const options: ProjectType[] = ["landing", "starter", "pro", "auto", "custom"];
+const initial: ProjectType = "starter";
+const first = estimate({ type: initial, extras: [], languages: 0, maintenance: "none", urgent: false });
 ---
 
-<section class="bg-gradient-to-b from-teal-50 to-white">
-  <div class="mx-auto max-w-6xl px-4 py-20 md:py-32">
-    <p class="text-sm font-semibold tracking-wide text-brand uppercase">{hero.eyebrow}</p>
-    <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight md:text-6xl">{hero.title}</h1>
-    <p class="mt-6 max-w-2xl text-lg text-muted md:text-xl">{hero.subtitle}</p>
-    <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-      <a href="/presupuesto" class="rounded-full bg-brand px-6 py-3 text-center font-semibold text-white hover:bg-brand-dark">
-        {hero.ctaPrimary}
-      </a>
-      <a href="#servicios" class="rounded-full border border-slate-300 px-6 py-3 text-center font-semibold hover:border-ink">
-        {hero.ctaSecondary}
-      </a>
+<section class="wrap pt-10 pb-16 md:pt-16 md:pb-28">
+  <h1>
+    <span class="eyebrow rise block text-[0.68rem] sm:text-xs" style="--i:0">{hero.eyebrow}<span class="sr-only">:</span></span>
+    <span class="display mt-6 block text-[clamp(1.9rem,8.1vw,6.25rem)]">
+      {hero.lines.map((line, i) => <span class="rise block" style={`--i:${i + 1}`}>{line}</span>)}
+    </span>
+  </h1>
+
+  <div class="mt-10 grid items-start gap-12 md:mt-14 md:grid-cols-12 md:gap-8">
+    <div class="md:col-span-6">
+      <p class="lede rise" style="--i:4">{hero.lede}</p>
+      <div class="rise mt-10 flex flex-wrap items-center gap-x-8 gap-y-4" style="--i:5">
+        <a href="/presupuesto/" class="btn btn-signal">{hero.cta} <span aria-hidden="true">→</span></a>
+        <a href="#como-funciona" class="link font-semibold">{hero.ctaSecondary}</a>
+      </div>
     </div>
+
+    <aside class="rise md:col-span-5 md:col-start-8" style="--i:5" aria-label={hero.ticket.title}>
+      <form id="ticket" class="ticket on-ink bg-ink p-6 text-bone md:p-8" onsubmit="return false">
+        <p class="eyebrow flex items-center justify-between text-fog">
+          <span>{hero.ticket.title}</span><span aria-hidden="true">N.º 001</span>
+        </p>
+        <fieldset class="mt-6">
+          <legend class="label text-fog">{hero.ticket.pick}</legend>
+          <div class="mt-3 grid gap-2">
+            {
+              options.map((key) => (
+                <label class="flex cursor-pointer items-center gap-3 border-2 border-bone/40 px-3 py-2.5 text-[0.95rem] font-semibold transition-colors hover:border-bone has-[:checked]:border-signal has-[:checked]:bg-signal has-[:checked]:text-ink">
+                  <input type="radio" name="ticket-type" value={key} checked={key === initial} class="accent-ink" />
+                  {projectTypes[key].label.replace(/ \(.*\)$/, "")}
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <div class="my-6 border-t-2 border-dashed border-bone/30"></div>
+        <p class="label text-fog">Precio orientativo</p>
+        <p id="t-price" class="display mt-1 text-[clamp(1.9rem,4.5vw,2.6rem)] text-signal" aria-live="polite">
+          {first.oneOff ? formatRange(first.oneOff) : "A medida"}
+        </p>
+        <p id="t-days" class="mt-1 font-mono text-sm text-fog">Plazo: {first.days}</p>
+        <a id="t-cta" href={`/presupuesto/?type=${initial}`} class="btn btn-signal mt-6 w-full">{hero.ticket.cta} <span aria-hidden="true">→</span></a>
+        <p class="mt-4 text-xs leading-relaxed text-fog">{hero.ticket.note}</p>
+      </form>
+    </aside>
   </div>
 </section>
+
+<script>
+  import { estimate, formatRange, isProjectType } from "../content/pricing";
+  import { withAttribution } from "../scripts/attribution";
+
+  const form = document.getElementById("ticket") as HTMLFormElement | null;
+  form?.addEventListener("change", () => {
+    const type = String(new FormData(form).get("ticket-type") ?? "");
+    if (!isProjectType(type)) return;
+    const r = estimate({ type, extras: [], languages: 0, maintenance: "none", urgent: false });
+    document.getElementById("t-price")!.textContent = r.oneOff ? formatRange(r.oneOff) : "A medida";
+    document.getElementById("t-days")!.textContent = `Plazo: ${r.days}`;
+    document.getElementById("t-cta")!.setAttribute("href", withAttribution(`/presupuesto/?type=${type}`));
+  });
+</script>

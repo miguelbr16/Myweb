@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+import fontUrl from "../assets/fonts/archivo-latin-wdth.woff2?url";
 import { site } from "../content/site";
+import { abs, jsonLd } from "../lib/seo";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
@@ -9,12 +11,14 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  graph?: unknown[];
 }
 
-const { title, description = site.description, noindex: pageNoindex = false } = Astro.props;
+const { title, description = site.description, noindex: pageNoindex = false, graph } = Astro.props;
 const noindex = pageNoindex || site.prelaunch;
-const fullTitle = title ? `${title} · ${site.brand}` : `${site.brand} · ${site.tagline}`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
+const fullTitle = title ? `${title} · ${site.brand}` : site.title;
+const canonical = abs(Astro.url.pathname);
+const ogImage = abs("/og.png");
 ---
 
 <!doctype html>
@@ -25,13 +29,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#ecede8" />
+
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:locale" content="es_ES" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.brand}: ${site.tagline}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {graph && <script type="application/ld+json" is:inline set:html={jsonLd(graph)} />}
     {
       site.cfAnalyticsToken && (
         <script
@@ -42,12 +63,22 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
       )
     }
   </head>
-  <body class="bg-white font-sans text-ink antialiased">
+  <body>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-signal focus:px-4 focus:py-2 focus:font-bold"
+    >
+      Saltar al contenido
+    </a>
     <Header />
-    <main>
+    <main id="contenido">
       <slot />
     </main>
     <Footer />
     <WhatsAppButton />
+    <script>
+      import "../scripts/attribution";
+      import "../scripts/turnstile";
+    </script>
   </body>
 </html>

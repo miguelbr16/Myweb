@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // Salida estática: Cloudflare sirve dist/ y functions/ gestiona el formulario.
 export default defineConfig({
-  site: "https://example.com", // TODO: tu dominio
+  // Las URLs absolutas (canonical, sitemap, JSON-LD) salen de site.url en src/content/site.ts; cámbialo allí al tener dominio.
+  site: "https://example.com",
   output: "static",
   vite: {
     plugins: [tailwindcss()],

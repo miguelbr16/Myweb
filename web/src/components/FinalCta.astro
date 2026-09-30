@@ -1,0 +1,13 @@
+---
+import { finalCta } from "../content/home";
+---
+
+<section class="on-signal section bg-signal text-ink">
+  <div class="wrap flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
+    <div>
+      <h2 class="display text-[clamp(2.75rem,9vw,7rem)]">{finalCta.title}</h2>
+      <p class="mt-5 text-xl font-semibold">{finalCta.text}</p>
+    </div>
+    <a href="/presupuesto/" class="btn btn-ink shrink-0">{finalCta.cta} <span aria-hidden="true">→</span></a>
+  </div>
+</section>

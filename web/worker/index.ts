@@ -33,6 +33,13 @@ const MAX = { name: 100, email: 200, website_url: 300, service: 100, message: 20
 const redirect = (request: Request, path: string) =>
   Response.redirect(new URL(path, request.url).toString(), 303);
 
+// Atribución: ref y utm_* llegan en campos ocultos (src/scripts/attribution.ts). Solo caracteres seguros.
+const ATTR_KEYS = ["ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
+function attribution(form: FormData): string {
+  const parts = ATTR_KEYS.map((k) => [k, String(form.get(k) ?? "").replace(/[^\w.\-~% ]/g, "").slice(0, 80)] as const).filter(([, v]) => v);
+  return parts.length ? parts.map(([k, v]) => `${k}=${v}`).join(" · ") : "directo";
+}
+
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
@@ -95,6 +102,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
         <p><b>Nombre:</b> ${safe.name}<br><b>Email:</b> ${safe.email}<br>
         <b>Web actual:</b> ${safe.website_url || "—"}<br><b>Servicio:</b> ${safe.service}</p>
         <p><b>Mensaje:</b><br>${safe.message.replace(/\n/g, "<br>")}</p>
+        <p><b>Origen:</b> ${attribution(form)}</p>
         <p style="color:#64748b">Recibido: ${new Date().toISOString()} · Responde a este email para contestar al lead.</p>`,
     });
   } catch (err) {
@@ -187,6 +195,7 @@ async function handleQuote(request: Request, env: Env): Promise<Response> {
         <b>Contacto:</b> ${safe.name} · ${safe.email}</p>
         ${summary}
         <p><b>Comentarios:</b><br>${safe.message.replace(/\n/g, "<br>") || "—"}</p>
+        <p><b>Origen:</b> ${attribution(form)}</p>
         <p style="color:#64748b">Recibido: ${new Date().toISOString()} · Responde a este email para enviar la propuesta.</p>`,
     });
   } catch (err) {

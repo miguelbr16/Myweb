@@ -1,0 +1,18 @@
+---
+import { site } from "../content/site";
+interface Props {
+  invert?: boolean;
+}
+const { invert = false } = Astro.props;
+---
+
+<a href="/" class="inline-flex items-center gap-2.5" aria-label={`${site.brand}, inicio`}>
+  <svg viewBox="0 0 32 32" class="h-7 w-7 shrink-0" aria-hidden="true">
+    <rect x="3" y="3" width="17" height="17" fill="#ff5b1f"></rect>
+    <rect x="12" y="12" width="17" height="17" fill={invert ? "#e9eae4" : "#121411"}></rect>
+  </svg>
+  <span class="leading-none">
+    <span class="block text-lg font-extrabold tracking-[0.06em] uppercase" style="font-variation-settings:'wdth' 118">Solidum</span>
+    <span class="eyebrow block pt-0.5 text-[0.6rem] opacity-70">Digital</span>
+  </span>
+</a>
