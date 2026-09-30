@@ -6,18 +6,19 @@
 
 ## Siguiente paso
 
-➡️ **Etapa 1:** comprar el dominio del nombre de marca y añadirlo a Cloudflare.
+➡️ **Etapa 2:** fusionar el PR y desplegar el Worker en Cloudflare (`workers.dev`, gratis).
 
 ---
 
 ## Etapa 1: fundaciones
 
-- [ ] Eslogan
+- [x] Eslogan: "Tecnología sólida para hacer crecer tu negocio"
+- [ ] Comprar `solidumdigital.com` (y opcionalmente `solidumlabs.com`) cuando llegue el lanzamiento
 - [ ] Comprar el dominio y darlo de alta en Cloudflare
 - [ ] Email entrante `hola@dominio` con Cloudflare Email Routing → Gmail
 - [ ] Cuenta en Resend y dominio verificado (para enviar emails)
 - [x] Cuenta de Cloudflare creada
-- [x] Nombre de marca elegido (pendiente de pasarlo a `site.ts`)
+- [x] Nombre de marca: **Solidum Digital** (ya en `site.ts`)
 - [ ] Crear el perfil de Instagram de negocio (reservar el nombre, aunque no publiques)
 - [ ] Aprobar o rechazar la [decisión de fusión](../../decisions/2026-09-30-fusion-myweb-webdev.md)
 
@@ -35,30 +36,33 @@
 
 **Criterio de salida:** la web está online con tu dominio y un envío de prueba te llega por email.
 
-## Etapa 3: preparar la venta
+## Etapa 3: preparar la captación (sin llamadas)
 
-- [ ] Prospección en Google Maps de negocios **sin web o solo con redes** (sin sector fijo; el vertical saldrá de los datos). Ver [OUTBOUND.md §0](./OUTBOUND.md)
-- [ ] Saber hacer un **mockup "así se vería tu web"** en menos de 1 h duplicando `web/`
-- [ ] Lista de 30–50 negocios cualificados (≥10 reseñas, nota ≥4,0, sin web)
-- [ ] Preparar los mensajes de [OUTBOUND.md](./OUTBOUND.md)
-- [ ] Propuesta tipo (Notion o PDF manual) con MVP / Fase 2 / Fase 3
+- [x] Configurador `/presupuesto` con precio al instante — 2026-09-30
+- [ ] Plantilla de email de **propuesta** (precio cerrado, plazos, qué incluye, cómo pagar)
+- [ ] **Enlace de pago** del 50 % (p. ej. Stripe Payment Link, sin código)
+- [ ] **Formulario de contenido** para el cliente (textos, fotos, logo): Tally o Google Forms al principio
+- [ ] Ficha de Google de Solidum Digital con enlace a `/presupuesto`
+- [ ] Saber generar una **demo personalizada** en menos de 1 h duplicando `web/`
 - [ ] Aspectos legales y fiscales mínimos antes de facturar ([PUESTA_EN_MARCHA_EMPRESA.md §2](../strategy/PUESTA_EN_MARCHA_EMPRESA.md#2-legal-y-fiscal-antes-de-la-primera-factura))
 
-**Criterio de salida:** ya puedes enviar un mensaje, una auditoría y una propuesta sin improvisar.
+**Criterio de salida:** un cliente puede ir de la web al pago sin hablar contigo.
 
-## Etapa 4: conversaciones
+## Etapa 4: primeros envíos y primeros presupuestos
 
-- [ ] 15 conversaciones con negocios sin web
-- [ ] Hacer seguimiento de cada contacto a las 48–72 h
-- [ ] Enviar el [cuestionario de discovery](./DISCOVERY_CUESTIONARIO.md) a quien muestre interés
-- [ ] Instagram en paralelo: 1–3 posts por semana ([plan](./INSTAGRAM_PLAN_MES_1.md)), sin que frene la venta
-- [ ] **Revisar tras unos 30 contactos:** ¿qué tipo de negocio responde y compra más? Ese pasa a ser el vertical (decision record)
+- [ ] Lista de 30 negocios sin web (Google Maps a mano; ≥10 reseñas, nota ≥4,0)
+- [ ] 10 demos + tarjetas postales con QR ([OUTBOUND.md §2](./OUTBOUND.md))
+- [ ] 2–3 colaboradores (gestoría, fotógrafo…) con enlace `?ref=`
+- [ ] Instagram en paralelo: 1–3 posts por semana ([plan](./INSTAGRAM_PLAN_MES_1.md))
+- [ ] Medir: escaneos del QR → presupuestos → ventas por canal
 
-**Criterio de salida:** ≥1 propuesta formal enviada.
+**Criterio de salida:** ≥3 solicitudes de presupuesto recibidas.
+
+**Fase 2 (cuando haya ≥3 ventas):** generador automático de demos + búsqueda con la API de Google Places.
 
 ## Etapa 5: cliente 1
 
-- [ ] Cerrar C1: alcance firmado y 50 % por adelantado
+- [ ] Cerrar C1: propuesta aceptada por email y 50 % cobrado
 - [ ] Entrega copiando `web/` como base (D-08)
 - [ ] QA con el checklist del discovery y Lighthouse móvil ≥ 90
 - [ ] Mantener el outbound mientras entregas

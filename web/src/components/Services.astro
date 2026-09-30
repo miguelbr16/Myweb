@@ -3,7 +3,7 @@ import Section from "./Section.astro";
 import { services } from "../content/site";
 ---
 
-<Section id="servicios" title={services.title} subtitle={services.subtitle} muted>
+<Section id="paquetes" title={services.title} subtitle={services.subtitle}>
   <div class="grid gap-6 md:grid-cols-3">
     {
       services.items.map((s) => (
@@ -19,8 +19,8 @@ import { services } from "../content/site";
           <ul class="mt-6 flex-1 space-y-2 text-sm">
             {s.features.map((f) => <li>✓ {f}</li>)}
           </ul>
-          <a href="#contacto" class="mt-6 rounded-full bg-ink px-4 py-2 text-center text-sm font-semibold text-white">
-            Pedir presupuesto
+          <a href="/presupuesto" class="mt-6 rounded-full bg-ink px-4 py-2 text-center text-sm font-semibold text-white">
+            Calcular mi presupuesto
           </a>
         </article>
       ))

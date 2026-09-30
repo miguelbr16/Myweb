@@ -3,9 +3,23 @@
 > **Estado:** HYPOTHESIS (P-08). Se ajusta con las primeras 5 propuestas enviadas.  
 > **Fuente:** `archive/web_dev_playbook_2026-07-07/ventas/01-PAQUETES-Y-PRECIOS-BASE.txt` + referencias de competencia de [DIGITAL_FACTORY_CONTEXT.md](../context/DIGITAL_FACTORY_CONTEXT.md) §5
 
-## Propuesta de valor (borrador)
+## Marca y propuesta de valor
 
-> Webs rápidas que convierten visitas en contactos por WhatsApp o formulario, entregadas en días y medidas con datos.
+**Solidum Digital** — *Tecnología sólida para hacer crecer tu negocio.*
+Webs, automatización, IA y datos para negocios de cualquier tamaño. Presupuesto al instante y proceso 100 % online ([modelo asíncrono](../../decisions/2026-09-30-modelo-asincrono.md)).
+
+## Líneas de servicio
+
+| Línea | Qué incluye | Para quién |
+|-------|-------------|------------|
+| Webs y landing pages | Corporativas, landings de campaña, tiendas sencillas | Todos |
+| Automatización | Formularios → email/CRM, respuestas automáticas, recordatorios, integraciones | Negocios con volumen de contactos |
+| Inteligencia artificial | Asistentes 24/7, clasificación de solicitudes, generación de documentos | Pymes y empresas |
+| SEO y Google | SEO técnico y local, ficha de Google, contenido | Negocios locales |
+| Datos y analítica | Paneles de métricas, atribución de canales | Pymes y empresas |
+| Mantenimiento y crecimiento | Hosting, seguridad, cambios, mejoras mensuales | Todos (ingreso recurrente) |
+
+**Fuente única de los precios del configurador:** `web/src/content/pricing.ts`. Esta página resume; si no coinciden, manda el código.
 
 Diferencial (perfil data + dev):
 - No solo webs bonitas: webs que **venden**, más automatización operativa.

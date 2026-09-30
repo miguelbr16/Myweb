@@ -3,7 +3,7 @@ import Section from "./Section.astro";
 import { about } from "../content/site";
 ---
 
-<Section id="sobre-mi" title={about.title} muted>
+<Section id="nosotros" title={about.title}>
   <div class="max-w-3xl space-y-4 text-lg">
     {about.text.map((p) => <p>{p}</p>)}
   </div>

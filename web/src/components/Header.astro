@@ -2,8 +2,8 @@
 import { site } from "../content/site";
 const links = [
   { href: "/#servicios", label: "Servicios" },
-  { href: "/#proceso", label: "Proceso" },
-  { href: "/#sobre-mi", label: "Sobre mí" },
+  { href: "/#paquetes", label: "Paquetes" },
+  { href: "/#proceso", label: "Cómo trabajamos" },
   { href: "/#faq", label: "FAQ" },
 ];
 ---
@@ -15,10 +15,10 @@ const links = [
       {links.map((l) => <a href={l.href} class="hover:text-ink">{l.label}</a>)}
     </nav>
     <a
-      href="/#contacto"
+      href="/presupuesto"
       class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
     >
-      Auditoría gratis
+      Presupuesto
     </a>
   </div>
 </header>

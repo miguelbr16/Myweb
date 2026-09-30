@@ -1,6 +1,6 @@
 # Web propia (marca personal) — V0.2
 
-> **Estado:** PLAN — pendiente de nombre de marca (bloqueante)  
+> **Estado:** base construida (Solidum Digital); pendiente de datos reales y dominio  
 > **Stack:** **Astro + Tailwind + TS**, código en `web/` de este repo (P-01, P-06), salida estática en **Cloudflare** (P-10)
 
 ## 1. Marca — decisión pendiente

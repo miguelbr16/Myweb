@@ -6,7 +6,8 @@ One-page de captación + textos legales + formulario conectado a email. Es el **
 
 | Qué | Dónde |
 |-----|-------|
-| Marca, contacto, datos legales, textos, precios | `src/content/site.ts` (valores marcados con `TODO`) |
+| Marca, contacto, datos legales, textos | `src/content/site.ts` (valores marcados con `TODO`) |
+| Precios y reglas del configurador `/presupuesto` | `src/content/pricing.ts` |
 | Dominio | `astro.config.mjs` (`site`) + `site.url` en `site.ts` |
 | Colores y tipografía | `src/styles/global.css` (`@theme`) |
 | Secciones de la home | `src/pages/index.astro` (orden) y `src/components/` |

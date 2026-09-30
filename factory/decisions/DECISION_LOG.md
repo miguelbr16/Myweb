@@ -96,7 +96,9 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 | P-09 | PROVISIONAL | **Cliente ideal en dos niveles**: marca generalista (negocios locales de servicios) y outbound a **un vertical cada vez**, con experimento de 30 días | Avanza O-01, O-02 |
 | D-10 | DECIDED | **Myweb es la única fuente de verdad.** WEB_DEV queda archivado en `archive/` | — |
 | X-16 | DO NOT BUILD | CRM propio / tabla de leads en DB antes del trigger (C1 entregado, ≥3 clientes o ≥30 leads/mes) | Roadmap WEB_DEV semana 5 |
-| X-17 | DO NOT BUILD | Presupuestador por reglas antes de C1 | Roadmap WEB_DEV semana 6 |
+| ~~X-17~~ | ~~DO NOT BUILD~~ | ~~Presupuestador por reglas antes de C1~~ → **sustituido por P-11** | Roadmap WEB_DEV semana 6 |
+| P-11 | **DECIDED** | **Modelo de venta asíncrono**: configurador `/presupuesto` con precio al instante, todo por email, sin llamadas obligatorias. Marca **Solidum Digital** → [decisión](./2026-09-30-modelo-asincrono.md) | Sustituye X-17 |
+| X-20 | DO NOT BUILD | Envíos automáticos de email, WhatsApp o DM en frío (LSSI art. 21) y scraping de Google Maps (usar Places API) | Legal |
 | X-18 | DO NOT BUILD | Dashboard y PDF automático de propuestas antes de C1 | Roadmap WEB_DEV semanas 7–8 |
 | X-19 | DO NOT BUILD | Panel `/admin` con "password simple" (usar autenticación real o no tener panel) | Seguridad y RGPD |
 
@@ -110,3 +112,4 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 | 2026-09-30 | V0.2 PROPUESTO — fusión con WEB_DEV (P-06…P-09, D-10, X-16…X-19) |
 | 2026-09-30 | P-10 DECIDED — hosting en Cloudflare |
 | 2026-09-30 | P-06 redefinido: sin código de 24Shoots; P-01 (Astro) reafirmado |
+| 2026-09-30 | P-11 modelo asíncrono + Solidum Digital; X-17 sustituido; X-20 añadido |

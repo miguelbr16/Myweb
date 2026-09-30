@@ -5,6 +5,8 @@
 
 ## 1. Marca
 
+> ✅ **Elegida: Solidum Digital** (2026-09-30). Ver la [decisión](../../decisions/2026-09-30-modelo-asincrono.md). Lo de abajo queda como histórico.
+
 **Criterios para el nombre:**
 - Corto y fácil de decir por teléfono y de escribir en un DM.
 - Dominio `.com` o `.es` y usuario de Instagram libres.
@@ -54,7 +56,7 @@
 - **Encargados del tratamiento** que debes listar en tu política de privacidad: Cloudflare (hosting, analítica, email routing), Resend (email) y, si los usas, Notion o Google.
 - **Formulario:** pide solo los datos necesarios (D-05), añade un checkbox de privacidad y define un plazo de conservación (p. ej. 12 meses sin relación comercial → borrar).
 - **Tabla de leads y prospectos:** fuera del repo público y con acceso solo tuyo.
-- **Outbound:** ver las reglas en [OUTBOUND.md](../playbooks/OUTBOUND.md).
+- **Captación:** nada de emails, WhatsApp ni DMs comerciales en frío (LSSI art. 21, también a empresas). Ver [OUTBOUND.md](../playbooks/OUTBOUND.md).
 
 ## 5. Herramientas y costes mínimos
 
@@ -73,7 +75,7 @@
 
 ## 6. Ideas y recomendaciones para crecer
 
-1. **Productiza la auditoría express.** Es tu mejor gancho (ver [OUTBOUND.md](../playbooks/OUTBOUND.md)), y más adelante puede ser un producto de pago (49–99 €) que se descuenta si contratan la web.
+1. **La demo personalizada es tu gancho.** Un negocio sin web ve la suya sin que hables con él (ver [OUTBOUND.md](../playbooks/OUTBOUND.md)). Automatiza su generación cuando lleves ≥3 ventas.
 2. **Mantenimiento como base de ingresos recurrentes.** 5 clientes a 80–150 €/mes cubren los costes fijos. Ofrécelo en todas las propuestas.
 3. **Google Business Profile como extra barato.** Para negocios locales suele traer más contactos que la propia web. Optimizarlo lleva 1–2 h y se puede vender a 90–150 €.
 4. **Demos por vertical.** Una landing de ejemplo por sector (p. ej. clínica dental ficticia) sirve de portfolio mientras no tengas casos reales. Señálala siempre como demo.
