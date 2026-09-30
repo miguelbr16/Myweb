@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "npm run build && wrangler pages dev dist",
-    "deploy": "npm run build && wrangler pages deploy dist"
+    "build": "node scripts/check-copy.mjs && astro check && astro build",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "check:copy": "node scripts/check-copy.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

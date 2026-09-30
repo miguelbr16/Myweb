@@ -1,24 +1,27 @@
 ---
-import { site } from "../content/site";
+import Wordmark from "./Wordmark.astro";
 const links = [
-  { href: "/#servicios", label: "Servicios" },
-  { href: "/#proceso", label: "Proceso" },
-  { href: "/#sobre-mi", label: "Sobre mí" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#que-hacemos", label: "Qué hacemos" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/#precios", label: "Precios" },
+  { href: "/#preguntas", label: "Preguntas" },
 ];
 ---
 
-<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-    <a href="/" class="text-lg font-bold tracking-tight">{site.brand}</a>
-    <nav class="hidden gap-6 text-sm text-muted md:flex" aria-label="Principal">
-      {links.map((l) => <a href={l.href} class="hover:text-ink">{l.label}</a>)}
+<header class="sticky top-0 z-40 border-b-2 border-ink bg-concrete">
+  <div class="wrap flex items-center justify-between gap-4 py-3">
+    <Wordmark />
+    <nav class="hidden items-center gap-7 text-sm font-semibold md:flex" aria-label="Principal">
+      {links.map((l) => <a href={l.href} class="hover:underline hover:decoration-signal hover:decoration-2 hover:underline-offset-4">{l.label}</a>)}
     </nav>
-    <a
-      href="/#contacto"
-      class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
-    >
-      Auditoría gratis
-    </a>
+    <div class="flex items-center gap-3">
+      <a href="/presupuesto/" class="btn btn-signal !px-4 !py-2 text-sm">Presupuesto</a>
+      <details class="relative md:hidden">
+        <summary class="eyebrow flex h-10 cursor-pointer list-none items-center border-2 border-ink px-3 [&::-webkit-details-marker]:hidden">Menú</summary>
+        <nav class="absolute right-0 mt-2 w-56 border-2 border-ink bg-concrete p-2" aria-label="Móvil">
+          {links.map((l) => <a href={l.href} class="block px-3 py-2 font-semibold hover:bg-signal">{l.label}</a>)}
+        </nav>
+      </details>
+    </div>
   </div>
 </header>

@@ -1,0 +1,3 @@
+Archivo (variable, subset latin) — SIL Open Font License 1.1.
+Origen: paquete npm @fontsource-variable/archivo (https://fontsource.org/fonts/archivo).
+Autores: Omnibus-Type. Licencia completa: https://openfontlicense.org

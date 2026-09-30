@@ -23,7 +23,7 @@ Desde 2026-09-30 incluye el antiguo `WEB_DEV/DEV-BUSINESS-PLAYBOOK` (archivado e
 ```
 web/                          Web propia: Astro + Tailwind, desplegada en Cloudflare
 ├── src/content/site.ts       ← todos los textos, precios y datos (edita aquí)
-└── functions/api/contact.ts  Formulario → Turnstile → Resend
+└── worker/index.ts           Formulario → Turnstile → Resend (Cloudflare Worker)
 
 factory/                      ← ábrelo como vault de Obsidian
 ├── docs/

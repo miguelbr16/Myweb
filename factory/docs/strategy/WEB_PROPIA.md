@@ -1,51 +1,34 @@
-# Web propia (marca personal) — V0.2
+# Web propia — Solidum Digital
 
-> **Estado:** PLAN — pendiente de nombre de marca (bloqueante)  
-> **Stack:** **Astro + Tailwind + TS**, código en `web/` de este repo (P-01, P-06), salida estática en **Cloudflare** (P-10)
+> **Estado:** home y configurador construidos (2026-09-30); pendiente de datos reales, dominio y lanzamiento.  
+> **Stack:** Astro + Tailwind + TypeScript en `web/` (P-01, P-06), salida estática en Cloudflare Workers (P-10).  
+> **Diseño y narrativa:** [DISENO_Y_NARRATIVA.md](./DISENO_Y_NARRATIVA.md) · **SEO, SEM, GEO y AEO:** [SEO_SEM_GEO_AEO.md](./SEO_SEM_GEO_AEO.md)
 
-## 1. Marca — decisión pendiente
+## 1. Marca
 
-Candidatos y criterios: [PUESTA_EN_MARCHA_EMPRESA.md §1](./PUESTA_EN_MARCHA_EMPRESA.md#1-marca)
+- ✅ **Solidum Digital**: «Webs, automatización e IA con el precio a la vista».
+- Dominio objetivo: `solidumdigital.com` (y `solidumlabs.com` como opcional). Sin comprar todavía.
+- Bio de Instagram sugerida: «Webs, automatización e IA con el precio a la vista · Calcula tu presupuesto en 1 minuto · 🔗 enlace». Los emojis van en las redes, no en la web (la web los rechaza en `check-copy`).
 
-- [ ] Nombre de marca (3 opciones, consultar disponibilidad de dominio `.com`/`.es` y usuario de Instagram)
-- [ ] Eslogan en una línea
-- [ ] Tono: cercano, técnico sin jerga, orientado a resultados
+## 2. Páginas
 
-Bio de Instagram sugerida (del playbook):
-> Diseño web que convierte | Automatizaciones para pymes  
-> Webs rápidas, útiles y fáciles de mantener  
-> 📩 DM "WEB" o "INFO" | 🔗 [tu web]
+| Ruta | Estado | Indexable |
+|------|--------|-----------|
+| `/` | Hecha: 10 secciones con hilo encontrar, entender, escribir | Sí |
+| `/presupuesto/` | Hecha: configurador con precio al instante | Sí |
+| `/presupuesto/enviado/`, `/gracias/`, `/error/`, 404 | Hechas | No |
+| `/aviso-legal/`, `/privacidad/`, `/cookies/` | Hechas (plantilla; falta titular, NIF y dirección reales) | Sí (baja prioridad) |
+| `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt` | Generadas en el build | — |
 
-## 2. Estructura
+**Siguientes:** páginas por servicio (webs, automatización, IA, SEO local), casos reales y, cuando haya datos de un sector, páginas por sector. Detalle en [SEO_SEM_GEO_AEO.md §4](./SEO_SEM_GEO_AEO.md#4-seo-siguiente-fase).
 
-### MVP (semanas 1–2): one-page + legal
+## 3. Requisitos técnicos (cumplidos salvo lo marcado)
 
-Una sola página con anclas, que convierte mejor y se entrega antes:
-
-1. **Hero:** propuesta de valor, CTA WhatsApp y CTA formulario
-2. **Problema:** 5 errores que hacen perder clientes a la web de un negocio local
-3. **Servicios y paquetes:** tabla de [OFERTA_Y_PRECIOS.md](./OFERTA_Y_PRECIOS.md) con rangos "desde"
-4. **Proceso:** brief → MVP en X días → iteración con datos
-5. **Casos:** proyectos reales con permiso escrito del cliente, o demos señaladas como tales
-6. **Sobre mí:** científico de datos que hace webs y las mide
-7. **FAQ:** plazos, mantenimiento, propiedad del código y del dominio
-8. **Contacto:** formulario mínimo (nombre, email, servicio, mensaje), `wa.me` y `tel:`
-9. `/legal`: aviso legal, privacidad y cookies
-
-### Fase 2 (tras los primeros leads)
-
-`/servicios` · `/casos` · `/proceso` · `/sobre-mi` · `/contacto` como páginas independientes, `/recursos` (guías y checklists como lead magnet) y EN opcional.
-
-### Fase 3 (tras C1)
-
-`/presupuesto` (presupuestador, X-17) y landings por vertical (`/clinicas-dentales`, `/productoras`…).
-
-## 3. Requisitos técnicos
-
-- Responsive en móvil, tablet y escritorio. Lighthouse móvil ≥ 90.
-- Formulario → **función de Cloudflare** (Turnstile + **Resend**): acuse al lead + aviso al fundador (P-07, P-10).
-- Formulario con **minimización de datos** (D-05) y checkbox de privacidad.
-- Analítica: **Cloudflare Web Analytics** (sin cookies, sin banner por analítica).
-- Medición: visitas a `/gracias` = leads del formulario; WhatsApp con mensaje predefinido (Cloudflare Web Analytics no tiene eventos personalizados).
-- **Código:** [`web/`](../../../web/README.md), base ya creada (2026-09-30).
-- Legal real: titular, NIF y dirección (LSSI), política de privacidad y lista de encargados (Cloudflare, Resend).
+- ✅ Responsive, Lighthouse móvil 100/100/100/100 en local (109 KiB).
+- ✅ Formulario y configurador → Worker de Cloudflare (Turnstile + Resend): aviso al fundador; acuse al cliente cuando haya dominio verificado (`SEND_ACK`).
+- ✅ Minimización de datos (D-05) y casilla de privacidad.
+- ✅ Sin cookies: analítica de Cloudflare sin cookies, atribución por URL (`ref`, `utm_*`) y fuentes autoalojadas.
+- ✅ Medición: visitas a `/gracias/` y `/presupuesto/enviado/`, más el campo `Origen:` de cada email.
+- [ ] Legal real: titular, NIF y dirección (LSSI), lista de encargados (Cloudflare, Resend).
+- [ ] Clave real de Turnstile, email, teléfono y WhatsApp reales en `site.ts`.
+- [ ] Dominio propio y `prelaunch: false`.

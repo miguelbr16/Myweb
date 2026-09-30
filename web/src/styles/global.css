@@ -1,14 +1,274 @@
 @import "tailwindcss";
 
+/* Archivo variable (wght 100–900, wdth 62–125), subset latin, autoalojada: sin peticiones a Google. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("../assets/fonts/archivo-latin-wdth.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*
+  Paleta (contrastes medidos, WCAG):
+    ink/concrete 15,7 · muted/concrete 6,5 · ink/signal 6,0 · bone/ink 15,3 · fog/ink 7,7 · signal/ink 6,0
+  Regla: el naranja (signal) NUNCA va como texto sobre concrete (2,6). Va de relleno con texto ink, o como texto sobre ink.
+*/
 @theme {
-  --color-brand: #0f766e;
-  --color-brand-dark: #115e59;
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-  --color-surface: #f8fafc;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-ink: #121411;
+  --color-concrete: #ecede8;
+  --color-stone: #d9dbd3;
+  --color-graphite: #2a2d29;
+  --color-muted: #50554e;
+  --color-signal: #ff5b1f;
+  --color-bone: #e9eae4;
+  --color-fog: #a4a99f;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  background-color: var(--color-concrete);
+  /* Grano sutil: textura de papel/hormigón, una sola imagen SVG repetida. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+.on-ink :focus-visible,
+.on-signal :focus-visible {
+  outline-color: var(--color-bone);
+}
+.on-signal :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+@layer components {
+  /* Titulares: anchos y pesados (eje wdth) para que la marca pese. */
+  .display {
+    font-weight: 800;
+    font-variation-settings: "wdth" 112;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+  .h2 {
+    font-weight: 800;
+    font-variation-settings: "wdth" 108;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    font-size: clamp(2rem, 5.2vw, 3.75rem);
+    text-wrap: balance;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .lede {
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+    line-height: 1.5;
+    max-width: 38rem;
+  }
+  .wrap {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+  .section {
+    padding-block: 5rem;
+  }
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 8rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border: 2px solid var(--color-ink);
+    border-radius: 2px;
+    padding: 0.85rem 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 4px 4px 0 var(--color-ink);
+  }
+  .btn:active {
+    transform: translate(0, 0);
+    box-shadow: none;
+  }
+  .btn-signal {
+    background: var(--color-signal);
+    color: var(--color-ink);
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-bone);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: inherit;
+  }
+  .on-ink .btn {
+    border-color: var(--color-bone);
+  }
+  .on-ink .btn:hover {
+    box-shadow: 4px 4px 0 var(--color-bone);
+  }
+  .on-ink .btn-signal {
+    border-color: var(--color-signal);
+    box-shadow: none;
+  }
+  .on-ink .btn-signal:hover {
+    box-shadow: 4px 4px 0 var(--color-bone);
+  }
+  .on-signal .btn-ink:hover {
+    box-shadow: 4px 4px 0 var(--color-bone);
+  }
+
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--color-signal);
+  }
+  .link:hover {
+    background: var(--color-signal);
+    color: var(--color-ink);
+    text-decoration-color: transparent;
+  }
+
+  /* Campos de formulario */
+  .field {
+    display: block;
+    width: 100%;
+    margin-top: 0.35rem;
+    border: 2px solid var(--color-ink);
+    border-radius: 2px;
+    background: var(--color-concrete);
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    color: var(--color-ink);
+  }
+  .field:focus {
+    outline: 3px solid var(--color-signal);
+    outline-offset: 0;
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Opción elegible (radio/checkbox) del configurador */
+  .choice {
+    display: flex;
+    cursor: pointer;
+    gap: 0.75rem;
+    border: 2px solid var(--color-ink);
+    border-radius: 2px;
+    background: var(--color-concrete);
+    padding: 1rem;
+    transition: background 0.15s ease;
+  }
+  .choice:hover {
+    background: var(--color-stone);
+  }
+  .choice:has(:checked) {
+    background: var(--color-signal);
+  }
+  .choice input {
+    accent-color: var(--color-ink);
+    margin-top: 0.3rem;
+  }
+
+  /* Ticket con borde dentado (hero y configurador) */
+  .ticket {
+    --tooth: 14px;
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--tooth) 100%;
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--tooth) 100%;
+    padding-bottom: calc(var(--tooth) * 0.6);
+  }
+
+  .faq-q {
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Movimiento: solo con preferencia normal, solo transform/opacity. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn,
+  .choice {
+    transition: none;
+  }
 }

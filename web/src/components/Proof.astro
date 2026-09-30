@@ -1,0 +1,34 @@
+---
+import { proof } from "../content/home";
+const m = proof.measured;
+const ready = m && m.scores.every((s) => s.value > 0);
+---
+
+<section class="section">
+  <div class="wrap grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-5">
+      <p class="eyebrow">{proof.eyebrow}</p>
+      <h2 class="h2 mt-5">{proof.title}</h2>
+      <p class="mt-6 text-lg">{proof.text}</p>
+    </div>
+    {
+      ready && m && (
+        <div class="md:col-span-7">
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-10">
+            {
+              m.scores.map((s) => (
+                <li class="reveal border-t-4 border-ink pt-3">
+                  <span class="display text-[clamp(3.5rem,9vw,6.5rem)] leading-none">{s.value}</span>
+                  <span class="block font-semibold">{s.label}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-8 font-mono text-xs text-muted">
+            {m.tool}, {m.date}.{m.weight && ` ${m.weight}`} <a class="link" href={proof.verifyUrl} rel="noopener">{proof.verify}</a>.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</section>

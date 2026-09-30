@@ -1,55 +1,48 @@
 ---
-import Section from "./Section.astro";
-import { contactSection, site } from "../content/site";
-// Formulario sin JavaScript propio: POST a la función de Cloudflare (functions/api/contact.ts),
-// que redirige a /gracias o a /error. Solo Turnstile carga un script externo.
-// Minimización de datos (D-05): solo lo necesario para responder.
-const input = "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand focus:outline-none";
+import { contactSection } from "../content/home";
+import { site } from "../content/site";
+// Formulario sin JavaScript propio: POST al Worker (worker/index.ts). Datos mínimos (D-05).
 ---
 
-<Section id="contacto" title={contactSection.title} subtitle={contactSection.subtitle} muted>
-  <form method="POST" action="/api/contact" class="grid max-w-2xl gap-4 rounded-2xl bg-white p-6 shadow-sm">
-    <label class="block">
-      <span class="text-sm font-medium">Nombre *</span>
-      <input name="name" required maxlength="100" autocomplete="name" class={input} />
-    </label>
-    <label class="block">
-      <span class="text-sm font-medium">Email *</span>
-      <input name="email" type="email" required maxlength="200" autocomplete="email" class={input} />
-    </label>
-    <label class="block">
-      <span class="text-sm font-medium">Web actual (si tienes)</span>
-      <input name="website_url" type="url" maxlength="300" placeholder="https://" class={input} />
-    </label>
-    <label class="block">
-      <span class="text-sm font-medium">¿Qué necesitas? *</span>
-      <select name="service" required class={input}>
-        {contactSection.serviceOptions.map((o) => <option>{o}</option>)}
-      </select>
-    </label>
-    <label class="block">
-      <span class="text-sm font-medium">Cuéntame un poco *</span>
-      <textarea name="message" required maxlength="2000" rows="4" class={input}></textarea>
-    </label>
-
-    <!-- Honeypot anti-spam: invisible para personas -->
-    <div class="hidden" aria-hidden="true">
-      <label>No rellenar <input name="company" tabindex="-1" autocomplete="off" /></label>
+<section id="contacto" class="section">
+  <div class="wrap grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <p class="eyebrow">{contactSection.eyebrow}</p>
+      <h2 class="h2 mt-5">{contactSection.title}</h2>
+      <p class="mt-5 text-muted">{contactSection.subtitle}</p>
     </div>
-
-    <label class="flex items-start gap-2 text-sm">
-      <input type="checkbox" name="privacy" value="yes" required class="mt-1" />
-      <span>
-        He leído y acepto la <a href="/privacidad" class="underline">política de privacidad</a>. Usaré tus datos solo
-        para responder a tu solicitud.
-      </span>
-    </label>
-
-    <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey} data-language="es"></div>
-
-    <button type="submit" class="rounded-full bg-brand px-6 py-3 font-semibold text-white hover:bg-brand-dark">
-      Enviar
-    </button>
-  </form>
-  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-</Section>
+    <form method="POST" action="/api/contact" data-attribution class="grid gap-5 md:col-span-7 md:col-start-6">
+      <label class="block">
+        <span class="label">Nombre *</span>
+        <input name="name" required maxlength="100" autocomplete="name" class="field" />
+      </label>
+      <label class="block">
+        <span class="label">Email *</span>
+        <input name="email" type="email" required maxlength="200" autocomplete="email" class="field" />
+      </label>
+      <label class="block">
+        <span class="label">Web actual o redes (si tienes)</span>
+        <input name="website_url" maxlength="300" placeholder="https://… o @instagram" class="field" />
+      </label>
+      <label class="block">
+        <span class="label">¿Qué necesitas? *</span>
+        <select name="service" required class="field">
+          {contactSection.serviceOptions.map((o) => <option>{o}</option>)}
+        </select>
+      </label>
+      <label class="block">
+        <span class="label">Cuéntanos un poco *</span>
+        <textarea name="message" required maxlength="2000" rows="4" class="field"></textarea>
+      </label>
+      <div class="hidden" aria-hidden="true">
+        <label>No rellenar <input name="company" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <label class="flex items-start gap-3 text-sm">
+        <input type="checkbox" name="privacy" value="yes" required class="mt-1 accent-ink" />
+        <span>Acepto la <a href="/privacidad/" class="link">política de privacidad</a>. Usaremos tus datos solo para responderte.</span>
+      </label>
+      <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey} data-language="es"></div>
+      <button type="submit" class="btn btn-ink justify-self-start">Enviar mensaje <span aria-hidden="true">→</span></button>
+    </form>
+  </div>
+</section>

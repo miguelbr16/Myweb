@@ -1,0 +1,22 @@
+---
+import { fact } from "../content/home";
+---
+
+<section class="section bg-stone">
+  <div class="wrap grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <p class="eyebrow">{fact.eyebrow}</p>
+      <h2 class="h2 mt-5">{fact.title}</h2>
+    </div>
+    <dl class="md:col-span-8">
+      {
+        fact.rows.map((r) => (
+          <div class="grid gap-1 border-t-2 border-ink py-4 md:grid-cols-[11rem_1fr] md:gap-6">
+            <dt class="eyebrow pt-1">{r.k}</dt>
+            <dd>{r.v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

@@ -20,7 +20,7 @@
 - [ ] Anti-spam: Turnstile + honeypot
 - [ ] Sin datos sensibles en los logs del servidor (D-05)
 
-Archivo: `web/functions/api/contact.ts`.
+Archivo: `web/worker/index.ts`.
 
 Registro de leads mientras no haya CRM: **una tabla manual** (Notion o una hoja) con nombre, origen, servicio, estado y fecha. Cuesta 2 minutos por lead.
 

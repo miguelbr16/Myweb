@@ -1,89 +1,78 @@
-# Outbound — cómo conseguir las primeras conversaciones
+# Captación de clientes — modelo asíncrono (sin llamadas)
 
-> **Estado:** HYPOTHESIS. Mide las respuestas y ajusta.  
-> **Objetivo:** 15 conversaciones con un vertical en 30 días ([contexto](../context/DIGITAL_FACTORY_CONTEXT.md) §5).
+> **Estado:** HYPOTHESIS. Mide y ajusta.  
+> **Decisión:** [modelo asíncrono](../../decisions/2026-09-30-modelo-asincrono.md). Nada de auditorías manuales ni llamadas obligatorias: el cliente **se configura el presupuesto solo** en `/presupuesto` y todo va por escrito.  
+> Sustituye a la versión anterior (auditoría + DMs + llamadas), que se puede consultar en el historial de git.
 
-## 0. Estrategia actual: negocios sin web en Google Maps (2026-09-30)
+## 0. El embudo
 
-> **Decisión del fundador:** todavía no hay sector elegido. Se prospecta **cualquier comercio o empresa local** que en Google Maps **no tenga web** o solo tenga redes sociales. El sector saldrá de los datos: tras unas 30 conversaciones, se mira qué tipo de negocio responde y compra más, y ese pasa a ser el vertical.
+```
+Te encuentran (inbound)  ─┐
+Reciben su demo (QR)     ─┼─► web ─► /presupuesto ─► email a Solidum ─► propuesta por email
+Les recomiendan          ─┘                                              │
+                                   pago 50 % ◄─────────────────────────┘
+                                      │
+                         formulario de contenido ─► enlace de prueba ─► publicación ─► mantenimiento
+```
 
-### Cómo buscar
+**Tu trabajo manual por cliente:** revisar el brief, enviar la propuesta (plantilla), construir y publicar. Nada más.
 
-1. En Google Maps busca `[tipo de negocio] en [tu ciudad o barrio]` (peluquería, fisioterapia, taller, reformas, restaurante, academia, estética, veterinario…).
-2. Abre la ficha y cualifica:
-   - ✅ **Sin botón "Sitio web"**, o el enlace lleva a Instagram, Facebook o Linktree
-   - ✅ **≥ 10 reseñas y nota ≥ 4,0**: es un negocio activo y con clientes, que puede pagar
-   - ✅ Tiene teléfono o Instagram para contactar
-   - ❌ Cadenas o franquicias (deciden en central)
-3. Apúntalo en la tabla del §4 con estas columnas extra: **tipo de negocio · nº reseñas · nota · redes · ¿web? (no / solo redes)**.
+## 1. Inbound: que te encuentren (automático una vez montado)
 
-Meta semanal si vas poco a poco: **10 negocios cualificados y 5 contactos**.
+| Canal | Qué hacer | Esfuerzo |
+|-------|-----------|----------|
+| **Ficha de Google de Solidum** | Crear el perfil de empresa: categoría "Diseñador de sitios web", servicios, fotos y enlace a `/presupuesto` | 1 h, una vez |
+| **SEO de la web** | Fase 2: páginas por servicio y por sector (`/webs-para-restaurantes`…) que respondan a lo que la gente busca | Progresivo |
+| **Instagram / LinkedIn** | Publicar casos, demos y "cuánto cuesta una web", siempre con el enlace al configurador | 1–3 posts por semana |
+| **Anuncios** (opcional) | Google Ads con "diseño web [ciudad]" y destino `/presupuesto`. Empezar con 5 €/día y medir | Presupuesto diario |
+| **Directorios** | Perfiles en directorios de freelancers y agencias con enlace | 1 h, una vez |
 
-### Gancho para negocios SIN web: "así se vería tu web"
+## 2. Negocios sin web: "te enviamos tu demo"
 
-A quien no tiene web no le sirve una auditoría de su web. Le sirve **ver la suya**:
-- **Mockup de su web:** una captura o una demo privada no indexada de una landing con su nombre, sus servicios y su botón de WhatsApp, hecha en 30–60 min duplicando `web/`. No publiques sus fotos ni su logo en abierto; la demo es solo para enseñársela a él.
-- **Mini diagnóstico de su ficha de Google:** fotos, horario, respuesta a reseñas, categoría y descripción. Muchas fichas se mejoran en una hora.
-- **Producto de entrada:** la **Landing de conversión** (desde 450 €) + optimización de la ficha de Google.
+La prueba de la que hablas: **el negocio recibe una demo de su propia web**, sin que tengas que hablar con él.
 
-Mensaje (DM de Instagram, WhatsApp Business del negocio o en persona):
+### Paso a paso
 
-> Hola [nombre], he visto [negocio] en Google Maps: [nº] reseñas con un [nota], ¡enhorabuena! He visto que no tenéis web y que quien os busca en Google solo encuentra la ficha. Os he preparado un boceto de cómo podría ser vuestra web, con reservas o contacto por WhatsApp. ¿Os lo enseño? Son 2 minutos y sin compromiso.
+1. **Encontrar negocios sin web.**
+   - Manual: en Google Maps, fichas **sin botón "Sitio web"**, con **≥10 reseñas** y **nota ≥4,0**. Descarta cadenas.
+   - Automático (fase 2): un script con la **API oficial de Google Places** que busca por categoría y ciudad y filtra los que no tienen web. **No hagas scraping de Maps**, va contra sus condiciones.
+2. **Generar la demo.** Una landing con su nombre, su sector y sus servicios, publicada en una URL privada y no indexada (p. ej. `demo.solidumdigital.com/bar-pepe`).
+   - Hoy se hace duplicando `web/` a mano, en unos 30–60 min.
+   - Fase 2: un **generador de demos** que la cree sola a partir de nombre, sector y ciudad.
+   - Sin sus fotos ni su logo, y marcada como "Demo".
+3. **Hacérsela llegar de forma legal:**
+   - ✅ **Carta o tarjeta postal** con un QR a su demo y a `/presupuesto`. Es legal, llama la atención y no requiere hablar.
+   - ✅ **Dejarla en mano** en el local: un sobre con la tarjeta, sin conversación.
+   - ⚠️ Formulario de contacto de su web (si tiene), de uno en uno y personalizado.
+   - ❌ **Email, WhatsApp o DM masivos o automáticos en frío.** La LSSI (art. 21) prohíbe las comunicaciones comerciales electrónicas no solicitadas, también a empresas.
+4. **El negocio entra en su demo**, pulsa "Quiero esta web", va a `/presupuesto` y el embudo sigue solo.
 
-Argumentos que funcionan con negocios sin web:
-- "Quien os busca en Google y no encuentra web se va al siguiente de la lista."
-- "Instagram no aparece bien en Google cuando buscan '[servicio] en [ciudad]'."
-- "Una web sencilla que lleve a WhatsApp, lista en días y pagando una sola vez."
+### Texto de la tarjeta (ejemplo)
 
-## 1. El gancho para negocios CON web floja: auditoría express gratuita (15 min de tu tiempo)
+> **[Negocio], así podría ser vuestra web.**
+> Os hemos preparado una demo gratuita: escanead el QR y vedla en el móvil.
+> Si os gusta, calculad el precio en 1 minuto, sin llamadas ni compromiso.
+> — Solidum Digital · solidumdigital.com
 
-Aprovecha tu perfil de datos: en lugar de "te hago una web", ofrece **un diagnóstico concreto y medible**.
+Coste: unos 0,70–1,50 € por envío postal (tarjeta + sello). **Mide:** escaneos del QR (añade `?ref=postal-<id>` a la URL) → presupuestos → ventas.
 
-Checklist de la auditoría (se hace sin hablar con el cliente):
-- [ ] PageSpeed Insights móvil: puntuación, LCP y captura
-- [ ] ¿Hay un CTA visible sin hacer scroll en el móvil? ¿WhatsApp o teléfono clicables?
-- [ ] ¿Cuántos campos tiene el formulario? ¿Funciona?
-- [ ] ¿Google Business Profile completo (fotos, horario, reseñas respondidas)?
-- [ ] ¿Aparece en Google para "[servicio] + [ciudad]"?
-- [ ] 3 mejoras concretas priorizadas
+## 3. Colaboradores (recomiendan por ti)
 
-Formato de entrega: 1 imagen o PDF de una página, o un vídeo Loom de 2 minutos.
+Gestorías, fotógrafos, agencias de redes sin desarrollador e imprentas: tienen clientes que necesitan web.
+- Les das un enlace propio (`/presupuesto?ref=gestoria-x`) y una **comisión del 10–15 %** por cliente cerrado.
+- Contáctalos por correo postal, en persona o por su formulario. Es una relación B2B de uno en uno, no una campaña masiva.
 
-## 2. Mensajes
+## 4. Registro y métricas
 
-### Primer contacto (DM o email)
+Tabla fuera del repo (Notion o una hoja), sin datos sensibles:
 
-> Hola [nombre], he visto la web de [negocio] desde el móvil y he detectado [fallo concreto, p. ej. "el botón de reservar no aparece hasta el final"]. Te he preparado un diagnóstico rápido con 3 mejoras concretas, sin compromiso. ¿Te lo mando por aquí?
+| Fecha | Negocio | Sector | Canal (inbound / postal / colaborador / anuncio) | ref | ¿Visitó la demo? | ¿Pidió presupuesto? | Estado |
+|-------|---------|--------|---------------------------------------------------|-----|------------------|---------------------|--------|
 
-### Seguimiento (48–72 h sin respuesta)
+Cada semana:
+- Visitas a `/presupuesto` (Web Analytics)
+- Presupuestos recibidos (emails)
+- Propuestas aceptadas
+- Coste por cliente, por canal
 
-> Hola [nombre], te dejo el diagnóstico por si te sirve: [enlace]. La mejora nº 1 se puede hacer en pocos días. Si te interesa, lo hablamos en 15 minutos.
-
-### Tras enviar la auditoría
-
-> ¿Qué te ha parecido? Si quieres, te propongo cómo resolver las 3 mejoras con un presupuesto cerrado. Suelo empezar con un MVP que capte clientes ya y luego optimizamos con datos.
-
-**Reglas:**
-- Personaliza siempre el fallo concreto: sin eso es spam.
-- Máximo 2 seguimientos.
-- Por email a empresas: identifícate e incluye cómo darse de baja (LSSI y RGPD, interés legítimo en B2B). **No envíes emails masivos a particulares.**
-
-## 3. Canales, de más a menos probables
-
-1. **Red propia:** amigos, familia y contactos con negocio (el más rápido).
-2. **Visita presencial** a comercios locales con la auditoría impresa.
-3. **DM en Instagram** a negocios del vertical con web floja.
-4. **Colaboraciones:** gestorías, fotógrafos, agencias de marketing sin desarrollador (comisión por cliente referido del 10–15 %).
-5. Email frío B2B.
-
-## 4. Registro del embudo (tabla manual)
-
-| Fecha | Negocio | Tipo | Reseñas / nota | ¿Web? | Canal | Gancho usado | Estado | Siguiente acción |
-|-------|---------|------|----------------|-------|-------|--------------|--------|------------------|
-| | | | | no / solo redes / floja | | mockup / auditoría | contactado / respondió / auditoría enviada / llamada / propuesta / cerrado / perdido | |
-
-Guarda la tabla en Notion o en una hoja, **no en este repo** (contiene datos de terceros).
-
-Métricas semanales: contactos, % de respuesta, auditorías enviadas, llamadas, propuestas y cierres.
-
-**Tras unos 30 contactos:** agrupa por tipo de negocio y compara el % de respuesta y de cierre. El tipo que mejor funcione pasa a ser tu vertical, y se registra con un decision record.
+**Tras unos 30 presupuestos:** mira qué **sector** y qué **canal** convierten mejor. Ahí concentras el esfuerzo, y lo registras en un decision record.

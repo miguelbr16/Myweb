@@ -1,0 +1,186 @@
+---
+import Base from "../../layouts/Base.astro";
+import { site } from "../../content/site";
+import { projectTypes, extras, maintenance, formatRange } from "../../content/pricing";
+import { breadcrumbNode } from "../../lib/seo";
+// Configurador: el cliente elige, ve el rango al momento y envía. Sin llamadas: el brief llega por email
+// (worker/index.ts → /api/presupuesto). Sin JavaScript el formulario sigue enviándose; solo falta el cálculo en vivo.
+const graph = [
+  breadcrumbNode([
+    { name: "Inicio", path: "/" },
+    { name: "Presupuesto", path: "/presupuesto/" },
+  ]),
+];
+---
+
+<Base
+  title="Calcula tu presupuesto"
+  description="Configura tu web, automatización o proyecto de IA y recibe un presupuesto orientativo al instante. Sin llamadas ni reuniones."
+  graph={graph}
+>
+  <section class="wrap py-12 md:py-20">
+    <p class="eyebrow">Configurador</p>
+    <h1 class="display mt-4 text-[clamp(2.4rem,7vw,5rem)]">Calcula tu presupuesto.</h1>
+    <p class="lede mt-6">Elige lo que necesitas y verás el precio orientativo al momento. Sin llamadas ni compromiso.</p>
+
+    <form id="quote" method="POST" action="/api/presupuesto" data-attribution class="mt-14 grid gap-12 lg:grid-cols-[1fr_22rem]">
+      <div class="space-y-14">
+        <fieldset>
+          <legend class="display text-2xl"><span class="text-signal [-webkit-text-stroke:1.5px_var(--color-ink)]">1</span> ¿Qué necesitas?</legend>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            {
+              Object.entries(projectTypes).map(([key, t], i) => (
+                <label class="choice">
+                  <input type="radio" name="type" value={key} required checked={i === 1} />
+                  <span>
+                    <span class="block font-bold">{t.label}</span>
+                    <span class="font-mono text-sm">{t.range ? `${formatRange(t.range)} · ${t.days}` : "Propuesta personalizada"}</span>
+                  </span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="display text-2xl"><span class="text-signal [-webkit-text-stroke:1.5px_var(--color-ink)]">2</span> Extras</legend>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            {
+              Object.entries(extras)
+                .filter(([key]) => key !== "language")
+                .map(([key, e]) => (
+                  <label class="choice">
+                    <input type="checkbox" name="extras" value={key} />
+                    <span>
+                      <span class="block font-bold">{e.label}</span>
+                      <span class="font-mono text-sm">+{formatRange(e.range)}</span>
+                    </span>
+                  </label>
+                ))
+            }
+          </div>
+          <div class="mt-5 grid items-end gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="label">Idiomas además del español</span>
+              <select name="languages" class="field">
+                <option value="0">Ninguno</option>
+                <option value="1">1 (por ejemplo, inglés)</option>
+                <option value="2">2</option>
+                <option value="3">3 o más</option>
+              </select>
+            </label>
+            <label class="flex items-center gap-3 pb-3">
+              <input type="checkbox" name="urgent" value="yes" class="accent-ink" />
+              <span class="text-sm">Lo necesito urgente: mitad de plazo, +20 %</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="display text-2xl"><span class="text-signal [-webkit-text-stroke:1.5px_var(--color-ink)]">3</span> Mantenimiento mensual</legend>
+          <div class="mt-5 grid gap-3 sm:grid-cols-3">
+            {
+              Object.entries(maintenance).map(([key, m], i) => (
+                <label class="choice">
+                  <input type="radio" name="maintenance" value={key} checked={i === 0} />
+                  <span>
+                    <span class="block font-bold">{m.label}</span>
+                    <span class="font-mono text-sm">{m.monthly ? `${formatRange(m.monthly)}/mes` : "—"}</span>
+                  </span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="display text-2xl"><span class="text-signal [-webkit-text-stroke:1.5px_var(--color-ink)]">4</span> Tu negocio y tus datos</legend>
+          <div class="mt-5 grid gap-5 sm:grid-cols-2">
+            <label class="block">
+              <span class="label">Negocio o empresa *</span>
+              <input name="business" required maxlength="120" class="field" />
+            </label>
+            <label class="block">
+              <span class="label">Sector *</span>
+              <input name="sector" required maxlength="80" placeholder="Clínica, restaurante, reformas…" class="field" />
+            </label>
+            <label class="block sm:col-span-2">
+              <span class="label">Web actual o redes (si tienes)</span>
+              <input name="current_url" maxlength="300" placeholder="https://… o @instagram" class="field" />
+            </label>
+            <label class="block">
+              <span class="label">Tu nombre *</span>
+              <input name="name" required maxlength="100" autocomplete="name" class="field" />
+            </label>
+            <label class="block">
+              <span class="label">Email *</span>
+              <input name="email" type="email" required maxlength="200" autocomplete="email" class="field" />
+            </label>
+            <label class="block sm:col-span-2">
+              <span class="label">¿Algo más que debamos saber?</span>
+              <textarea name="message" maxlength="2000" rows="3" class="field"></textarea>
+            </label>
+          </div>
+          <div class="hidden" aria-hidden="true">
+            <label>No rellenar <input name="company" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <label class="mt-5 flex items-start gap-3 text-sm">
+            <input type="checkbox" name="privacy" value="yes" required class="mt-1 accent-ink" />
+            <span>Acepto la <a href="/privacidad/" class="link">política de privacidad</a>. Usaremos tus datos solo para enviarte este presupuesto.</span>
+          </label>
+          <div class="cf-turnstile mt-5" data-sitekey={site.turnstileSiteKey} data-language="es"></div>
+        </fieldset>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <div class="ticket on-ink bg-ink p-6 text-bone">
+          <p class="eyebrow flex justify-between text-fog"><span>Tu presupuesto</span><span aria-hidden="true">N.º 002</span></p>
+          <div class="my-5 border-t-2 border-dashed border-bone/30"></div>
+          <p class="label text-fog">Precio orientativo</p>
+          <p id="q-oneoff" class="display mt-1 text-[clamp(1.9rem,4vw,2.4rem)] text-signal" aria-live="polite">—</p>
+          <p id="q-monthly" class="mt-2 font-mono text-sm text-fog"></p>
+          <p id="q-days" class="mt-1 font-mono text-sm text-fog"></p>
+          <button type="submit" class="btn btn-signal mt-6 w-full">Recibir mi propuesta <span aria-hidden="true">→</span></button>
+          <p class="mt-4 text-xs leading-relaxed text-fog">IVA no incluido. Te confirmamos el precio cerrado por email antes de empezar.</p>
+        </div>
+      </aside>
+    </form>
+  </section>
+</Base>
+
+<script>
+  import { estimate, formatRange, isProjectType, isExtra, isMaintenance } from "../../content/pricing";
+
+  const form = document.getElementById("quote") as HTMLFormElement;
+  const out = {
+    oneOff: document.getElementById("q-oneoff")!,
+    monthly: document.getElementById("q-monthly")!,
+    days: document.getElementById("q-days")!,
+  };
+
+  // /presupuesto/?type=pro preselecciona el proyecto (viene del ticket de la portada).
+  const preset = new URLSearchParams(location.search).get("type");
+  if (preset && isProjectType(preset)) {
+    form.querySelector<HTMLInputElement>(`input[name=type][value=${preset}]`)?.click();
+  }
+
+  function update() {
+    const data = new FormData(form);
+    const type = String(data.get("type") ?? "");
+    const maint = String(data.get("maintenance") ?? "none");
+    if (!isProjectType(type) || !isMaintenance(maint)) return;
+    const result = estimate({
+      type,
+      extras: data.getAll("extras").map(String).filter(isExtra),
+      languages: Number(data.get("languages") ?? 0),
+      maintenance: maint,
+      urgent: data.get("urgent") === "yes",
+    });
+    out.oneOff.textContent = result.oneOff ? formatRange(result.oneOff) : "A medida";
+    out.monthly.textContent = result.monthly ? `+ ${formatRange(result.monthly)}/mes de mantenimiento` : "";
+    out.days.textContent = `Plazo: ${result.days}`;
+  }
+
+  form.addEventListener("input", update);
+  update();
+</script>
