@@ -120,7 +120,8 @@ PRODUCCIÓN MÁS RÁPIDA
 
 - Git
 - GitHub
-- Vercel
+- Vercel → **sustituido por Cloudflare** (decisión 2026-09-30)
+- Cloudflare (hosting, DNS, Web Analytics, Turnstile, Email Routing)
 - n8n
 - Herramientas de analytics
 - Supabase (posible)
@@ -268,8 +269,9 @@ PRODUCCIÓN MÁS RÁPIDA
 
 | Documento | Ubicación |
 |-----------|-----------|
-| Análisis arquitectónico (Composer) | `/composer-analysis.md` (repo root, pre-scaffold) |
-| Análisis multimodelo | `/multimodel-orchestration-analysis.md` (repo root, pre-scaffold) |
+| Análisis arquitectónico (Composer) | ⚠️ `/composer-analysis.md`: no existe en el repo |
+| Análisis multimodelo | ⚠️ `/multimodel-orchestration-analysis.md`: no existe en el repo |
+| Fundador y activos (V0.2) | [FUNDADOR_Y_ACTIVOS.md](./FUNDADOR_Y_ACTIVOS.md) |
 | SiteSpec Contract V0.1 | `docs/factory/SITESPEC_CONTRACT_V0.1.md` |
 | Decision Records | `decisions/` |
 

@@ -22,4 +22,6 @@ El output útil se promueve a docs/specs/decisions; el resto se archiva o elimin
 
 ## Estado actual
 
-**[FACT]** Vacío — scaffolding inicial.
+**[FACT]** Contiene `OPEN_CODE_ARCHITECTURE_SPIKE.md` y `GEMINI_FINAL_REVIEW_V0.1.md`. `GROK_RED_TEAM_V0.1.md` se cita en otros documentos pero **nunca se commiteó**.
+
+**[DECISION]** No hay spikes nuevos hasta que se entregue C1 (Architecture Freeze §10).

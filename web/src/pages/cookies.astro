@@ -1,0 +1,20 @@
+---
+import SimplePage from "../components/SimplePage.astro";
+import { site } from "../content/site";
+---
+
+<SimplePage title="Política de cookies">
+  <p>Esta web no usa cookies de publicidad ni de seguimiento.</p>
+  <ul>
+    <li>
+      <strong>Analítica:</strong> usamos Cloudflare Web Analytics, que no instala cookies ni rastrea a usuarios
+      individuales.
+    </li>
+    <li>
+      <strong>Anti-spam:</strong> el formulario usa Cloudflare Turnstile, que puede usar almacenamiento técnico
+      necesario para distinguir personas de bots.
+    </li>
+  </ul>
+  <p>Si en el futuro se añaden cookies no necesarias, se pedirá tu consentimiento antes de instalarlas.</p>
+  <p class="text-sm text-muted">Última actualización: {site.legal.lastUpdated}</p>
+</SimplePage>

@@ -1,0 +1,31 @@
+---
+import SimplePage from "../components/SimplePage.astro";
+import { site } from "../content/site";
+// Plantilla orientativa (RGPD art. 13). Revísala con un asesor antes de publicar.
+---
+
+<SimplePage title="Política de privacidad">
+  <h2>Responsable</h2>
+  <p>{site.legal.owner} · NIF {site.legal.nif} · {site.legal.address} · {site.contact.email}</p>
+  <h2>Qué datos tratamos y para qué</h2>
+  <p>
+    Los datos que envías en el formulario de contacto (nombre, email, web actual, servicio y mensaje) se usan solo
+    para responder a tu solicitud y, si lo pides, enviarte un presupuesto.
+  </p>
+  <h2>Base legal</h2>
+  <p>Tu consentimiento al enviar el formulario y la aplicación de medidas precontractuales a petición tuya.</p>
+  <h2>Conservación</h2>
+  <p>Mientras dure la relación comercial y, si no se inicia, un máximo de 12 meses desde tu último contacto.</p>
+  <h2>Destinatarios y encargados del tratamiento</h2>
+  <ul>
+    <li>Cloudflare, Inc. (alojamiento web y protección anti-spam).</li>
+    <li>Resend (envío de emails).</li>
+  </ul>
+  <p>Algunos de estos proveedores pueden tratar datos fuera del EEE, con las garantías adecuadas (cláusulas contractuales tipo o marco de privacidad UE-EE. UU.).</p>
+  <h2>Tus derechos</h2>
+  <p>
+    Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a
+    {site.contact.email}. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).
+  </p>
+  <p class="text-sm text-muted">Última actualización: {site.legal.lastUpdated}</p>
+</SimplePage>

@@ -1,0 +1,22 @@
+---
+import SimplePage from "../components/SimplePage.astro";
+import { site } from "../content/site";
+// Plantilla orientativa (LSSI art. 10). Revísala con un asesor antes de publicar.
+---
+
+<SimplePage title="Aviso legal">
+  <h2>Titular</h2>
+  <ul>
+    <li>Titular: {site.legal.owner}</li>
+    <li>NIF: {site.legal.nif}</li>
+    <li>Domicilio: {site.legal.address}</li>
+    <li>Email: {site.contact.email}</li>
+  </ul>
+  <h2>Objeto</h2>
+  <p>Esta web informa sobre los servicios de diseño y desarrollo web y automatizaciones de {site.brand}.</p>
+  <h2>Propiedad intelectual</h2>
+  <p>Los contenidos de esta web son titularidad de {site.legal.owner}, salvo que se indique lo contrario.</p>
+  <h2>Responsabilidad</h2>
+  <p>El titular no se hace responsable del uso indebido de la web ni de los contenidos de sitios enlazados.</p>
+  <p class="text-sm text-muted">Última actualización: {site.legal.lastUpdated}</p>
+</SimplePage>

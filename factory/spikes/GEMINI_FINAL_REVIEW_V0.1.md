@@ -58,7 +58,7 @@ Este documento registra la **síntesis estratégica final** de Gemini tras integ
 |-----------|-----|
 | [SITESPEC_CONTRACT_V0.1.md](../docs/factory/SITESPEC_CONTRACT_V0.1.md) | Evidencia histórica — ARCHIVED / REJECTED FOR V0.1 |
 | [OPEN_CODE_ARCHITECTURE_SPIKE.md](./OPEN_CODE_ARCHITECTURE_SPIKE.md) | Spike analítico — PROVISIONAL, no modificar |
-| [GROK_RED_TEAM_V0.1.md](./GROK_RED_TEAM_V0.1.md) | Red Team — ADVERSARIAL REVIEW |
+| `GROK_RED_TEAM_V0.1.md` ⚠️ no existe en el repo | Red Team — ADVERSARIAL REVIEW |
 | [ARCHITECTURE_FREEZE_V0.1.md](../decisions/ARCHITECTURE_FREEZE_V0.1.md) | Consenso ejecutable V0.1 |
 
 ---

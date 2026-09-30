@@ -1,0 +1,10 @@
+---
+import SimplePage from "../components/SimplePage.astro";
+import { site } from "../content/site";
+---
+
+<SimplePage title="No se ha podido enviar" noindex>
+  <p>Algo ha fallado al enviar el formulario. Revisa los campos obligatorios y vuelve a intentarlo.</p>
+  <p>También puedes escribirme directamente a <a class="underline" href={`mailto:${site.contact.email}`}>{site.contact.email}</a> o por WhatsApp.</p>
+  <p><a href="/#contacto" class="underline">← Volver al formulario</a></p>
+</SimplePage>

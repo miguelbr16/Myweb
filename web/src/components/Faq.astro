@@ -1,0 +1,20 @@
+---
+import Section from "./Section.astro";
+import { faq } from "../content/site";
+---
+
+<Section id="faq" title={faq.title}>
+  <div class="max-w-3xl divide-y divide-slate-200 border-y border-slate-200">
+    {
+      faq.items.map((item) => (
+        <details class="group py-4">
+          <summary class="cursor-pointer list-none font-semibold marker:hidden">
+            {item.q}
+            <span class="float-right text-brand group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-2 text-muted">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</Section>
