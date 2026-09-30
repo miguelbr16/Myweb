@@ -14,7 +14,7 @@
 
 1. **Webs y landings orientadas a conversión:** útiles, rápidas, con SEO base, mobile-first y fáciles de mantener.
 2. **Automatizaciones:** captura de leads, brief automático, presupuestos por reglas y reporting mensual.
-3. **Herramientas propias (futuro):** CRM ligero, presupuestador, panel de proyectos y plantilla clonable.
+3. **Herramientas propias:** presupuestador (ya construido). **Futuro:** CRM ligero, panel de proyectos y plantilla clonable.
 
 ## Qué NO quiere (al inicio)
 

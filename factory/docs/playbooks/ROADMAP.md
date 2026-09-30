@@ -28,7 +28,13 @@
 
 - [x] Base de la web creada en `web/` (one-page, legal, formulario → Resend) — 2026-09-30
 - [x] Home con historia, configurador, legal y SEO/GEO/AEO técnico construidos — 2026-09-30 ([diseño](../strategy/DISENO_Y_NARRATIVA.md), [SEO](../strategy/SEO_SEM_GEO_AEO.md))
-- [ ] Sustituir los `TODO` de `web/src/content/site.ts` (email, teléfono, WhatsApp, datos legales)
+- [ ] Sustituir los `TODO` de `web/src/content/site.ts` (email, teléfono, WhatsApp, datos legales). `npm run check:launch` lista lo que falta
+- [x] Endurecimiento tras la auditoría externa: rate limit, tope de tamaño, CSP, HSTS, puerta de lanzamiento, tests y CI — 2026-09-30 ([informe](../audit/AUDITORIA_EXTERNA_2026-09-30.md))
+- [ ] Crear el repo privado `solidum-factory` y mover `factory/` ([decisión](../../decisions/2026-09-30-repo-privado-y-lanzamiento.md))
+- [ ] **Turnstile de producción** (clave de sitio en `site.ts` y secreto en Cloudflare) y **envío de prueba real** formulario → email
+- [ ] Resend con SPF, DKIM y DMARC cuando haya dominio
+- [ ] Contrato con pago del 50 % y condiciones de venta (revisar con un asesor)
+- [ ] Decidir el alcance real de cada paquete: «paquetes vendibles = entregables»
 - [ ] Decidir la **presencia humana** en la web: nombre, foto y nota de fundación (lo que más credibilidad añade)
 - [ ] Configurar Resend + Turnstile + variables en Cloudflare (pasos en [web/README.md](../../../web/README.md))
 - [ ] Textos legales con tus datos reales (aviso legal, privacidad, cookies)

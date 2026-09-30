@@ -16,7 +16,7 @@ Diseño y decisiones: [DISENO_Y_NARRATIVA.md](../factory/docs/strategy/DISENO_Y_
 | Datos estructurados (JSON-LD), robots, sitemap, llms.txt | `src/lib/seo.ts`, `src/pages/robots.txt.ts`, `sitemap.xml.ts`, `llms*.txt.ts` |
 | Logo, favicon e imagen para redes | `public/favicon.svg`, `public/logo.svg`; `scripts/brand-assets.html` + `.mjs` generan `og.png` y `apple-touch-icon.png` |
 | Secciones de la home | `src/pages/index.astro` (orden) y `src/components/` (Hero, Scene, Pillars, Guide, Process, PriceTable, Proof, Fact, Faq, FinalCta, Contact) |
-| Formulario (backend) | `worker/index.ts` |
+| Formulario (backend) | `worker/index.ts` (límites en `worker/limits.ts`) |
 | Configuración de Cloudflare | `wrangler.jsonc` (el `name` debe coincidir con el proyecto) |
 
 ## Reglas para editar textos
@@ -25,6 +25,20 @@ Diseño y decisiones: [DISENO_Y_NARRATIVA.md](../factory/docs/strategy/DISENO_Y_
 - Los precios se cambian **solo** en `src/content/pricing.ts`; la tabla, el configurador, el ticket, la FAQ, el JSON-LD y `llms.txt` se actualizan solos.
 - La FAQ se edita solo en `home.ts`: alimenta la página, el JSON-LD y `llms-full.txt` a la vez.
 - Las cifras de la sección «La primera prueba» (`proof` en `home.ts`) se miden con Lighthouse y se actualizan a mano. Nunca pongas un número que no hayas medido.
+
+## Seguridad y calidad (resumen)
+
+| Qué | Cómo |
+|-----|------|
+| Límite de envíos | `ratelimits` en `wrangler.jsonc`: 3 por 60 s y por IP en cada ubicación de Cloudflare (contador aproximado por diseño). Al superarlo, `/error/demasiados/` |
+| Tamaño máximo | 64 KiB (`worker/limits.ts`). Sin `Content-Length` → 411; por encima → 413 |
+| Entradas | Sin caracteres de control, tope de longitud, servicio validado contra la lista, HTML escapado en los emails |
+| Cabeceras | CSP estricta (solo `self` + Turnstile y la analítica de Cloudflare), HSTS, COOP, X-Frame-Options… en `public/_headers` |
+| Pruebas | `npm test` (Vitest): precios y Worker, incluidos rate limit, tamaño, inyección de saltos de línea y fallos de Turnstile y Resend |
+| CI | `.github/workflows/ci.yml` (pruebas, build y `npm audit`) y Dependabot |
+| **Puerta de lanzamiento** | `npm run check:launch`. Con `prelaunch: true` lista lo pendiente. Con `prelaunch: false` **el build falla** si queda `example.com`, el Turnstile de prueba, un teléfono o WhatsApp de relleno o datos legales entre corchetes |
+
+> Si añades un script externo, una fuente o un iframe, hay que permitirlo en la CSP de `public/_headers`; si no, el navegador lo bloqueará.
 
 ## Desarrollo
 
@@ -55,6 +69,8 @@ Coste 0 €. La web queda en `https://myweb.<tu-subdominio>.workers.dev`, **no i
 
 → **Deploy**.
 
+> El primer despliegue crea el contador de envíos (`FORM_LIMITER`) a partir de `wrangler.jsonc`. Si Cloudflare rechazara ese bloque, borra `ratelimits` y vuelve a desplegar, pero el formulario quedará sin límite hasta que lo arregles.
+
 ### 2. Secretos del formulario
 
 1. **Resend** (gratis): crea una cuenta con el email donde quieres recibir los leads → **API Keys → Create**.
@@ -68,6 +84,8 @@ Coste 0 €. La web queda en `https://myweb.<tu-subdominio>.workers.dev`, **no i
    | `CONTACT_TO` | **el mismo email de tu cuenta de Resend** |
 
    `CONTACT_FROM` y `SEND_ACK` ya vienen en `wrangler.jsonc`.
+
+   ⚠️ **Las dos claves de Turnstile tienen que ser de la misma pareja.** Con la clave de sitio de prueba (`1x0000…AA`, la que trae `site.ts`) y un secreto real, el antispam rechaza **todos** los envíos; con la de prueba y el secreto de prueba acepta **cualquiera**, bots incluidos. Antes de publicar pon la clave real en `site.ts` y su secreto en Cloudflare.
 4. Prueba el formulario desde el móvil: te debe llegar el aviso a `CONTACT_TO`.
 
 > Sin dominio propio, Resend solo puede enviar a tu propio email: te llega el aviso de cada lead, pero el lead no recibe un email de confirmación (`SEND_ACK: "false"`). Lo ve en la página `/gracias`.

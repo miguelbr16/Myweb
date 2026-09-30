@@ -1,0 +1,10 @@
+---
+import SimplePage from "../../components/SimplePage.astro";
+import { site } from "../../content/site";
+---
+
+<SimplePage title="Demasiados envíos seguidos" noindex>
+  <p>Hemos recibido varios envíos desde tu conexión en pocos segundos. Espera un minuto y vuelve a intentarlo.</p>
+  <p>Si necesitas algo urgente, escríbenos a <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>.</p>
+  <p><a href="/presupuesto/">← Volver al configurador</a></p>
+</SimplePage>

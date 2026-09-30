@@ -10,6 +10,11 @@
     "not_found_handling": "404-page"
   },
   "observability": { "enabled": true },
+  // Limita los envíos por IP: 3 cada 60 s en cada ubicación de Cloudflare (contador aproximado por diseño).
+  // "namespace_id" debe ser único en tu cuenta de Cloudflare; cámbialo si ya usas ese número.
+  "ratelimits": [
+    { "name": "FORM_LIMITER", "namespace_id": "830421", "simple": { "limit": 3, "period": 60 } }
+  ],
   // Variables no secretas. Los secretos (RESEND_API_KEY, TURNSTILE_SECRET, CONTACT_TO)
   // se añaden en Cloudflare → Worker → Settings → Variables and Secrets, tipo "Secret".
   "vars": {

@@ -100,6 +100,8 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 | P-11 | **DECIDED** | **Modelo de venta asíncrono**: configurador `/presupuesto` con precio al instante, todo por email, sin llamadas obligatorias. Marca **Solidum Digital** → [decisión](./2026-09-30-modelo-asincrono.md) | Sustituye X-17 |
 | P-12 | PROVISIONAL | **Dirección de diseño industrial-editorial** (hormigón, tinta y un naranja señal; Archivo variable; ticket de presupuesto como pieza propia) y narrativa encontrar, entender, escribir. Sin reseñas, logos ni cifras inventados → [DISENO_Y_NARRATIVA.md](../docs/strategy/DISENO_Y_NARRATIVA.md) | Revisar tras las primeras visitas reales |
 | P-13 | PROVISIONAL | **SEO técnico + GEO/AEO en el build**: JSON-LD desde la misma fuente que el texto, `robots.txt`, `sitemap.xml` y `llms.txt` generados, atribución sin cookies. SEM: sin etiquetas hasta tener consentimiento → [SEO_SEM_GEO_AEO.md](../docs/strategy/SEO_SEM_GEO_AEO.md) | Revisar al lanzar anuncios |
+| D-11 | DECIDED | **Dos repos:** `Myweb` (público) = solo código de la web; `solidum-factory` (privado) = estrategia, decisiones y playbooks. Sustituye a D-10. Pendiente de ejecutar → [decisión](./2026-09-30-repo-privado-y-lanzamiento.md) | Auditoría externa |
+| P-14 | DECIDED | **Lanzamiento condicionado:** la web no se publica hasta que los servicios estén listos; `prelaunch: false` solo con la puerta `check-launch` en verde; la oferta (incl. paquete de automatización) se mantiene sin cambios | Auditoría externa |
 | X-20 | DO NOT BUILD | Envíos automáticos de email, WhatsApp o DM en frío (LSSI art. 21) y scraping de Google Maps (usar Places API) | Legal |
 | X-18 | DO NOT BUILD | Dashboard y PDF automático de propuestas antes de C1 | Roadmap WEB_DEV semanas 7–8 |
 | X-19 | DO NOT BUILD | Panel `/admin` con "password simple" (usar autenticación real o no tener panel) | Seguridad y RGPD |
@@ -116,3 +118,4 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 | 2026-09-30 | P-06 redefinido: sin código de 24Shoots; P-01 (Astro) reafirmado |
 | 2026-09-30 | P-11 modelo asíncrono + Solidum Digital; X-17 sustituido; X-20 añadido |
 | 2026-09-30 | P-12 dirección de diseño; P-13 SEO/GEO/AEO en el build |
+| 2026-09-30 | Auditoría externa: D-11 doble repo, P-14 lanzamiento condicionado |

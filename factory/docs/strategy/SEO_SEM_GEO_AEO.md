@@ -28,7 +28,7 @@ Lighthouse móvil en local con la web lista para indexar: **Rendimiento 100 · A
 | `sitemap.xml` con solo páginas indexables | `pages/sitemap.xml.ts` | Si añades páginas, añádelas a la lista |
 | `llms.txt` y `llms-full.txt` generados | `pages/llms*.txt.ts` | Ver RISK más abajo |
 | Fuentes autoalojadas (sin Google Fonts), sin JS de terceros salvo Turnstile, que se carga al acercarse al formulario | `global.css`, `scripts/turnstile.ts` | Mejor rendimiento y menos problemas de privacidad |
-| Caché inmutable de `/_astro/*` y cabeceras de seguridad | `public/_headers` | |
+| Caché inmutable de `/_astro/*`, CSP estricta, HSTS y cabeceras de seguridad | `public/_headers` | La CSP se probó sin violaciones; si añades scripts externos, permítelos allí |
 | Atribución sin cookies: `ref` y `utm_*` viajan en los enlaces y llegan en el email | `scripts/attribution.ts`, `worker/index.ts` | Sirve para saber si un presupuesto viene de la postal, un colaborador o una campaña |
 
 ## 3. Antes de lanzar (checklist)

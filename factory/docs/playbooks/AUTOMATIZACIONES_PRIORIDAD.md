@@ -36,15 +36,11 @@ Registro de leads mientras no haya CRM: **una tabla manual** (Notion o una hoja)
 
 Estimación: 8–12 h
 
-## Nivel 3: presupuestador · 🔒 bloqueado (X-17)
+## Nivel 3: presupuestador · ✅ construido (P-11, sustituye a X-17)
 
-**Trigger:** C1 entregado + precios revisados con horas reales.
+Es el núcleo del modelo de venta sin llamadas, no un extra posterior. Reglas en `web/src/content/pricing.ts`; página `/presupuesto/`; el Worker recalcula el precio y envía el brief por email.
 
-- `config/pricing-rules.json`
-- Página `/presupuesto`: tipo de negocio, páginas, idiomas y extras → rango en €
-- Doble uso: herramienta interna y **lead magnet** en la web
-
-Estimación: 10–15 h
+**Pendiente:** revisar los precios con las horas reales del primer cliente (C1). Lo que sigue bloqueado es el **CRM** (X-16): la tabla de leads es manual.
 
 ## Nivel 4: seguimiento · 🔒 bloqueado (X-18)
 

@@ -81,5 +81,5 @@
 4. **Demos por vertical.** Una landing de ejemplo por sector (p. ej. clínica dental ficticia) sirve de portfolio mientras no tengas casos reales. Señálala siempre como demo.
 5. **Alianzas.** Gestorías, fotógrafos y agencias de redes sociales sin desarrollador tienen clientes que necesitan web. Ofrece una comisión por referido.
 6. **Mide desde el día 1.** Tu diferencial es el dato: enseña al cliente el "antes y después" (velocidad, clics en WhatsApp, formularios enviados) a los 30 días de lanzar.
-7. **No construyas producto interno** (CRM, presupuestador) hasta cumplir los triggers. La tabla manual basta para los primeros 30 leads.
+7. **No construyas más producto interno** (CRM, panel de proyectos) hasta cumplir los triggers; el presupuestador ya existe. La tabla manual basta para los primeros 30 leads.
 8. **Reserva tiempo fijo.** Si vas poco a poco, bloquea 2–3 sesiones por semana y dedica **al menos una a vender**, no solo a construir.

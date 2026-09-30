@@ -67,10 +67,12 @@ Diferencial (perfil data + dev):
 
 ## Embudo objetivo (para dar sentido a las métricas)
 
-| Paso | Hipótesis de conversión |
-|------|-------------------------|
-| Contacto outbound o DM → conversación | 30 % |
-| Conversación → llamada o reunión | 30 % (métrica del playbook: ≥30 % leads → llamada) |
-| Llamada → propuesta aceptada | 20 % |
+Modelo asíncrono sin llamadas ([decisión](../../decisions/2026-09-30-modelo-asincrono.md)). Las tasas son **hipótesis sin datos**; hay que medirlas desde el primer día.
 
-**Implicación:** con estas tasas, 1 cliente necesita unas 55 conversaciones iniciadas, o unas 17 llamadas. El objetivo "3 clientes/mes" del playbook exige unos 50 contactos por semana, **o** mejores tasas. Hay que medirlas desde el primer día.
+| Paso | Hipótesis | Cómo se mide |
+|------|-----------|--------------|
+| Visita a la web (o escaneo del QR) → solicitud de presupuesto | 2 % | Visitas en Cloudflare Web Analytics y emails con `Origen:` |
+| Solicitud → propuesta enviada | 100 % (todas se responden por email) | Tabla de leads |
+| Propuesta → propuesta aceptada y 50 % cobrado | 20 % | Tabla de leads |
+
+**Implicación:** con estas tasas, 1 cliente necesita unas 250 visitas cualificadas (5 presupuestos). El objetivo «3 clientes al mes» del playbook original (pensado con llamadas) exige unas 750 visitas al mes cualificadas, o mejores tasas. Es la razón por la que la captación (postal con QR, colaboradores, ficha de Google) importa tanto como la web.

@@ -1,5 +1,7 @@
 # Auditoría — Myweb + WEB_DEV/DEV-BUSINESS-PLAYBOOK
 
+> ⚠️ **Documento histórico (inicio del día).** Partes superadas: el presupuestador ya no está bloqueado (P-11 sustituye a X-17), el hosting es Cloudflare (P-10) y la web va en Astro (P-01). La auditoría posterior está en [AUDITORIA_EXTERNA_2026-09-30.md](./AUDITORIA_EXTERNA_2026-09-30.md).
+
 > **Fecha:** 2026-09-30  
 > **Alcance:** repo `miguelbr16/Myweb` (Digital Factory, freeze 2026-08-22) y carpeta `miguelbr16/WEB_DEV/DEV-BUSINESS-PLAYBOOK` (playbook negocio propio, 2026-07-07)  
 > **Resultado:** fusión en este repo. Ver [decisión de fusión](../../decisions/2026-09-30-fusion-myweb-webdev.md).

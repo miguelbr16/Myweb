@@ -28,7 +28,7 @@ const first = estimate({ type: initial, extras: [], languages: 0, maintenance: "
     </div>
 
     <aside class="rise md:col-span-5 md:col-start-8" style="--i:5" aria-label={hero.ticket.title}>
-      <form id="ticket" class="ticket on-ink bg-ink p-6 text-bone md:p-8" onsubmit="return false">
+      <form id="ticket" class="ticket on-ink bg-ink p-6 text-bone md:p-8">
         <p class="eyebrow flex items-center justify-between text-fog">
           <span>{hero.ticket.title}</span><span aria-hidden="true">N.º 001</span>
         </p>
@@ -63,6 +63,7 @@ const first = estimate({ type: initial, extras: [], languages: 0, maintenance: "
   import { withAttribution } from "../scripts/attribution";
 
   const form = document.getElementById("ticket") as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => e.preventDefault());
   form?.addEventListener("change", () => {
     const type = String(new FormData(form).get("ticket-type") ?? "");
     if (!isProjectType(type)) return;
