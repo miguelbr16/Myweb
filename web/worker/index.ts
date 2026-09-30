@@ -1,10 +1,13 @@
-// Cloudflare Pages Function: POST /api/contact
+// Cloudflare Worker: sirve la web estática (dist/) y gestiona POST /api/contact.
+// Las rutas que coinciden con un archivo de dist/ las sirve Cloudflare directamente
+// sin ejecutar este código; solo llegan aquí /api/contact y las rutas inexistentes.
 // 1. Valida campos + honeypot + Turnstile
 // 2. Envía con Resend un aviso al fundador y un acuse al lead
 // 3. Redirige a /gracias o /error (el formulario funciona sin JavaScript)
 // No registra datos personales en logs (D-05).
 
 interface Env {
+  ASSETS: { fetch: (request: Request) => Promise<Response> };
   RESEND_API_KEY: string;
   TURNSTILE_SECRET: string;
   CONTACT_TO: string; // email donde recibes los leads
@@ -12,11 +15,6 @@ interface Env {
   // "true" solo con dominio verificado en Resend. Sin dominio (onboarding@resend.dev)
   // Resend solo permite enviar a tu propio email, así que el acuse al lead se omite.
   SEND_ACK?: string;
-}
-
-interface Context {
-  request: Request;
-  env: Env;
 }
 
 const MAX = { name: 100, email: 200, website_url: 300, service: 100, message: 2000 };
@@ -46,7 +44,7 @@ async function sendEmail(env: Env, email: { to: string; subject: string; html: s
   if (!res.ok) throw new Error(`Resend ${res.status}`);
 }
 
-export async function onRequestPost({ request, env }: Context): Promise<Response> {
+async function handleContact(request: Request, env: Env): Promise<Response> {
   let form: FormData;
   try {
     form = await request.formData();
@@ -111,3 +109,14 @@ export async function onRequestPost({ request, env }: Context): Promise<Response
 
   return redirect(request, "/gracias");
 }
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const { pathname } = new URL(request.url);
+    if (pathname === "/api/contact") {
+      if (request.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
+      return handleContact(request, env);
+    }
+    return env.ASSETS.fetch(request);
+  },
+};

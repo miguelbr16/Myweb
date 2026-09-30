@@ -1,0 +1,19 @@
+{
+  // Configuración de Cloudflare Workers. "name" debe coincidir con el nombre del proyecto en Cloudflare.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "myweb",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "observability": { "enabled": true },
+  // Variables no secretas. Los secretos (RESEND_API_KEY, TURNSTILE_SECRET, CONTACT_TO)
+  // se añaden en Cloudflare → Worker → Settings → Variables and Secrets, tipo "Secret".
+  "vars": {
+    "CONTACT_FROM": "Web <onboarding@resend.dev>",
+    "SEND_ACK": "false"
+  }
+}

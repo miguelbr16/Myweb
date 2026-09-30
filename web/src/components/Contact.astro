@@ -1,7 +1,7 @@
 ---
 import Section from "./Section.astro";
 import { contactSection, site } from "../content/site";
-// Formulario sin JavaScript propio: POST a la función de Cloudflare (functions/api/contact.ts),
+// Formulario sin JavaScript propio: POST al Worker de Cloudflare (worker/index.ts),
 // que redirige a /gracias o a /error. Solo Turnstile carga un script externo.
 // Minimización de datos (D-05): solo lo necesario para responder.
 const input = "mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand focus:outline-none";

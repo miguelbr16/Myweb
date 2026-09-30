@@ -10,7 +10,8 @@ One-page de captación + textos legales + formulario conectado a email. Es el **
 | Dominio | `astro.config.mjs` (`site`) + `site.url` en `site.ts` |
 | Colores y tipografía | `src/styles/global.css` (`@theme`) |
 | Secciones de la home | `src/pages/index.astro` (orden) y `src/components/` |
-| Formulario (backend) | `functions/api/contact.ts` |
+| Formulario (backend) | `worker/index.ts` |
+| Configuración de Cloudflare | `wrangler.jsonc` (el `name` debe coincidir con el proyecto) |
 
 ## Desarrollo
 
@@ -19,48 +20,57 @@ cd web
 npm install
 npm run dev            # http://localhost:4321 (sin formulario)
 cp .dev.vars.example .dev.vars
-npm run preview        # web + función del formulario con Wrangler en http://localhost:8788
+npm run preview        # web + Worker del formulario en http://localhost:8787
 ```
 
-## Fase gratuita: publicar en `*.pages.dev` (sin dominio)
+## Fase gratuita: publicar en `*.workers.dev` (sin dominio)
 
-Coste 0 €. La web queda en `https://<proyecto>.pages.dev`, **no indexada en Google** (`prelaunch: true` en `site.ts`), para enseñarla a prospectos con un enlace.
+Coste 0 €. La web queda en `https://myweb.<tu-subdominio>.workers.dev`, **no indexada en Google** (`prelaunch: true` en `site.ts`), para enseñarla a prospectos con un enlace.
 
-1. **Cloudflare → Workers & Pages → Create → pestaña Pages → Connect to Git** → autoriza GitHub → repo `Myweb`.
-2. Configuración del build:
-   - Production branch: `main`
-   - Framework preset: `Astro`
-   - Root directory: `web`
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-3. **Resend** (gratis): crea una cuenta con el email donde quieres recibir los leads → **API Keys → Create**.
-4. **Turnstile** (gratis): Cloudflare → Turnstile → Add widget → hostname `<proyecto>.pages.dev` → copia la *site key* a `turnstileSiteKey` en `site.ts`.
-5. En el proyecto de Pages → **Settings → Variables and Secrets** (Production):
+### 1. Crear el Worker conectado a GitHub
 
-   | Nombre | Tipo | Valor |
-   |--------|------|-------|
-   | `RESEND_API_KEY` | Secret | la API key de Resend |
-   | `TURNSTILE_SECRET` | Secret | la *secret key* de Turnstile |
-   | `CONTACT_TO` | Text | **el mismo email de tu cuenta de Resend** |
-   | `CONTACT_FROM` | Text | `Web <onboarding@resend.dev>` |
-   | `SEND_ACK` | Text | `false` |
+**Workers & Pages → Create → Import a repository** → `miguelbr16/Myweb`:
 
-6. **Deployments → Retry deployment** para que coja las variables.
-7. **Web Analytics:** en el proyecto de Pages → Metrics → activa Web Analytics.
-8. Prueba el formulario desde el móvil: te debe llegar el aviso a `CONTACT_TO`.
+| Campo | Valor |
+|-------|-------|
+| Project name | `myweb` (debe coincidir con `name` en `wrangler.jsonc`) |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Advanced settings → **Path** | **`/web`** |
+| API token | *Create new token* (no reutilices uno de otro proyecto) |
+| Variables de build | ninguna |
 
-> Sin dominio propio, Resend solo puede enviar a tu propio email: te llega el aviso de cada lead, pero el lead no recibe un email de confirmación (`SEND_ACK=false`). Lo ve en la página `/gracias`.
+→ **Deploy**.
+
+### 2. Secretos del formulario
+
+1. **Resend** (gratis): crea una cuenta con el email donde quieres recibir los leads → **API Keys → Create**.
+2. **Turnstile** (gratis): Cloudflare → Turnstile → Add widget → hostname `myweb.<tu-subdominio>.workers.dev` → copia la *site key* a `turnstileSiteKey` en `site.ts` (commit y push).
+3. En el Worker → **Settings → Variables and Secrets → Add**, tipo **Secret**:
+
+   | Nombre | Valor |
+   |--------|-------|
+   | `RESEND_API_KEY` | la API key de Resend |
+   | `TURNSTILE_SECRET` | la *secret key* de Turnstile |
+   | `CONTACT_TO` | **el mismo email de tu cuenta de Resend** |
+
+   `CONTACT_FROM` y `SEND_ACK` ya vienen en `wrangler.jsonc`.
+4. Prueba el formulario desde el móvil: te debe llegar el aviso a `CONTACT_TO`.
+
+> Sin dominio propio, Resend solo puede enviar a tu propio email: te llega el aviso de cada lead, pero el lead no recibe un email de confirmación (`SEND_ACK: "false"`). Lo ve en la página `/gracias`.
+
+**Analítica:** Cloudflare → Analytics & Logs → Web Analytics → Add a site → tu URL `workers.dev`.
 
 ## Fase de lanzamiento: dominio propio
 
 1. Compra el dominio (Cloudflare → Domain Registration; `.es` en otro registrador y DNS en Cloudflare).
-2. Pages → **Custom domains** → añade el dominio.
+2. Worker → **Settings → Domains & Routes → Add → Custom domain**.
 3. Cambia `site` en `astro.config.mjs`, `url` en `site.ts` y pon `prelaunch: false`.
 4. **Email Routing:** `hola@tudominio.com` → tu Gmail.
-5. **Resend → Domains:** verifica el dominio (registros DNS en Cloudflare) y cambia `CONTACT_FROM=Web <web@tudominio.com>` y `SEND_ACK=true`.
+5. **Resend → Domains:** verifica el dominio (registros DNS en Cloudflare) y en `wrangler.jsonc` cambia `CONTACT_FROM` a `Web <web@tudominio.com>` y `SEND_ACK` a `"true"`.
 6. Turnstile: añade el nuevo hostname al widget.
 
-Cada `git push` a `main` redespliega. También puedes desplegar a mano con `npm run deploy` (requiere `npx wrangler login`).
+Cada `git push` a `main` redespliega; las ramas generan previews. También puedes desplegar a mano con `npm run deploy` (requiere `npx wrangler login`).
 
 ## Medir conversiones
 

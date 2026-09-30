@@ -1,9 +1,6 @@
 # Copia a .dev.vars para desarrollo local (nunca lo subas a git).
-# En producción: Cloudflare → Pages → Settings → Variables and Secrets.
+# En producción: Cloudflare → Worker → Settings → Variables and Secrets (tipo Secret).
 RESEND_API_KEY=re_xxx
 TURNSTILE_SECRET=1x0000000000000000000000000000000AA
 CONTACT_TO=hola@tudominio.com
-# Sin dominio propio: usa el remitente de pruebas de Resend y CONTACT_TO = el email de tu cuenta de Resend.
-CONTACT_FROM=Web <onboarding@resend.dev>
-# "true" solo cuando tengas dominio verificado en Resend (envía acuse al lead).
-SEND_ACK=false
+# CONTACT_FROM y SEND_ACK vienen de wrangler.jsonc ("vars").

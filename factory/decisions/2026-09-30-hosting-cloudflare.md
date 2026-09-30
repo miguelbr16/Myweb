@@ -6,7 +6,7 @@
 ## DECISIÓN
 
 1. **Las webs (la propia y las de clientes) se publican en Cloudflare**, no en Vercel.
-2. **Modo de despliegue por defecto:** Astro con salida estática, servida como assets estáticos en Cloudflare, más **una función** solo para el formulario de contacto.
+2. **Modo de despliegue por defecto:** **Cloudflare Workers con static assets**. Astro genera `dist/` (estático) y un Worker mínimo (`web/worker/index.ts`) solo atiende `POST /api/contact`. Configuración en `web/wrangler.jsonc`. *(Actualizado el mismo día: se pasó de Pages Functions a Workers porque es el flujo que ofrece hoy el panel de Cloudflare.)*
 3. **El formulario de contacto** pasa por esa función: valida Turnstile y envía con Resend (vía `fetch`) el acuse al lead y el aviso al fundador.
 4. **Alternativa** si un cliente necesita render en servidor: el adaptador oficial `@astrojs/cloudflare`. No es el modo por defecto.
 
