@@ -178,7 +178,7 @@ const graph = [
     });
     out.oneOff.textContent = result.oneOff ? formatRange(result.oneOff) : "A medida";
     out.monthly.textContent = result.monthly ? `+ ${formatRange(result.monthly)}/mes de mantenimiento` : "";
-    out.days.textContent = `Plazo: ${result.days}`;
+    out.days.textContent = `Plazo: ${result.days}${data.get("urgent") === "yes" ? " (urgente)" : ""}`;
   }
 
   form.addEventListener("input", update);
