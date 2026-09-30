@@ -2,7 +2,7 @@
 
 Home de captación con historia, configurador de presupuesto `/presupuesto/`, textos legales y formularios conectados a email. Es el **uso nº 1** de la futura plantilla (P-06).
 
-Diseño y decisiones: [DISENO_Y_NARRATIVA.md](../factory/docs/strategy/DISENO_Y_NARRATIVA.md). SEO, SEM, GEO y AEO: [SEO_SEM_GEO_AEO.md](../factory/docs/strategy/SEO_SEM_GEO_AEO.md).
+Las decisiones, el diseño y la estrategia (diseño y narrativa, SEO/SEM/GEO/AEO, precios) se documentan en el repositorio **privado** `solidum-factory`. Este repo es solo el código.
 
 ## Qué editar
 

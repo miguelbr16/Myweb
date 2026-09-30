@@ -104,7 +104,7 @@ export const pricing = {
   cta: "Configurar el mío",
 };
 
-// Se rellena con una medición real antes de publicar (ver factory/docs/strategy/DISENO_Y_NARRATIVA.md).
+// Se rellena con una medición real antes de publicar (ver docs/strategy/DISENO_Y_NARRATIVA.md en el repo privado solidum-factory).
 export const proof = {
   eyebrow: "06 · La primera prueba",
   title: "La primera prueba es esta página.",

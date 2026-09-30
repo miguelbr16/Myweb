@@ -1,6 +1,6 @@
 // Reglas del presupuestador automático. Las usa la página /presupuesto (cálculo en vivo)
 // y el Worker (cálculo en servidor, que es el que vale). Precios orientativos = HYPOTHESIS
-// (factory/docs/strategy/OFERTA_Y_PRECIOS.md). Cambia aquí y se actualiza todo.
+// (repo privado solidum-factory: docs/strategy/OFERTA_Y_PRECIOS.md). Cambia aquí y se actualiza todo.
 
 export type Range = readonly [number, number];
 

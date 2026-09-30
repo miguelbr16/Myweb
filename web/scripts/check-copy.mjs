@@ -1,5 +1,5 @@
 // Comprueba los textos antes de cada build. Reglas (adaptadas al español de las "señales de texto de IA"
-// y de factory/docs/strategy/DISENO_Y_NARRATIVA.md): sin emojis, sin clichés, sin afirmaciones que no podamos probar.
+// y de solidum-factory/docs/strategy/DISENO_Y_NARRATIVA.md): sin emojis, sin clichés, sin afirmaciones que no podamos probar.
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
