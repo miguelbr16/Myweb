@@ -6,16 +6,18 @@
 
 ## Siguiente paso
 
-➡️ **Etapa 1:** elegir el nombre de marca (ver [PUESTA_EN_MARCHA_EMPRESA.md §1](../strategy/PUESTA_EN_MARCHA_EMPRESA.md#1-marca)).
+➡️ **Etapa 1:** comprar el dominio del nombre de marca y añadirlo a Cloudflare.
 
 ---
 
 ## Etapa 1: fundaciones
 
-- [ ] Nombre de marca + eslogan
+- [ ] Eslogan
 - [ ] Comprar el dominio y darlo de alta en Cloudflare
 - [ ] Email entrante `hola@dominio` con Cloudflare Email Routing → Gmail
 - [ ] Cuenta en Resend y dominio verificado (para enviar emails)
+- [x] Cuenta de Cloudflare creada
+- [x] Nombre de marca elegido (pendiente de pasarlo a `site.ts`)
 - [ ] Crear el perfil de Instagram de negocio (reservar el nombre, aunque no publiques)
 - [ ] Aprobar o rechazar la [decisión de fusión](../../decisions/2026-09-30-fusion-myweb-webdev.md)
 
@@ -35,9 +37,9 @@
 
 ## Etapa 3: preparar la venta
 
-- [ ] Elegir el **vertical** para los primeros 30 días de outbound
-- [ ] 1 demo o caso: una landing de ejemplo para el vertical (señalada como demo)
-- [ ] Lista de 30–50 prospectos del vertical (nombre, web, Instagram, fallo observado)
+- [ ] Prospección en Google Maps de negocios **sin web o solo con redes** (sin sector fijo; el vertical saldrá de los datos). Ver [OUTBOUND.md §0](./OUTBOUND.md)
+- [ ] Saber hacer un **mockup "así se vería tu web"** en menos de 1 h duplicando `web/`
+- [ ] Lista de 30–50 negocios cualificados (≥10 reseñas, nota ≥4,0, sin web)
 - [ ] Preparar los mensajes de [OUTBOUND.md](./OUTBOUND.md)
 - [ ] Propuesta tipo (Notion o PDF manual) con MVP / Fase 2 / Fase 3
 - [ ] Aspectos legales y fiscales mínimos antes de facturar ([PUESTA_EN_MARCHA_EMPRESA.md §2](../strategy/PUESTA_EN_MARCHA_EMPRESA.md#2-legal-y-fiscal-antes-de-la-primera-factura))
@@ -46,11 +48,11 @@
 
 ## Etapa 4: conversaciones
 
-- [ ] 15 conversaciones con el vertical elegido (experimento de 30 días)
+- [ ] 15 conversaciones con negocios sin web
 - [ ] Hacer seguimiento de cada contacto a las 48–72 h
 - [ ] Enviar el [cuestionario de discovery](./DISCOVERY_CUESTIONARIO.md) a quien muestre interés
 - [ ] Instagram en paralelo: 1–3 posts por semana ([plan](./INSTAGRAM_PLAN_MES_1.md)), sin que frene la venta
-- [ ] **Revisar el experimento:** ¿hay interés? Si no, cambiar de vertical o de mensaje (decision record)
+- [ ] **Revisar tras unos 30 contactos:** ¿qué tipo de negocio responde y compra más? Ese pasa a ser el vertical (decision record)
 
 **Criterio de salida:** ≥1 propuesta formal enviada.
 
