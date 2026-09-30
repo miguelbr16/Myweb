@@ -9,6 +9,9 @@ interface Env {
   TURNSTILE_SECRET: string;
   CONTACT_TO: string; // email donde recibes los leads
   CONTACT_FROM: string; // remitente verificado en Resend, p. ej. "Web <web@tudominio.com>"
+  // "true" solo con dominio verificado en Resend. Sin dominio (onboarding@resend.dev)
+  // Resend solo permite enviar a tu propio email, así que el acuse al lead se omite.
+  SEND_ACK?: string;
 }
 
 interface Context {
@@ -85,17 +88,25 @@ export async function onRequestPost({ request, env }: Context): Promise<Response
         <p><b>Mensaje:</b><br>${safe.message.replace(/\n/g, "<br>")}</p>
         <p style="color:#64748b">Recibido: ${new Date().toISOString()} · Responde a este email para contestar al lead.</p>`,
     });
-    await sendEmail(env, {
-      to: data.email,
-      reply_to: env.CONTACT_TO,
-      subject: "Hemos recibido tu mensaje",
-      html: `<p>Hola ${safe.name},</p>
-        <p>Gracias por escribir. He recibido tu solicitud sobre <b>${safe.service}</b> y te respondo en menos de 24 h laborables.</p>
-        <p>Si quieres añadir algo, responde a este email.</p>`,
-    });
   } catch (err) {
-    console.error("contact: envío fallido", err instanceof Error ? err.message : "desconocido");
+    console.error("contact: aviso fallido", err instanceof Error ? err.message : "desconocido");
     return redirect(request, "/error");
+  }
+
+  // El acuse al lead es secundario: si falla, el lead ya está en tu email.
+  if (env.SEND_ACK === "true") {
+    try {
+      await sendEmail(env, {
+        to: data.email,
+        reply_to: env.CONTACT_TO,
+        subject: "Hemos recibido tu mensaje",
+        html: `<p>Hola ${safe.name},</p>
+          <p>Gracias por escribir. He recibido tu solicitud sobre <b>${safe.service}</b> y te respondo en menos de 24 h laborables.</p>
+          <p>Si quieres añadir algo, responde a este email.</p>`,
+      });
+    } catch (err) {
+      console.error("contact: acuse fallido", err instanceof Error ? err.message : "desconocido");
+    }
   }
 
   return redirect(request, "/gracias");

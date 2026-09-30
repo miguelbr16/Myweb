@@ -8,6 +8,9 @@ export const site = {
     "Diseño webs y landings rápidas para negocios locales, conectadas a WhatsApp y a tu email, y medidas con datos.",
   url: "https://example.com", // TODO: mismo dominio que en astro.config.mjs
   locale: "es-ES",
+  // Pre-lanzamiento: la web está en *.pages.dev y no debe aparecer en Google.
+  // Cámbialo a false cuando tengas dominio propio y lances de verdad.
+  prelaunch: true,
 
   contact: {
     email: "hola@example.com", // TODO

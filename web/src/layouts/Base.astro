@@ -11,7 +11,8 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description = site.description, noindex = false } = Astro.props;
+const { title, description = site.description, noindex: pageNoindex = false } = Astro.props;
+const noindex = pageNoindex || site.prelaunch;
 const fullTitle = title ? `${title} · ${site.brand}` : `${site.brand} · ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
 ---
