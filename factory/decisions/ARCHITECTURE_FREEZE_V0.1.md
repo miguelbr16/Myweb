@@ -71,7 +71,7 @@ SiteSpec CMS · JSON Schema/Zod del SiteSpec Gemini · blocks[]/page builder · 
 | **Gemini** — SiteSpec Contract V0.1 | Contrato conceptual (archivado) | [SITESPEC_CONTRACT_V0.1.md](../docs/factory/SITESPEC_CONTRACT_V0.1.md) |
 | **Gemini** — Final Review V0.1 | Síntesis estratégica (no evidencia primaria) | [GEMINI_FINAL_REVIEW_V0.1.md](../spikes/GEMINI_FINAL_REVIEW_V0.1.md) |
 | **OpenCode/Ox** — Architecture Spike | Spike analítico PROVISIONAL | [OPEN_CODE_ARCHITECTURE_SPIKE.md](../spikes/OPEN_CODE_ARCHITECTURE_SPIKE.md) |
-| **Grok** — Red Team V0.1 | Revisión adversarial | [GROK_RED_TEAM_V0.1.md](../spikes/GROK_RED_TEAM_V0.1.md) |
+| **Grok** — Red Team V0.1 | Revisión adversarial | ⚠️ `GROK_RED_TEAM_V0.1.md` — **no commiteado; evidencia perdida** (auditoría 2026-09-30, M3) |
 | Contexto V0.2 | Contexto consolidado | [DIGITAL_FACTORY_CONTEXT.md](../docs/context/DIGITAL_FACTORY_CONTEXT.md) |
 
 ---

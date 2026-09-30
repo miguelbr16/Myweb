@@ -33,7 +33,7 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 
 | ID | Decisión | Condición de revisión | Notas |
 |----|----------|----------------------|-------|
-| P-01 | **Astro + Tailwind CSS** como apuesta operativa para V0.1 durante **90 días**. | Tras C1 o protocolo empírico Ox §9 | **No demostrado empíricamente.** Ox: cero builds, cero benchmarks, métricas `[NOT MEASURED]`. Apuesta operativa, no conclusión técnica. |
+| P-01 | **Astro + Tailwind CSS** como apuesta operativa para V0.1 durante **90 días**. | Tras C1 o protocolo empírico Ox §9 | **No demostrado empíricamente.** Ox: cero builds, cero benchmarks, métricas `[NOT MEASURED]`. Apuesta operativa, no conclusión técnica. **→ Propuesto SUPERSEDED por P-06 (2026-09-30).** |
 | P-02 | **Formulario nativo** (no Tally ni page builder). | Tras C1 | — |
 | P-03 | **`copy.md` + configuración mínima** en lugar del SiteSpec/CMS original. | Tras C1 | Sustituye contrato Gemini V0.1 para implementación. |
 | P-04 | **Template simple y reutilizable**. | Tras C1–C3 | — |
@@ -82,8 +82,28 @@ Estados permitidos: **DECIDED** · **PROVISIONAL** · **OPEN** · **DO NOT BUILD
 
 ---
 
+## V0.2 — PROPUESTO (pendiente de aprobación del fundador)
+
+> Fuente: [2026-09-30-fusion-myweb-webdev.md](./2026-09-30-fusion-myweb-webdev.md) · [Auditoría](../docs/audit/AUDITORIA_2026-09-30.md)  
+> Append-only: las secciones anteriores no se reescriben; esta sección las matiza.
+
+| ID | Tipo | Decisión | Sustituye / resuelve |
+|----|------|----------|----------------------|
+| P-06 | PROVISIONAL | **Next.js + Tailwind + TS + contenido JSON**, usando la plantilla existente de 24Shoots extraída a un repo propio (`site-template`) | Sustituye P-01 · cierra O-10 para V0.1 |
+| P-07 | PROVISIONAL | **Resend** como proveedor de email transaccional (formulario → acuse al lead + aviso al fundador) | Cierra O-05 |
+| P-08 | PROVISIONAL | **Oferta de 4 niveles** (Landing / Starter / Pro / Auto) + recurrentes, como hipótesis de precio → [OFERTA_Y_PRECIOS.md](../docs/strategy/OFERTA_Y_PRECIOS.md) | Avanza O-03, O-04 |
+| P-09 | PROVISIONAL | **Cliente ideal en dos niveles**: marca generalista (negocios locales de servicios) y outbound a **un vertical cada vez**, con experimento de 30 días | Avanza O-01, O-02 |
+| D-10 | DECIDED | **Myweb es la única fuente de verdad.** WEB_DEV queda archivado en `archive/` | — |
+| X-16 | DO NOT BUILD | CRM propio / tabla de leads en DB antes del trigger (C1 entregado, ≥3 clientes o ≥30 leads/mes) | Roadmap WEB_DEV semana 5 |
+| X-17 | DO NOT BUILD | Presupuestador por reglas antes de C1 | Roadmap WEB_DEV semana 6 |
+| X-18 | DO NOT BUILD | Dashboard y PDF automático de propuestas antes de C1 | Roadmap WEB_DEV semanas 7–8 |
+| X-19 | DO NOT BUILD | Panel `/admin` con "password simple" (usar autenticación real o no tener panel) | Seguridad y RGPD |
+
+---
+
 ## Changelog
 
 | Fecha | Cambio |
 |-------|--------|
 | 2026-08-22 | Creación — Architecture Freeze V0.1 |
+| 2026-09-30 | V0.2 PROPUESTO — fusión con WEB_DEV (P-06…P-09, D-10, X-16…X-19) |

@@ -22,7 +22,7 @@ Abre **`factory/`** directamente como Vault de Obsidian. Markdown estándar, enl
 |---------|--------|
 | Freeze | **FROZEN FOR V0.1** — ver [ARCHITECTURE_FREEZE_V0.1.md](decisions/ARCHITECTURE_FREEZE_V0.1.md) |
 | Objetivo inmediato | **Cliente 1** — landing mobile-first de conversión |
-| Código / framework | **No iniciado** — Astro + Tailwind es apuesta **provisional** 90 días |
+| Código / framework | Plantilla Next.js existente (24Shoots) — **propuesto** sustituir Astro (P-06, V0.2) |
 | SiteSpec Gemini | **Archivado** — no se implementa en V0.1 |
 | Spikes técnicos | **Fin** hasta validar mercado |
 
@@ -35,8 +35,13 @@ Abre **`factory/`** directamente como Vault de Obsidian. Markdown estándar, enl
 | Decision Log | [decisions/DECISION_LOG.md](decisions/DECISION_LOG.md) |
 | Architecture Freeze V0.1 | [decisions/ARCHITECTURE_FREEZE_V0.1.md](decisions/ARCHITECTURE_FREEZE_V0.1.md) |
 | OpenCode / Ox Spike | [spikes/OPEN_CODE_ARCHITECTURE_SPIKE.md](spikes/OPEN_CODE_ARCHITECTURE_SPIKE.md) |
-| Grok Red Team | [spikes/GROK_RED_TEAM_V0.1.md](spikes/GROK_RED_TEAM_V0.1.md) |
+| Grok Red Team | ⚠️ `spikes/GROK_RED_TEAM_V0.1.md` — **no existe en el repo** (evidencia perdida; ver auditoría M3) |
 | Gemini Final Review | [spikes/GEMINI_FINAL_REVIEW_V0.1.md](spikes/GEMINI_FINAL_REVIEW_V0.1.md) |
+| **Auditoría 2026-09-30** | [docs/audit/AUDITORIA_2026-09-30.md](docs/audit/AUDITORIA_2026-09-30.md) |
+| **Fusión con WEB_DEV (V0.2 propuesto)** | [decisions/2026-09-30-fusion-myweb-webdev.md](decisions/2026-09-30-fusion-myweb-webdev.md) |
+| Fundador y activos | [docs/context/FUNDADOR_Y_ACTIVOS.md](docs/context/FUNDADOR_Y_ACTIVOS.md) |
+| Oferta y precios | [docs/strategy/OFERTA_Y_PRECIOS.md](docs/strategy/OFERTA_Y_PRECIOS.md) |
+| Roadmap 8 semanas | [docs/playbooks/ROADMAP_8_SEMANAS.md](docs/playbooks/ROADMAP_8_SEMANAS.md) |
 
 ## Objetivo de Digital Factory
 
@@ -63,7 +68,8 @@ factory/
 ├── docs/           # Contexto, estrategia, arquitectura, factory, playbooks, learnings
 ├── specs/          # Specs ejecutables (futuro; vacío en V0.1)
 ├── decisions/      # DECISION_LOG, ARCHITECTURE_FREEZE
-├── spikes/         # Ox, Grok, Gemini review
+├── spikes/         # Ox, Gemini review (Grok: perdido)
+├── archive/        # Originales importados (WEB_DEV playbook)
 └── README.md       # Este archivo
 ```
 
