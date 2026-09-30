@@ -13,7 +13,7 @@ Lee en este orden:
 2. factory/docs/context/FUNDADOR_Y_ACTIVOS.md
 3. factory/decisions/DECISION_LOG.md  (sobre todo DO NOT BUILD y V0.2)
 4. factory/docs/strategy/OFERTA_Y_PRECIOS.md
-5. factory/docs/playbooks/ROADMAP_8_SEMANAS.md
+5. factory/docs/playbooks/ROADMAP.md
 
 Reglas:
 - Si algo está en DO NOT BUILD, no lo propongas sin un trigger cumplido.

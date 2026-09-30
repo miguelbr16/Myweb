@@ -1,0 +1,24 @@
+---
+import { hero, site } from "../content/site";
+const wa = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(site.contact.whatsappText)}`;
+---
+
+<section class="bg-gradient-to-b from-teal-50 to-white">
+  <div class="mx-auto max-w-6xl px-4 py-20 md:py-32">
+    <h1 class="max-w-3xl text-4xl font-extrabold tracking-tight md:text-6xl">{hero.title}</h1>
+    <p class="mt-6 max-w-2xl text-lg text-muted md:text-xl">{hero.subtitle}</p>
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+      <a href="#contacto" class="rounded-full bg-brand px-6 py-3 text-center font-semibold text-white hover:bg-brand-dark">
+        {hero.ctaPrimary}
+      </a>
+      <a
+        href={wa}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full border border-slate-300 px-6 py-3 text-center font-semibold hover:border-ink"
+      >
+        {hero.ctaSecondary}
+      </a>
+    </div>
+  </div>
+</section>

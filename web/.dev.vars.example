@@ -1,0 +1,6 @@
+# Copia a .dev.vars para desarrollo local (nunca lo subas a git).
+# En producción: Cloudflare → Pages → Settings → Variables and Secrets.
+RESEND_API_KEY=re_xxx
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+CONTACT_TO=hola@tudominio.com
+CONTACT_FROM=Web <web@tudominio.com>

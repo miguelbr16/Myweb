@@ -6,7 +6,7 @@
 ## Perfil
 
 - **[FACT]** Científico de datos con perfil técnico.
-- **[FACT]** Desarrollador web en práctica (Next.js, TypeScript, Tailwind).
+- **[FACT]** Desarrollador web en práctica (Next.js, TypeScript, Tailwind). Astro se aprende rápido partiendo de esa base.
 - **[FACT]** Trabaja desde España. Objetivo: clientes locales y en remoto.
 - **Diferencial:** perfil híbrido de datos y desarrollo que **mide y optimiza**, no solo diseña.
 
@@ -26,27 +26,28 @@
 
 ## Activos existentes
 
-| Activo | Estado | Riesgo |
-|--------|--------|--------|
-| **Plantilla web** (Next.js 15 + Tailwind + TS + JSON + i18n, `npm run new-site`) | Funciona, nació con 24Shoots | 🔴 **No está en un repo propio**: vive dentro de la carpeta del cliente |
-| API `/api/contact` + log + WhatsApp flotante | En la plantilla | Falta el email transaccional (Resend) |
-| **Cliente 24Shoots Media** (productora audiovisual) | Entrega en curso a 2026-07-07; **estado actual desconocido en el repo** | Documentar si está entregado y si se puede usar como caso |
-| Playbook comercial (oferta, discovery, Instagram) | Migrado a `docs/strategy/` y `docs/playbooks/` | — |
-| Documentación de gobierno (freeze, decision log) | En este repo | — |
+| Activo | Estado |
+|--------|--------|
+| Experiencia de entrega de una web real para un cliente (24Shoots, **proyecto independiente**) | Aprendizaje y posible caso, con permiso del cliente. **No se reutiliza su código.** |
+| Playbook comercial (oferta, discovery, Instagram) | Migrado a `docs/strategy/` y `docs/playbooks/` |
+| Documentación de gobierno (freeze, decision log) | En este repo |
+| Web propia / plantilla | **No existe todavía.** Se crea desde cero en `web/` (P-06) |
 
 ## Stack
 
 | Capa | Elección | Estado |
 |------|----------|--------|
-| Frontend | Next.js + Tailwind + TypeScript | P-06 (propuesto) |
-| Contenido | JSON (`config/site.json`, `content/es`, `content/en`) | P-06 |
-| Hosting | Vercel (gratis al inicio) | En uso |
+| Frontend | **Astro** + Tailwind + TypeScript | P-01 reafirmado |
+| Contenido | Archivos en el repo (`web/src/content/`), sin CMS | P-03 |
+| Hosting | **Cloudflare** (exportación estática + función para el formulario) | P-10 DECIDED |
 | Repo | GitHub | En uso |
-| Email | Resend (gratis hasta ~3.000/mes) | P-07 (propuesto) |
+| Email saliente | Resend (gratis hasta ~3.000/mes) | P-07 (propuesto) |
+| Email entrante | Cloudflare Email Routing → tu Gmail | Gratis |
+| Analítica | Cloudflare Web Analytics | Cierra O-06 |
+| Anti-spam | Cloudflare Turnstile | Gratis |
 | DB | Postgres (Supabase o Neon) | 🔒 X-16 hasta que se cumpla el trigger |
 
 ## Separación de contextos
 
-- **24Shoots** = entrega a cliente (repo y conversación propios).
-- **Este repo** = marca propia, factory y negocio.
-- La plantilla nació con 24Shoots, pero es del fundador y se reutiliza **sin datos del cliente**.
+- **24Shoots y el resto de repos** = proyectos distintos. No se mezclan con este.
+- **Este repo** = marca propia, factory, negocio y **código de la web propia** (`web/`).

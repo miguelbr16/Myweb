@@ -75,5 +75,5 @@
 - [ ] Formulario probado de principio a fin (llega el email de acuse y el de aviso)
 - [ ] Probado en móvil, tablet y escritorio
 - [ ] Lighthouse móvil ≥ 90
-- [ ] Eventos de conversión funcionando (`lead_submitted`, `whatsapp_click`, `call_click`)
+- [ ] Medición de conversiones funcionando (página `/gracias` en la analítica, mensaje de WhatsApp predefinido)
 - [ ] Dominio, o URL temporal aceptada por el cliente

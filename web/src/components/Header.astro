@@ -1,0 +1,24 @@
+---
+import { site } from "../content/site";
+const links = [
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#proceso", label: "Proceso" },
+  { href: "/#sobre-mi", label: "Sobre mí" },
+  { href: "/#faq", label: "FAQ" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="text-lg font-bold tracking-tight">{site.brand}</a>
+    <nav class="hidden gap-6 text-sm text-muted md:flex" aria-label="Principal">
+      {links.map((l) => <a href={l.href} class="hover:text-ink">{l.label}</a>)}
+    </nav>
+    <a
+      href="/#contacto"
+      class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+    >
+      Auditoría gratis
+    </a>
+  </div>
+</header>

@@ -120,7 +120,8 @@ PRODUCCIÓN MÁS RÁPIDA
 
 - Git
 - GitHub
-- Vercel
+- Vercel → **sustituido por Cloudflare** (decisión 2026-09-30)
+- Cloudflare (hosting, DNS, Web Analytics, Turnstile, Email Routing)
 - n8n
 - Herramientas de analytics
 - Supabase (posible)

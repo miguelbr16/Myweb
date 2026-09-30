@@ -3,23 +3,24 @@
 > **Fuente:** `archive/web_dev_playbook_2026-07-07/roadmap/02-AUTOMATIZACIONES-PRIORIDAD.txt`, ajustado al freeze.  
 > **Regla:** no automatizar antes de 3 repeticiones documentadas ([contexto](../context/DIGITAL_FACTORY_CONTEXT.md) §10).
 
-## Nivel 0: ya existe (plantilla 24Shoots)
+## Nivel 0: base de la web propia (por construir en `web/`)
 
-- [x] Formulario web → `/api/contact`
-- [x] Log del envío en el servidor
-- [x] WhatsApp flotante
-- [x] Contenido editable en JSON
-- [x] Script para clonar la web: `npm run new-site`
+- [ ] Formulario de contacto mínimo (nombre, email, servicio, mensaje + checkbox de privacidad)
+- [ ] Botón de WhatsApp (`wa.me`) y `tel:`
+- [ ] Contenido editable en archivos (sin CMS)
+- [ ] Medición: página `/gracias` en Cloudflare Web Analytics
+
+> El playbook original daba este nivel por hecho porque contaba con código de otro proyecto (24Shoots). En V0.2 se construye desde cero (P-06).
 
 ## Nivel 1: AHORA (4–6 h), dentro de V0.1
 
-- [ ] Resend: email de acuse al lead + email de aviso al fundador
-- [ ] Plantillas de email reutilizables (`emails/lead-received.tsx`, `emails/lead-notification.tsx`)
-- [ ] `.env.example` documentado (`RESEND_API_KEY`, `CONTACT_TO`), **nunca** `.env.local` en git
-- [ ] Protección anti-spam (honeypot + rate limit)
+- [ ] **Función de Cloudflare** `/api/contact`: valida Turnstile + campos y envía con Resend (fetch) el acuse al lead y el aviso al fundador
+- [ ] Plantillas de email reutilizables (acuse al lead, aviso al fundador)
+- [ ] Secrets en Cloudflare (`wrangler secret put RESEND_API_KEY`, `TURNSTILE_SECRET`), variable `CONTACT_TO`; `.dev.vars.example` documentado y **nunca** `.dev.vars` en git
+- [ ] Anti-spam: Turnstile + honeypot
 - [ ] Sin datos sensibles en los logs del servidor (D-05)
 
-Archivo principal: `src/app/api/contact/route.ts`
+Archivo: `web/functions/api/contact.ts`.
 
 Registro de leads mientras no haya CRM: **una tabla manual** (Notion o una hoja) con nombre, origen, servicio, estado y fecha. Cuesta 2 minutos por lead.
 

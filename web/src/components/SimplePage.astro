@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+interface Props {
+  title: string;
+  noindex?: boolean;
+}
+const { title, noindex = false } = Astro.props;
+---
+
+<Base title={title} noindex={noindex}>
+  <article class="mx-auto max-w-3xl px-4 py-16 [&_h2]:mt-8 [&_h2]:text-xl [&_h2]:font-semibold [&_p]:mt-3 [&_li]:mt-1 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6">
+    <h1 class="text-3xl font-bold">{title}</h1>
+    <slot />
+  </article>
+</Base>

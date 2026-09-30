@@ -1,41 +1,43 @@
 # Myweb — negocio de webs de conversión + automatizaciones
 
-**Fuente única de verdad** del negocio: estrategia, oferta, playbooks, decisiones y la Digital Factory.
+**Fuente única de verdad** del negocio: estrategia, oferta, playbooks, decisiones y el **código de la web propia**.
 Desde 2026-09-30 incluye el antiguo `WEB_DEV/DEV-BUSINESS-PLAYBOOK` (archivado en `factory/archive/`).
 
-> El código de las webs **no** vive aquí: la plantilla va en su propio repo (`site-template`) y cada cliente tiene una copia independiente.
+> Otros repos (24Shoots, etc.) son **proyectos distintos** y no se mezclan con este.
 
 ## Empieza aquí
 
 | Si quieres… | Lee |
 |-------------|-----|
-| Entender el estado actual y qué falla | [Auditoría 2026-09-30](factory/docs/audit/AUDITORIA_2026-09-30.md) |
-| Saber qué hacer esta semana | [Roadmap 8 semanas](factory/docs/playbooks/ROADMAP_8_SEMANAS.md) |
+| Saber qué hacer en tu próxima sesión | [Roadmap por etapas](factory/docs/playbooks/ROADMAP.md) → "Siguiente paso" |
+| Montar la empresa (marca, autónomo, facturas, RGPD) | [Puesta en marcha](factory/docs/strategy/PUESTA_EN_MARCHA_EMPRESA.md) |
 | Saber qué vendes y a qué precio | [Oferta y precios](factory/docs/strategy/OFERTA_Y_PRECIOS.md) |
-| Construir tu web propia | [Web propia](factory/docs/strategy/WEB_PROPIA.md) |
+| Conseguir las primeras conversaciones | [Outbound](factory/docs/playbooks/OUTBOUND.md) |
+| Editar y publicar tu web | [web/README.md](web/README.md) |
+| Entender el estado y los problemas detectados | [Auditoría 2026-09-30](factory/docs/audit/AUDITORIA_2026-09-30.md) |
 | Saber qué está decidido y qué NO se construye | [Decision Log](factory/decisions/DECISION_LOG.md) |
 | Arrancar un agente de IA con contexto | [Prompt de inicio](factory/docs/playbooks/INICIO_NUEVO_AGENTE.md) |
 
 ## Estructura
 
 ```
+web/                          Web propia: Astro + Tailwind, desplegada en Cloudflare
+├── src/content/site.ts       ← todos los textos, precios y datos (edita aquí)
+└── functions/api/contact.ts  Formulario → Turnstile → Resend
+
 factory/                      ← ábrelo como vault de Obsidian
 ├── docs/
-│   ├── audit/                Auditorías del negocio y del repo
+│   ├── audit/                Auditorías
 │   ├── context/              Visión, fundador, activos
-│   ├── strategy/             Oferta, precios, web propia, cliente ideal
-│   ├── playbooks/            Roadmap, discovery, Instagram, automatizaciones
+│   ├── strategy/             Oferta, precios, web propia, puesta en marcha
+│   ├── playbooks/            Roadmap, outbound, discovery, Instagram, automatizaciones
 │   ├── learnings/            Retrospectivas post-cliente
-│   ├── architecture/         (vacío en V0.1)
 │   └── factory/              SiteSpec (archivado)
 ├── decisions/                Decision Log + decision records
 ├── spikes/                   Informes de IA históricos (sin spikes nuevos)
-├── specs/                    (vacío en V0.1)
 └── archive/                  Originales importados, sin modificar
 ```
 
-## Las 3 próximas acciones
+## Stack
 
-1. Extraer la plantilla de 24Shoots a un repo propio (`site-template`).
-2. Elegir nombre de marca, dominio y vertical de outbound.
-3. Publicar la web propia (one-page) y empezar las conversaciones con prospectos.
+Astro + Tailwind + TypeScript · Cloudflare (hosting, DNS, analítica sin cookies, Turnstile, Email Routing) · Resend (email) · GitHub.

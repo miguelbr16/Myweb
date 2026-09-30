@@ -22,7 +22,7 @@ Abre **`factory/`** directamente como Vault de Obsidian. Markdown estándar, enl
 |---------|--------|
 | Freeze | **FROZEN FOR V0.1** — ver [ARCHITECTURE_FREEZE_V0.1.md](decisions/ARCHITECTURE_FREEZE_V0.1.md) |
 | Objetivo inmediato | **Cliente 1** — landing mobile-first de conversión |
-| Código / framework | Plantilla Next.js existente (24Shoots) — **propuesto** sustituir Astro (P-06, V0.2) |
+| Código / framework | **Astro + Tailwind** en `../web/`, hosting en **Cloudflare** (P-01, P-06, P-10) |
 | SiteSpec Gemini | **Archivado** — no se implementa en V0.1 |
 | Spikes técnicos | **Fin** hasta validar mercado |
 
@@ -41,7 +41,7 @@ Abre **`factory/`** directamente como Vault de Obsidian. Markdown estándar, enl
 | **Fusión con WEB_DEV (V0.2 propuesto)** | [decisions/2026-09-30-fusion-myweb-webdev.md](decisions/2026-09-30-fusion-myweb-webdev.md) |
 | Fundador y activos | [docs/context/FUNDADOR_Y_ACTIVOS.md](docs/context/FUNDADOR_Y_ACTIVOS.md) |
 | Oferta y precios | [docs/strategy/OFERTA_Y_PRECIOS.md](docs/strategy/OFERTA_Y_PRECIOS.md) |
-| Roadmap 8 semanas | [docs/playbooks/ROADMAP_8_SEMANAS.md](docs/playbooks/ROADMAP_8_SEMANAS.md) |
+| Roadmap por etapas | [docs/playbooks/ROADMAP.md](docs/playbooks/ROADMAP.md) |
 
 ## Objetivo de Digital Factory
 
@@ -70,6 +70,7 @@ factory/
 ├── decisions/      # DECISION_LOG, ARCHITECTURE_FREEZE
 ├── spikes/         # Ox, Gemini review (Grok: perdido)
 ├── archive/        # Originales importados (WEB_DEV playbook)
+# Código de la web propia: ../web/ (Astro + Cloudflare)
 └── README.md       # Este archivo
 ```
 

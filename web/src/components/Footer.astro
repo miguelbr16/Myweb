@@ -1,0 +1,16 @@
+---
+import { site } from "../content/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-200 bg-surface">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted md:flex-row md:justify-between">
+    <p>© {year} {site.brand} · {site.contact.city}</p>
+    <nav class="flex flex-wrap gap-4" aria-label="Legal">
+      <a href={`mailto:${site.contact.email}`} class="hover:text-ink">{site.contact.email}</a>
+      <a href="/aviso-legal" class="hover:text-ink">Aviso legal</a>
+      <a href="/privacidad" class="hover:text-ink">Privacidad</a>
+      <a href="/cookies" class="hover:text-ink">Cookies</a>
+    </nav>
+  </div>
+</footer>
